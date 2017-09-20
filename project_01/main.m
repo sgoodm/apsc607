@@ -17,9 +17,8 @@ hide_figures = 1;
 % true displays additional steps/info from method functions, etc.
 v = 0;
 
-
 % maximum number of iterations to run
-nmax = 500;
+nmax = 300;
 
 % define tolerances which will be used
 tol_a = '1E-3';
@@ -33,7 +32,7 @@ jobs = {...
     'a1', 'a', 1, 2, 1.65;
     'b1', 'b', 1.3, 2, -999;
     'c1', 'c', 2, 3, -999;
-    'c2', 'c', 3, 4, -999;
+    'c2', 'c', 3, 4, 3.5;
     'd1', 'd', 1, 2, -999;
     'd2', 'd', exp(1), 4, -999;
     'e1', 'e', 0, 1, 0.5;
@@ -83,7 +82,7 @@ results.Properties.VariableNames = table_cols;
 [rows, cols] = size(jobs);
 
 run_list = 1:tcy+1;
-% run_list = 3;
+% run_list = 4;
 
 for ix = run_list
 
