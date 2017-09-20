@@ -7,7 +7,8 @@
 %   p0          (float)     minimum value in range
 %   p1          (float)     maximum value in range
 %   color       (str)       line color/style string for plots
-%   linewidth   (float)     line width of plots 
+%   linewidth   (float)     line width of plots
+%   v           (bool)      verbose output (print statements which may be useful for examining specific results or debugging)
 %
 % Returns
 %   i           (int)       number of iterations run
@@ -17,7 +18,7 @@
 %
 function [i, p, diff, status] = secant(f, tol, nmax, p0, p1, ...
                                        color, linewidth, v)
-            
+
     if nmax == 0
         nmax = 10^10;
     end
@@ -27,20 +28,20 @@ function [i, p, diff, status] = secant(f, tol, nmax, p0, p1, ...
         'Value is complex'
         'Reached max iteration'
     };
-    
+
     i = 2;
     status = 0;
-         
+
     while i <= (nmax+1)
         y(i-1) = i-1;
-        
+
         q0 = f(p0);
         q1 = f(p1);
-        
+
         p = p1 - q1*(p1-p0)/(q1-q0);
-        
+
         out(p)
-        
+
         if isnan(p)
             status = 1;
             break;
@@ -49,9 +50,9 @@ function [i, p, diff, status] = secant(f, tol, nmax, p0, p1, ...
             status = 2;
             break;
         end
-        
+
         diff = abs(p-p1);
-        
+
         xp(i-1) = p;
         xd(i-1) = diff;
 
@@ -67,10 +68,10 @@ function [i, p, diff, status] = secant(f, tol, nmax, p0, p1, ...
         q0 = q1;
         p1 = p;
         q1 = f(p);
-        
+
         i = i + 1;
-    end  
-    
+    end
+
     % check error status and display final outputs
     if status ~= 0 && v
         out(error_msgs(status));
@@ -81,13 +82,13 @@ function [i, p, diff, status] = secant(f, tol, nmax, p0, p1, ...
         hold on;
         subplot(1,2,2);
         plot(y, xd, color, 'Linewidth', linewidth);
-        hold on;            
+        hold on;
     end
-    
+
     out(['Ran ' num2str(i) ' iterations']);
-    
+
     function out(val)
         if v, disp(val), end
     end
-        
+
 end

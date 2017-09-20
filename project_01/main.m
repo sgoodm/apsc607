@@ -12,7 +12,7 @@ format long;
 % set to true/false or 1/0 to show/hide figure windows
 hide_figures = 1;
 
-% verbose output 
+% verbose output
 % bool val
 % true displays additional steps/info from method functions, etc.
 v = 0;
@@ -30,8 +30,8 @@ tol_c = '1E-8';
 % define the function name, range min, range max
 % (functions which have multiple ranges will be used in multiple tasks)
 jobs = {...
-    'a', 'a', 1, 2, -999;
-    'b', 'b', 1.3, 2, -999;
+    'a1', 'a', 1, 2, 1.65;
+    'b1', 'b', 1.3, 2, -999;
     'c1', 'c', 2, 3, 2.37;
     'c2', 'c', 3, 4, -999;
     'd1', 'd', 1, 2, -999;
@@ -82,14 +82,17 @@ results.Properties.VariableNames = table_cols;
 % use row size of 'jobs' to iterate over all tasks
 [rows, cols] = size(jobs);
 
-for ix = 1:tcy+1
+run_list = 1:tcy+1;
+% run_list = 7;
+
+for ix = run_list
 
     unique_name = char(jobs(ix, 1));
     name = char(jobs(ix, 2));
     display_name = upper(name);
-    
+
     disp(['Running ', unique_name])
-    
+
     % get the relevant functions for current task
     f_name = ['f', name];
     fprime_name = ['f', name, '_prime'];
@@ -105,10 +108,10 @@ for ix = 1:tcy+1
     % get range min and max for task
     rmin = jobs{ix, 3};
     rmax = jobs{ix, 4};
-    
+
     newton_start = jobs{ix, 5};
     if newton_start == -999
-        newton_start = rmin; 
+        newton_start = rmin;
     end
 
     % ----------------------------------------
@@ -121,7 +124,7 @@ for ix = 1:tcy+1
     hline.Color = 'r';
     title(['Function ', display_name ,', ' num2str(rmin), ':', num2str(rmax), ' (root = ', num2str(zval, 10), ')']);
     saveas(gcf, [pwd, '/output/', unique_name, '_', 'actual'], 'png')
-    
+
     % run bisection
     fig_num = figure_ix + 1;
     fig_b = figure(fig_num);
