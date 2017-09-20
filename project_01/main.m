@@ -82,12 +82,14 @@ results.Properties.VariableNames = table_cols;
 % use row size of 'jobs' to iterate over all tasks
 [rows, cols] = size(jobs);
 
-for ix = 1:tcy
+for ix = 1:tcy+1
 
     unique_name = char(jobs(ix, 1));
     name = char(jobs(ix, 2));
     display_name = upper(name);
-
+    
+    disp(['Running ', unique_name])
+    
     % get the relevant functions for current task
     f_name = ['f', name];
     fprime_name = ['f', name, '_prime'];
@@ -117,10 +119,9 @@ for ix = 1:tcy
     zval = fzero(fh, [rmin rmax]);
     hline = refline([0 0]);
     hline.Color = 'r';
-    title(['True Function, ', num2str(rmin), ':', num2str(rmax), ' (root = ', num2str(zval, 10), ')']);
+    title(['Function ', display_name ,', ' num2str(rmin), ':', num2str(rmax), ' (root = ', num2str(zval, 10), ')']);
     saveas(gcf, [pwd, '/output/', unique_name, '_', 'actual'], 'png')
-
-
+    
     % run bisection
     fig_num = figure_ix + 1;
     fig_b = figure(fig_num);
