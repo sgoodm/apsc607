@@ -13,7 +13,7 @@
 % Returns
 %   i           (int)       number of iterations run
 %   p           (float)     p val at last iteration run
-%   diff        (float)     different/error at final iteration
+%   diff        (float)     difference/error at final iteration
 %   status      (int)       status code indicating success/error
 %
 function [i, p, diff, status] = secant(f, tol, nmax, p0, p1, ...

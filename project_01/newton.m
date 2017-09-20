@@ -5,7 +5,7 @@
 %   tol         (float)     tolerance
 %   nmax        (int)       maximum number of iterations to run
 %   p0          (float)     starting value
-%   prime       (float)     derivate function for main function f
+%   fprime      (float)     derivative function for main function f
 %   color       (str)       line color/style string for plots
 %   linewidth   (float)     line width of plots
 %   v           (bool)      verbose output (print statements which may be useful for examining specific results or debugging)
@@ -13,7 +13,7 @@
 % Returns
 %   i           (int)       number of iterations run
 %   p           (float)     p val at last iteration run
-%   diff        (float)     different/error at final iteration
+%   diff        (float)     difference/error at final iteration
 %   status      (int)       status code indicating success/error
 %
 function [i, p, diff, status] = newton(f, tol, nmax, p0, fprime, ...

@@ -1,11 +1,11 @@
-% bisection method
+% newton method
 %
 % Args
 %   f           (function)  function to evaluate
 %   tol         (float)     tolerance
 %   nmax        (int)       maximum number of iterations to run
-%   a           (float)     minimum value in range
-%   b           (float)     maximum value in range
+%   p0          (float)     starting value
+%   prime       (float)     derivate function for main function f
 %   color       (str)       line color/style string for plots
 %   linewidth   (float)     line width of plots
 %   v           (bool)      verbose output (print statements which may be useful for examining specific results or debugging)
@@ -13,11 +13,11 @@
 % Returns
 %   i           (int)       number of iterations run
 %   p           (float)     p val at last iteration run
-%   diff        (float)     difference/error at final iteration
+%   diff        (float)     different/error at final iteration
 %   status      (int)       status code indicating success/error
 %
-function [i, p, diff, status] = bisection(f, tol, nmax, a, b, ...
-                                          color, linewidth, v)
+function [i, p, diff, status] = newton_alt(f, tol, nmax, p0, fprime, f2prime, ...
+                                       color, linewidth, v)
 
     if nmax == 0
         nmax = 10^10;
@@ -32,23 +32,14 @@ function [i, p, diff, status] = bisection(f, tol, nmax, a, b, ...
     i = 1;
     status = 0;
 
+    out(p0)
 
     while i <= nmax
         y(i) = i;
 
-        FA = f(a);
+        p = p0 - (f(p0)/fprime(p0))/(fprime(0)^2 - fpr);
 
-        p = (a+b)/2;
-
-        FP = f(p);
-
-        out([
-            'Iter' num2str(i) '- '...
-            ' a = ' num2str(a,10)...
-            ' b = ' num2str(b,10)...
-            ' p = ' num2str(p,10)...
-            ' FP = ' num2str(FP,6)
-        ]);
+        out(p)
 
         if isnan(p)
             status = 1;
@@ -59,12 +50,12 @@ function [i, p, diff, status] = bisection(f, tol, nmax, a, b, ...
             break;
         end
 
-        diff = (b-a)/2;
+        diff = abs(p-p0);
 
         xp(i) = p;
         xd(i) = diff;
 
-        if FP == 0 || diff < tol
+        if diff < tol
             break;
 
         elseif i == nmax
@@ -72,12 +63,7 @@ function [i, p, diff, status] = bisection(f, tol, nmax, a, b, ...
             break;
         end
 
-        if FA * FP > 0
-            a = p;
-        else
-            b = p;
-        end
-
+        p0 = p;
         i = i + 1;
     end
 

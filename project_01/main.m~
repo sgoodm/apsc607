@@ -10,7 +10,7 @@ close all;
 format long;
 
 % set to true/false or 1/0 to show/hide figure windows
-hide_figures = 1;
+hide_figures = 0;
 
 % verbose output
 % bool val
@@ -59,6 +59,7 @@ fb_prime = @(x) 1/(x-1) + sin(1-x);
 
 fc = @(x) 2*x*cos(2*x) - (x-2).^2;
 fc_prime = @(x) 2*cos(2*x) - 4*x*sin(2*x) - 2*(x-2);
+% fc_2prime = @x(x) cos(2*x)  
 
 fd = @(x) (x-2).^2 - log(x);
 fd_prime = @(x) 2*(x-2) - 1/x;
@@ -83,7 +84,7 @@ results.Properties.VariableNames = table_cols;
 [rows, cols] = size(jobs);
 
 run_list = 1:tcy+1;
-% run_list = 3;
+run_list = 3;
 
 for ix = run_list
 
@@ -152,6 +153,7 @@ for ix = run_list
 
     set(gcf, 'Position', [0, 1200, 1200, 500])
     saveas(gcf, [pwd, '/output/', unique_name, '_', 'bisetion'], 'png')
+
 
     % run newton
     fig_num = figure_ix + 2;
