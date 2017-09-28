@@ -1,0 +1,24 @@
+%
+% Neville Method interpolation implementation
+%
+% Args
+%   
+%
+% Returns
+%   out     
+%
+function [out] = neville(x, y, tol)
+    out = 0;
+
+    for i = 1:length(x)
+
+        while Q < tol
+            
+            Q = (x - xij)*Q
+            
+        end
+
+
+    end
+
+end
