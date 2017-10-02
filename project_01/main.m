@@ -21,21 +21,29 @@ v = 0;
 nmax = 300;
 
 % define tolerances which will be used
-tol_a = '1E-3';
-tol_b = '1E-5';
-tol_c = '1E-8';
+tol_a_default = '1E-3';
+tol_b_default = '1E-5';
+tol_c_default = '1E-8';
+
+tol_a_small = '1E-10';
+tol_b_small = '1E-12';
+tol_c_small = '1E-15';
 
 % for task that needs to be run
 % define the function name, range min, range max
 % (functions which have multiple ranges will be used in multiple tasks)
 jobs = {...
     'a1', 'a', 1, 2, 1.65;
+    'a1-default', 'a', 1, 2, 1;
+    'a1-small', 'a', 1, 2, 1.65;
     'b1', 'b', 1.3, 2, -999;
     'c1', 'c', 2, 3, -999;
     'c2', 'c', 3, 4, 3.5;
+    'c2-default', 'c', 3, 4, 3;
     'd1', 'd', 1, 2, -999;
     'd2', 'd', exp(1), 4, -999;
     'e1', 'e', 0, 1, 0.5;
+    'e1-default', 'e', 0, 1, 0;
     'e2', 'e', 3, 5, -999;
     'f1', 'f', 0, 1, -999;
     'f2', 'f', 3, 4, -999;
@@ -82,15 +90,26 @@ results.Properties.VariableNames = table_cols;
 [rows, cols] = size(jobs);
 
 run_list = 1:tcy+1;
-%run_list = 10;
+% run_list = 1;
 
 for ix = run_list
 
     unique_name = char(jobs(ix, 1));
     name = char(jobs(ix, 2));
     display_name = upper(name);
-
+    
     disp(['Running ', unique_name])
+    
+    tol_a = tol_a_default;
+    tol_b = tol_b_default;
+    tol_c = tol_c_default;
+
+    if unique_name == "a1-small"
+        tol_a = tol_a_small;
+        tol_b = tol_b_small;
+        tol_c = tol_c_small;  
+    end
+    
 
     % get the relevant functions for current task
     f_name = ['f', name];
@@ -129,7 +148,7 @@ for ix = run_list
     fig_b = figure(fig_num);
     [i1b, p1b, d1b, s1b] = bisection(fh, str2double(tol_a), nmax, rmin, rmax, 'b', 1, v);
     [i2b, p2b, d2b, s2b] = bisection(fh, str2double(tol_b), nmax, rmin, rmax, 'c--', 1, v);
-    [i3b, p3b, d3b, s3b] = bisection(fh, str2double(tol_c), nmax, rmin, rmax, 'mo', 0.001, v);
+    [i3b, p3b, d3b, s3b] = bisection(fh, str2double(tol_c), nmax, rmin, rmax, 'mo', 1, v);
 
     subplot(1,2,1);
     title('p');
@@ -137,8 +156,11 @@ for ix = run_list
     hline.Color = 'r';
     hline.LineStyle = ':';
     uistack(hline, 'bottom');
+    
     subplot(1,2,2);
     title('error');
+    set(gca, 'YScale', 'log')
+    ylim([1E-15, 1])
 
     lgd = legend(...
         [tol_a, '   ', num2str(i1b), '   ', num2str(p1b, 8), '   ', num2str(d1b, 8)], ...
@@ -165,8 +187,13 @@ for ix = run_list
     hline.Color = 'r';
     hline.LineStyle = ':';
     uistack(hline, 'bottom');
+    xlim([0, i3b]);
+
     subplot(1,2,2);
     title('error');
+    set(gca, 'YScale', 'log')
+    xlim([0, i3b]);
+    ylim([1E-15, 1])
 
     lgd = legend(...
         [tol_a, '   ', num2str(i1n), '   ', num2str(p1n, 8), '   ', num2str(d1n, 8)], ...
@@ -192,8 +219,13 @@ for ix = run_list
     hline.Color = 'r';
     hline.LineStyle = ':';
     uistack(hline, 'bottom');
+    xlim([0, i3b]);
+
     subplot(1,2,2);
     title('error');
+    set(gca, 'YScale', 'log')
+    xlim([0, i3b]);
+    ylim([1E-15, 1])
 
     lgd = legend(...
         [tol_a, '   ', num2str(i1s), '   ', num2str(p1s, 8), '   ', num2str(d1s, 8)], ...
@@ -206,6 +238,7 @@ for ix = run_list
     set(gcf, 'Position', [0, 1200, 1200, 500])
     saveas(gcf, [pwd, '/output/', unique_name, '_', 'secant'], 'png')
 
+   
     % ----------------------------------------
 
     % add output from task to table
