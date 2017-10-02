@@ -8,16 +8,24 @@
 %   out     
 %
 function [out] = neville(x, y, tol)
-    out = 0;
+    
+    Q = transpose(y);
 
     for i = 1:length(x)
-
-        while Q < tol
+        
+        for j = 1:i
+            xest = ???;
+            ximinusj = x(i-j);
+            xi = x(i);
+            Qa = Q(i, j-1);
+            Qb = Q(i-1, j-1);
             
-            Q = (x - xij)*Q
+            a = 
+            b = 
+            c = 
+            Q(i,j) = (1 / (xi - ximinusj)) * ((xest - ximinusj) * Qa - (xest-xi) * Qb);
             
         end
-
 
     end
 
