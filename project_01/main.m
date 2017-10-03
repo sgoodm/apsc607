@@ -10,7 +10,7 @@ close all;
 format long;
 
 % set to true/false or 1/0 to show/hide figure windows
-hide_figures = 0;
+hide_figures = 1;
 
 % verbose output
 % bool val
@@ -88,11 +88,9 @@ table_cols = {'Name', 'Function', 'Method', 'Tolerance', 'rmin', 'rmax', 'N', 'p
 results = array2table(zeros(0, tcy));
 results.Properties.VariableNames = table_cols;
 
-% use row size of 'jobs' to iterate over all tasks
-[rows, cols] = size(jobs);
 
-run_list = 1:tcy+1;
-run_list = 1;
+run_list = 1:length(jobs);
+% run_list = 1;
 
 for ix = run_list
 
@@ -135,28 +133,30 @@ for ix = run_list
     end
 
     % ----------------------------------------
-
-    % run bisection
+    % run methods
+    
+    % bisection
     [i1b, p1b, d1b, s1b, y1b, xp1b, xd1b] = bisection(fh, str2double(tol_a), nmax, rmin, rmax, v);
     [i2b, p2b, d2b, s2b, y2b, xp2b, xd2b] = bisection(fh, str2double(tol_b), nmax, rmin, rmax, v);
     [i3b, p3b, d3b, s3b, y3b, xp3b, xd3b] = bisection(fh, str2double(tol_c), nmax, rmin, rmax, v);
 
-    % run newton
+    % newton
     [i1n, p1n, d1n, s1n, y1n, xp1n, xd1n] = newton(fh, str2double(tol_a), nmax, newton_start, fh_prime, v);
     [i2n, p2n, d2n, s2n, y2n, xp2n, xd2n] = newton(fh, str2double(tol_b), nmax, newton_start, fh_prime, v);
     [i3n, p3n, d3n, s3n, y3n, xp3n, xd3n] = newton(fh, str2double(tol_c), nmax, newton_start, fh_prime, v);
 
-    % run secant
+    % secant
     [i1s, p1s, d1s, s1s, y1s, xp1s, xd1s] = secant(fh, str2double(tol_a), nmax, rmin, rmax, v);
     [i2s, p2s, d2s, s2s, y2s, xp2s, xd2s] = secant(fh, str2double(tol_b), nmax, rmin, rmax, v);
     [i3s, p3s, d3s, s3s, y3s, xp3s, xd3s] = secant(fh, str2double(tol_c), nmax, rmin, rmax, v);
 
     
     % ----------------------------------------
+    % plot figures
     
-    
-    % plot actual
+    % actual/true function and root
     figure(figure_ix);
+    
     fplot(fh, [rmin-2 rmax+2]);
     zval = fzero(fh, [rmin rmax]);
     hline = refline([0 0]);
@@ -165,7 +165,7 @@ for ix = run_list
     saveas(gcf, [pwd, '/output/', unique_name, '_', 'actual'], 'png')
 
     
-    % plot error
+    % error comparison
     figure(figure_ix+1)
     
     eb = plot(y3b, xd3b, 'b', 'Linewidth', 1);
@@ -180,19 +180,19 @@ for ix = run_list
         uistack(hline, 'bottom');
     end
     
-    lgd = legend([eb, en, es, hline], 'Bisection', 'Newton''s', 'Secant', [tol_a, ', ', tol_b, ', ', tol_c], 'Location', 'best');
+    legend([eb, en, es, hline], 'Bisection', 'Newton''s', 'Secant', [tol_a, ', ', tol_b, ', ', tol_c], 'Location', 'best');
     
     title('Error Comparison');
     xlabel('Iterations');
     ylabel('Error (Log Scale)');
     set(gca, 'YScale', 'log')
-    ylim([1E-15, 1])
+    ylim([1E-15, 10])
     
     set(gcf, 'Position', [0, 1200, 1200, 500])
     saveas(gcf, [pwd, '/output/', unique_name, '_', 'error'], 'png')
 
     
-    % plot bisection
+    % bisection
     figure(figure_ix + 2);
     
     p1 = plot(y1b, xp1b, 'b', 'Linewidth', 1);
@@ -219,14 +219,16 @@ for ix = run_list
     saveas(gcf, [pwd, '/output/', unique_name, '_', 'bisetion'], 'png')
     
     
-    % plot newton
+    % newton's
     figure(figure_ix + 3);
     
     p1 = plot(y1n, xp1n, 'b', 'Linewidth', 1);
     hold on;
     p2 = plot(y2n, xp2n, 'c--', 'Linewidth', 1);
     p3 = plot(y3n, xp3n, 'mo', 'Linewidth', 1);
-        
+
+    xlim([0, i3b])
+
     hline = refline([0 zval]);
     hline.Color = 'r';
     hline.LineStyle = ':';
@@ -241,19 +243,21 @@ for ix = run_list
     lgd.Title.String = 'Plot   Tol  Iter      final p         final diff       ';
 
     title(['Function ', unique_name, ' - Newton (Range = ', num2str(rmin), ':', num2str(rmax), ')']);
-    
+
     set(gcf, 'Position', [0, 800, 800, 500])
     saveas(gcf, [pwd, '/output/', unique_name, '_', 'newton'], 'png')
 
     
-    % plot secant
+    % secant
     figure(figure_ix + 4);
 
     p1 = plot(y1s, xp1s, 'b', 'Linewidth', 1);
     hold on;
     p2 = plot(y2s, xp2s, 'c--', 'Linewidth', 1);
     p3 = plot(y3s, xp3s, 'mo', 'Linewidth', 1);
-        
+    
+    xlim([0, i3b])
+
     hline = refline([0 zval]);
     hline.Color = 'r';
     hline.LineStyle = ':';
