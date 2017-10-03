@@ -6,8 +6,6 @@
 %   nmax        (int)       maximum number of iterations to run
 %   a           (float)     minimum value in range
 %   b           (float)     maximum value in range
-%   color       (str)       line color/style string for plots
-%   linewidth   (float)     line width of plots
 %   v           (bool)      verbose output (print statements which may be useful for examining specific results or debugging)
 %
 % Returns
@@ -16,8 +14,7 @@
 %   diff        (float)     difference/error at final iteration
 %   status      (int)       status code indicating success/error
 %
-function [i, p, diff, status] = bisection(f, tol, nmax, a, b, ...
-                                          color, linewidth, v)
+function [i, p, diff, status, y, xp, xd] = bisection(f, tol, nmax, a, b, v)
 
     if nmax == 0
         nmax = 10^10;
@@ -86,12 +83,6 @@ function [i, p, diff, status] = bisection(f, tol, nmax, a, b, ...
         out(error_msgs(status));
     else
         out('Successfully found value');
-        subplot(1,2,1);
-        plot(y, xp, color, 'Linewidth', linewidth);
-        hold on;
-        subplot(1,2,2);
-        plot(y, xd, color, 'Linewidth', linewidth);
-        hold on;
     end
 
     out(['Ran ' num2str(i) ' iterations']);

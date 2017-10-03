@@ -6,8 +6,6 @@
 %   nmax        (int)       maximum number of iterations to run
 %   p0          (float)     minimum value in range
 %   p1          (float)     maximum value in range
-%   color       (str)       line color/style string for plots
-%   linewidth   (float)     line width of plots
 %   v           (bool)      verbose output (print statements which may be useful for examining specific results or debugging)
 %
 % Returns
@@ -16,8 +14,7 @@
 %   diff        (float)     difference/error at final iteration
 %   status      (int)       status code indicating success/error
 %
-function [i, p, diff, status] = secant(f, tol, nmax, p0, p1, ...
-                                       color, linewidth, v)
+function [i, p, diff, status, y, xp, xd] = secant(f, tol, nmax, p0, p1, v)
 
     if nmax == 0
         nmax = 10^10;
@@ -77,12 +74,6 @@ function [i, p, diff, status] = secant(f, tol, nmax, p0, p1, ...
         out(error_msgs(status));
     else
         out('Successfully found value');
-        subplot(1,2,1);
-        plot(y, xp, color, 'Linewidth', linewidth);
-        hold on;
-        subplot(1,2,2);
-        plot(y, xd, color, 'Linewidth', linewidth);
-        hold on;
     end
 
     out(['Ran ' num2str(i) ' iterations']);

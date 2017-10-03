@@ -10,7 +10,7 @@ close all;
 format long;
 
 % set to true/false or 1/0 to show/hide figure windows
-hide_figures = 1;
+hide_figures = 0;
 
 % verbose output
 % bool val
@@ -32,22 +32,24 @@ tol_c_small = '1E-15';
 % for task that needs to be run
 % define the function name, range min, range max
 % (functions which have multiple ranges will be used in multiple tasks)
+
+%      name         func   rmin    rmax   p0
 jobs = {...
-    'a1', 'a', 1, 2, 1.65;
-    'a1-default', 'a', 1, 2, 1;
-    'a1-small', 'a', 1, 2, 1.65;
-    'b1', 'b', 1.3, 2, -999;
-    'c1', 'c', 2, 3, -999;
-    'c2', 'c', 3, 4, 3.5;
-    'c2-default', 'c', 3, 4, 3;
-    'd1', 'd', 1, 2, -999;
-    'd2', 'd', exp(1), 4, -999;
-    'e1', 'e', 0, 1, 0.5;
-    'e1-default', 'e', 0, 1, 0;
-    'e2', 'e', 3, 5, -999;
-    'f1', 'f', 0, 1, -999;
-    'f2', 'f', 3, 4, -999;
-    'f3', 'f', 6, 7, -999;
+    'a1',           'a',    1,      2,  1.65;
+    'a1-default',   'a',    1,      2,  1;
+    'a1-small',     'a',    1,      2,  1.65;
+    'b1',           'b',    1.3,    2,  -999;
+    'c1',           'c',    2,      3,  -999;
+    'c2',           'c',    3,      4,  3.5;
+    'c2-default',   'c',    3,      4,  3;
+    'd1',           'd',    1,      2,  -999;
+    'd2',           'd',    exp(1), 4,  -999;
+    'e1',           'e',    0,      1,  0.5;
+    'e1-default',   'e',    0,      1,  0;
+    'e2',           'e',    3,      5,  -999;
+    'f1',           'f',    0,      1,  -999;
+    'f2',           'f',    3,      4,  -999;
+    'f3',           'f',    6,      7,  -999;
 };
 
 
@@ -90,7 +92,7 @@ results.Properties.VariableNames = table_cols;
 [rows, cols] = size(jobs);
 
 run_list = 1:tcy+1;
-% run_list = 1;
+run_list = 1;
 
 for ix = run_list
 
@@ -134,7 +136,26 @@ for ix = run_list
 
     % ----------------------------------------
 
-    % actual
+    % run bisection
+    [i1b, p1b, d1b, s1b, y1b, xp1b, xd1b] = bisection(fh, str2double(tol_a), nmax, rmin, rmax, v);
+    [i2b, p2b, d2b, s2b, y2b, xp2b, xd2b] = bisection(fh, str2double(tol_b), nmax, rmin, rmax, v);
+    [i3b, p3b, d3b, s3b, y3b, xp3b, xd3b] = bisection(fh, str2double(tol_c), nmax, rmin, rmax, v);
+
+    % run newton
+    [i1n, p1n, d1n, s1n, y1n, xp1n, xd1n] = newton(fh, str2double(tol_a), nmax, newton_start, fh_prime, v);
+    [i2n, p2n, d2n, s2n, y2n, xp2n, xd2n] = newton(fh, str2double(tol_b), nmax, newton_start, fh_prime, v);
+    [i3n, p3n, d3n, s3n, y3n, xp3n, xd3n] = newton(fh, str2double(tol_c), nmax, newton_start, fh_prime, v);
+
+    % run secant
+    [i1s, p1s, d1s, s1s, y1s, xp1s, xd1s] = secant(fh, str2double(tol_a), nmax, rmin, rmax, v);
+    [i2s, p2s, d2s, s2s, y2s, xp2s, xd2s] = secant(fh, str2double(tol_b), nmax, rmin, rmax, v);
+    [i3s, p3s, d3s, s3s, y3s, xp3s, xd3s] = secant(fh, str2double(tol_c), nmax, rmin, rmax, v);
+
+    
+    % ----------------------------------------
+    
+    
+    % plot actual
     figure(figure_ix);
     fplot(fh, [rmin-2 rmax+2]);
     zval = fzero(fh, [rmin rmax]);
@@ -143,102 +164,115 @@ for ix = run_list
     title(['Function ', display_name ,', ' num2str(rmin), ':', num2str(rmax), ' (root = ', num2str(zval, 10), ')']);
     saveas(gcf, [pwd, '/output/', unique_name, '_', 'actual'], 'png')
 
-    % run bisection
-    fig_num = figure_ix + 1;
-    fig_b = figure(fig_num);
-    [i1b, p1b, d1b, s1b] = bisection(fh, str2double(tol_a), nmax, rmin, rmax, 'b', 1, v);
-    [i2b, p2b, d2b, s2b] = bisection(fh, str2double(tol_b), nmax, rmin, rmax, 'c--', 1, v);
-    [i3b, p3b, d3b, s3b] = bisection(fh, str2double(tol_c), nmax, rmin, rmax, 'mo', 1, v);
+    
+    % plot error
+    figure(figure_ix+1)
+    
+    eb = plot(y3b, xd3b, 'b', 'Linewidth', 1);
+    hold on
+    en = plot(y3n, xd3n, 'c', 'Linewidth', 1);
+    es = plot(y3s, xd3s, 'm', 'Linewidth', 1);
 
-    subplot(1,2,1);
-    title('p');
+    hlines = [refline([0 str2double(tol_a)]), refline([0 str2double(tol_b)]), refline([0 str2double(tol_c)])];
+    for hline = hlines
+        hline.Color = 'r';
+        hline.LineStyle = ':';
+        uistack(hline, 'bottom');
+    end
+    
+    lgd = legend([eb, en, es, hline], 'Bisection', 'Newton''s', 'Secant', [tol_a, ', ', tol_b, ', ', tol_c], 'Location', 'best');
+    
+    title('Error Comparison');
+    xlabel('Iterations');
+    ylabel('Error (Log Scale)');
+    set(gca, 'YScale', 'log')
+    ylim([1E-15, 1])
+    
+    set(gcf, 'Position', [0, 1200, 1200, 500])
+    saveas(gcf, [pwd, '/output/', unique_name, '_', 'error'], 'png')
+
+    
+    % plot bisection
+    figure(figure_ix + 2);
+    
+    plot(y1b, xp1b, 'b', 'Linewidth', 1);
+    hold on;
+    plot(y2b, xp2b, 'c--', 'Linewidth', 1);
+    plot(y3b, xp3b, 'mo', 'Linewidth', 1);
+        
     hline = refline([0 zval]);
     hline.Color = 'r';
     hline.LineStyle = ':';
     uistack(hline, 'bottom');
     
-    subplot(1,2,2);
-    title('error');
-    set(gca, 'YScale', 'log')
-    ylim([1E-15, 1])
-
     lgd = legend(...
+        'True Root', ...
         [tol_a, '   ', num2str(i1b), '   ', num2str(p1b, 8), '   ', num2str(d1b, 8)], ...
         [tol_b, '   ', num2str(i2b), '   ', num2str(p2b, 8), '   ', num2str(d2b, 8)], ...
         [tol_c, '   ', num2str(i3b), '   ', num2str(p3b, 8), '   ', num2str(d3b, 8)], ...
-    'Location', 'northeast');
+    'Location', 'best');
     lgd.Title.String = 'Plot   Tol  Iter      final p         final diff       ';
 
-    suptitle(['Function ', unique_name, ' - Bisection (Range = ', num2str(rmin), ':', num2str(rmax), ')']);
+    title(['Function ', unique_name, ' - Bisection (Range = ', num2str(rmin), ':', num2str(rmax), ')']);
 
-    set(gcf, 'Position', [0, 1200, 1200, 500])
+    set(gcf, 'Position', [0, 800, 800, 500])
     saveas(gcf, [pwd, '/output/', unique_name, '_', 'bisetion'], 'png')
-
-    % run newton
-    fig_num = figure_ix + 2;
-    figure(fig_num);
-    [i1n, p1n, d1n, s1n] = newton(fh, str2double(tol_a), nmax, newton_start, fh_prime, 'b', 1, v);
-    [i2n, p2n, d2n, s2n] = newton(fh, str2double(tol_b), nmax, newton_start, fh_prime, 'c--', 1, v);
-    [i3n, p3n, d3n, s3n] = newton(fh, str2double(tol_c), nmax, newton_start, fh_prime, 'mo', 0.001, v);
-
-    subplot(1,2,1);
-    title('p');
+    
+    
+    % plot newton
+    figure(figure_ix + 3);
+    
+    plot(y1n, xp1n, 'b', 'Linewidth', 1);
+    hold on;
+    plot(y2n, xp2n, 'c--', 'Linewidth', 1);
+    plot(y3n, xp3n, 'mo', 'Linewidth', 1);
+        
     hline = refline([0 zval]);
     hline.Color = 'r';
     hline.LineStyle = ':';
     uistack(hline, 'bottom');
-    xlim([0, i3b]);
-
-    subplot(1,2,2);
-    title('error');
-    set(gca, 'YScale', 'log')
-    xlim([0, i3b]);
-    ylim([1E-15, 1])
-
+    
     lgd = legend(...
+        'True Root', ...
         [tol_a, '   ', num2str(i1n), '   ', num2str(p1n, 8), '   ', num2str(d1n, 8)], ...
         [tol_b, '   ', num2str(i2n), '   ', num2str(p2n, 8), '   ', num2str(d2n, 8)], ...
         [tol_c, '   ', num2str(i3n), '   ', num2str(p3n, 8), '   ', num2str(d3n, 8)], ...
-    'Location', 'northeast');
+    'Location', 'best');
     lgd.Title.String = 'Plot   Tol  Iter      final p         final diff       ';
 
-    suptitle(['Function ', unique_name, ' - Newton (Range = ', num2str(rmin), ':', num2str(rmax), ')']);
-    set(gcf, 'Position', [0, 1200, 1200, 500])
+    title(['Function ', unique_name, ' - Newton (Range = ', num2str(rmin), ':', num2str(rmax), ')']);
+    
+    set(gcf, 'Position', [0, 800, 800, 500])
     saveas(gcf, [pwd, '/output/', unique_name, '_', 'newton'], 'png')
 
-    % run secant
-    fig_num = figure_ix + 3;
-    figure(fig_num);
-    [i1s, p1s, d1s, s1s] = secant(fh, str2double(tol_a), nmax, rmin, rmax, 'b', 1, v);
-    [i2s, p2s, d2s, s2s] = secant(fh, str2double(tol_b), nmax, rmin, rmax, 'c--', 1, v);
-    [i3s, p3s, d3s, s3s] = secant(fh, str2double(tol_c), nmax, rmin, rmax, 'mo', 0.001, v);
+    
+    % plot secant
+    figure(figure_ix + 4);
 
-    subplot(1,2,1);
-    title('p');
+    plot(y1s, xp1s, 'b', 'Linewidth', 1);
+    hold on;
+    plot(y2s, xp2s, 'c--', 'Linewidth', 1);
+    plot(y3s, xp3s, 'mo', 'Linewidth', 1);
+        
     hline = refline([0 zval]);
     hline.Color = 'r';
     hline.LineStyle = ':';
     uistack(hline, 'bottom');
-    xlim([0, i3b]);
-
-    subplot(1,2,2);
-    title('error');
-    set(gca, 'YScale', 'log')
-    xlim([0, i3b]);
-    ylim([1E-15, 1])
-
+    
     lgd = legend(...
+        'True Root', ...
         [tol_a, '   ', num2str(i1s), '   ', num2str(p1s, 8), '   ', num2str(d1s, 8)], ...
         [tol_b, '   ', num2str(i2s), '   ', num2str(p2s, 8), '   ', num2str(d2s, 8)], ...
         [tol_c, '   ', num2str(i3s), '   ', num2str(p3s, 8), '   ', num2str(d3s, 8)], ...
-    'Location', 'northeast');
+    'Location', 'best');
     lgd.Title.String = 'Plot   Tol  Iter      final p         final diff       ';
 
-    suptitle(['Function ', unique_name, ' - Secant (Range = ', num2str(rmin), ':', num2str(rmax), ')']);
-    set(gcf, 'Position', [0, 1200, 1200, 500])
+    title(['Function ', unique_name, ' - Secant (Range = ', num2str(rmin), ':', num2str(rmax), ')']);
+    
+    set(gcf, 'Position', [0, 800, 800, 500])
     saveas(gcf, [pwd, '/output/', unique_name, '_', 'secant'], 'png')
 
-   
+    
     % ----------------------------------------
 
     % add output from task to table

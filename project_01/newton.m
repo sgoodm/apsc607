@@ -16,8 +16,7 @@
 %   diff        (float)     difference/error at final iteration
 %   status      (int)       status code indicating success/error
 %
-function [i, p, diff, status] = newton(f, tol, nmax, p0, fprime, ...
-                                       color, linewidth, v)
+function [i, p, diff, status, y, xp, xd] = newton(f, tol, nmax, p0, fprime, v)
 
     if nmax == 0
         nmax = 10^10;
@@ -72,12 +71,6 @@ function [i, p, diff, status] = newton(f, tol, nmax, p0, fprime, ...
         out(error_msgs(status));
     else
         out('Successfully found value');
-        subplot(1,2,1);
-        plot(y, xp, color, 'Linewidth', linewidth);
-        hold on;
-        subplot(1,2,2);
-        plot(y, xd, color, 'Linewidth', linewidth);
-        hold on;
     end
 
     out(['Ran ' num2str(i) ' iterations']);
