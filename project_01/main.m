@@ -182,7 +182,7 @@ for ix = run_list
     
     legend([eb, en, es, hline], 'Bisection', 'Newton''s', 'Secant', [tol_a, ', ', tol_b, ', ', tol_c], 'Location', 'best');
     
-    title('Error Comparison');
+    title([unique_name, ' - Error Comparison']);
     xlabel('Iterations');
     ylabel('Error (Log Scale)');
     set(gca, 'YScale', 'log')
@@ -214,7 +214,9 @@ for ix = run_list
     lgd.Title.String = 'Plot   Tol  Iter      final p         final diff       ';
 
     title(['Function ', unique_name, ' - Bisection (Range = ', num2str(rmin), ':', num2str(rmax), ')']);
-
+    xlabel('Iterations');
+    ylabel('p Approximation');
+    
     set(gcf, 'Position', [0, 800, 800, 500])
     saveas(gcf, [pwd, '/output/', unique_name, '_', 'bisetion'], 'png')
     
@@ -243,7 +245,9 @@ for ix = run_list
     lgd.Title.String = 'Plot   Tol  Iter      final p         final diff       ';
 
     title(['Function ', unique_name, ' - Newton (Range = ', num2str(rmin), ':', num2str(rmax), ')']);
-
+    xlabel('Iterations');
+    ylabel('p Approximation');
+    
     set(gcf, 'Position', [0, 800, 800, 500])
     saveas(gcf, [pwd, '/output/', unique_name, '_', 'newton'], 'png')
 
@@ -272,6 +276,8 @@ for ix = run_list
     lgd.Title.String = 'Plot   Tol  Iter      final p         final diff       ';
 
     title(['Function ', unique_name, ' - Secant (Range = ', num2str(rmin), ':', num2str(rmax), ')']);
+    xlabel('Iterations');
+    ylabel('p Approximation');
     
     set(gcf, 'Position', [0, 800, 800, 500])
     saveas(gcf, [pwd, '/output/', unique_name, '_', 'secant'], 'png')
