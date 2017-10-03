@@ -195,10 +195,10 @@ for ix = run_list
     % plot bisection
     figure(figure_ix + 2);
     
-    plot(y1b, xp1b, 'b', 'Linewidth', 1);
+    p1 = plot(y1b, xp1b, 'b', 'Linewidth', 1);
     hold on;
-    plot(y2b, xp2b, 'c--', 'Linewidth', 1);
-    plot(y3b, xp3b, 'mo', 'Linewidth', 1);
+    p2 = plot(y2b, xp2b, 'c--', 'Linewidth', 1);
+    p3 = plot(y3b, xp3b, 'mo', 'Linewidth', 1);
         
     hline = refline([0 zval]);
     hline.Color = 'r';
@@ -206,7 +206,7 @@ for ix = run_list
     uistack(hline, 'bottom');
     
     lgd = legend(...
-        'True Root', ...
+        [p1, p2, p3], ...
         [tol_a, '   ', num2str(i1b), '   ', num2str(p1b, 8), '   ', num2str(d1b, 8)], ...
         [tol_b, '   ', num2str(i2b), '   ', num2str(p2b, 8), '   ', num2str(d2b, 8)], ...
         [tol_c, '   ', num2str(i3b), '   ', num2str(p3b, 8), '   ', num2str(d3b, 8)], ...
@@ -222,10 +222,10 @@ for ix = run_list
     % plot newton
     figure(figure_ix + 3);
     
-    plot(y1n, xp1n, 'b', 'Linewidth', 1);
+    p1 = plot(y1n, xp1n, 'b', 'Linewidth', 1);
     hold on;
-    plot(y2n, xp2n, 'c--', 'Linewidth', 1);
-    plot(y3n, xp3n, 'mo', 'Linewidth', 1);
+    p2 = plot(y2n, xp2n, 'c--', 'Linewidth', 1);
+    p3 = plot(y3n, xp3n, 'mo', 'Linewidth', 1);
         
     hline = refline([0 zval]);
     hline.Color = 'r';
@@ -233,7 +233,7 @@ for ix = run_list
     uistack(hline, 'bottom');
     
     lgd = legend(...
-        'True Root', ...
+        [p1, p2, p3], ...
         [tol_a, '   ', num2str(i1n), '   ', num2str(p1n, 8), '   ', num2str(d1n, 8)], ...
         [tol_b, '   ', num2str(i2n), '   ', num2str(p2n, 8), '   ', num2str(d2n, 8)], ...
         [tol_c, '   ', num2str(i3n), '   ', num2str(p3n, 8), '   ', num2str(d3n, 8)], ...
@@ -249,10 +249,10 @@ for ix = run_list
     % plot secant
     figure(figure_ix + 4);
 
-    plot(y1s, xp1s, 'b', 'Linewidth', 1);
+    p1 = plot(y1s, xp1s, 'b', 'Linewidth', 1);
     hold on;
-    plot(y2s, xp2s, 'c--', 'Linewidth', 1);
-    plot(y3s, xp3s, 'mo', 'Linewidth', 1);
+    p2 = plot(y2s, xp2s, 'c--', 'Linewidth', 1);
+    p3 = plot(y3s, xp3s, 'mo', 'Linewidth', 1);
         
     hline = refline([0 zval]);
     hline.Color = 'r';
@@ -260,7 +260,7 @@ for ix = run_list
     uistack(hline, 'bottom');
     
     lgd = legend(...
-        'True Root', ...
+        [p1, p2, p3], ...
         [tol_a, '   ', num2str(i1s), '   ', num2str(p1s, 8), '   ', num2str(d1s, 8)], ...
         [tol_b, '   ', num2str(i2s), '   ', num2str(p2s, 8), '   ', num2str(d2s, 8)], ...
         [tol_c, '   ', num2str(i3s), '   ', num2str(p3s, 8), '   ', num2str(d3s, 8)], ...
