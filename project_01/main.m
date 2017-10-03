@@ -308,9 +308,45 @@ for ix = run_list
 
 end
 
+% generate single true function plots across entire
+% range for functions which have multiple ranges
+
+figure(1);
+fplot(fc, [2 4]);
+hline = refline([0 0]);
+hline.Color = 'r';
+title('Function C');
+saveas(gcf, [pwd, '/output/c_actual'], 'png')
+
+figure(2);
+fplot(fd, [1 4]);
+hline = refline([0 0]);
+hline.Color = 'r';
+title('Function D');
+saveas(gcf, [pwd, '/output/d_actual'], 'png')
+    
+figure(3);
+fplot(fe, [0 4.5]);
+hline = refline([0 0]);
+hline.Color = 'r';
+title('Function E');
+saveas(gcf, [pwd, '/output/e_actual'], 'png')
+    
+
+figure(4);
+fplot(ff, [0 7]);
+hline = refline([0 0]);
+hline.Color = 'r';
+title('Function F');
+saveas(gcf, [pwd, '/output/f_actual'], 'png')
+
+
+if hide_figures
+    close all;
+end
+
 disp(results);
 
 if write_table
     writetable(results, [pwd, '/output/output_table.csv']);
 end
-
