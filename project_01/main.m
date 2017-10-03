@@ -10,7 +10,10 @@ close all;
 format long;
 
 % set to true/false or 1/0 to show/hide figure windows
-hide_figures = 1;
+hide_figures = 0;
+
+% write (overwrite) CSV table
+write_table = 0;
 
 % verbose output
 % bool val
@@ -90,7 +93,7 @@ results.Properties.VariableNames = table_cols;
 
 
 run_list = 1:length(jobs);
-% run_list = 1;
+% run_list = 3;
 
 for ix = run_list
 
@@ -168,10 +171,10 @@ for ix = run_list
     % error comparison
     figure(figure_ix+1)
     
-    eb = plot(y3b, xd3b, 'b', 'Linewidth', 1);
+    eb = plot(y3b, max(1e-20, xd3b), 'b', 'Linewidth', 1);
     hold on
-    en = plot(y3n, xd3n, 'c', 'Linewidth', 1);
-    es = plot(y3s, xd3s, 'm', 'Linewidth', 1);
+    en = plot(y3n, max(1e-20, xd3n), 'c', 'Linewidth', 1);
+    es = plot(y3s, max(1e-20, xd3s), 'm', 'Linewidth', 1);
 
     hlines = [refline([0 str2double(tol_a)]), refline([0 str2double(tol_b)]), refline([0 str2double(tol_c)])];
     for hline = hlines
@@ -187,7 +190,7 @@ for ix = run_list
     ylabel('Error (Log Scale)');
     set(gca, 'YScale', 'log')
     ylim([1E-15, 10])
-    
+
     set(gcf, 'Position', [0, 1200, 1200, 500])
     saveas(gcf, [pwd, '/output/', unique_name, '_', 'error'], 'png')
 
@@ -306,6 +309,8 @@ for ix = run_list
 end
 
 disp(results);
-writetable(results, [pwd, '/output/output_table.csv']);
 
+if write_table
+    writetable(results, [pwd, '/output/output_table.csv']);
+end
 
