@@ -13,20 +13,24 @@ function [Q] = neville(xest, x, y, tol)
 
     for i = 1:length(x)
         
-        for j = 1:i
-            ximinusj = x(i-j+1);
+        for j = 2:i
+            
+            ximinusj = x(i-j);
             xi = x(i);
             Qa = Q(i, j-1);
-            Qb = Q(i-1+1, j-1+1);
+            Qb = Q(i-1, j-1);
             
             a = (xest - ximinusj) * Qa;
-            b =  (xest-xi) * Qb;
+            b =  (xest - xi) * Qb;
             c = xi - ximinusj;
-            
-            Q(i+1,j+1) = (a.*b)./c;
-                        
+
+            Q(i+1, j+1) = (a.*b) ./ c;
+  
         end
 
     end
 
 end
+
+
+
