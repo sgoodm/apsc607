@@ -1,8 +1,35 @@
+% class ?
+% richardson's extrapolation
 
 
-f = @(x) cos(x);
 
-h = 0.1;
+syms x
+sym_f = x*exp(x);
+
+
+f = matlabFunction(sym_f)
+sym_f1 = diff(sym_f)
+
+f1 = matlabFunction(sym_f1)
+
+f = @(x) x*exp(x);
+x0 = 2;
+
+% second order
+n1 = @(f, x0, h) (1/(2*h)) * (f(x0+h) - f(x0-h));
+
+% fourth order
+n2 = @(f, x0, h) n1(f, x0, h/2) + (1/3)*(n1(f, x0, h/2) - n1(f, x0, h));
+
+% sixth order
+n3 = @(f, x0, h) n2(f, x0, h/2) + (1/15)*(n2(f, x0, h/2) - n1(f, x0, h));
+
+
+n1(f, x0, 0.05)
+n2(f, x0, 0.1)
+n3(f, x0, 0.2)
+
+
 
 range = 0:h:2*pi;
 

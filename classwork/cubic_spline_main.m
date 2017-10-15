@@ -1,3 +1,4 @@
+% class 20171002
 % Cubic Spline
 
 
@@ -18,7 +19,7 @@ end
 
 for i = 2:length(x)-1
    alpha_a = (3/h(i)) * (a(i+1)-a(i));
-   alpha_b = (3/h(i-1)) * (a(i) - a(i-1)); 
+   alpha_b = (3/h(i-1)) * (a(i) - a(i-1));
    alpha(i) =  alpha_a - alpha_b;
 end
 
