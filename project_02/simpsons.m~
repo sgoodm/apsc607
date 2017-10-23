@@ -1,0 +1,33 @@
+% project 02
+% composite Simpson's rule for numerical intergration
+%
+% Args
+%   f           (function)  function to evaluate
+%   n           (int)       n
+%   rmin        (int)       rmin
+%   rmax        (int)       rmax
+%
+% Returns
+%   val         (float)     val
+%
+function [val] = simpsons(f, n, rmin, rmax)
+
+%     base = @(f,h,x0,x1,x2) (h./3) .* (f(x0) + 4.*f(x1) + f(x2));
+
+    h = (rmax-rmin)./ (2.*n);
+    
+    
+    for i=1:n
+    
+        x0 = rmin + (i-1)*2*h + 0*h;
+        x1 = rmin + (i-1)*2*h + 1*h;
+        x2 = rmin + (i-1)*2*h + 2*h;
+
+        x(i) = (h./3) .* (f(x0) + 4.*f(x1) + f(x2));
+
+    end
+      
+    val = sum(x);
+    
+end
+
