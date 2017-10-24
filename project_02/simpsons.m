@@ -15,11 +15,11 @@ function [val, h] = simpsons(f, n, rmin, rmax)
 
     h = (rmax-rmin)/ n;
     
-    i = 0:n-1;
+    j = 0:n-1;
     
-    x0 = rmin + i*h ;
-    x1 = rmin + i*h + h/2;
-    x2 = rmin + i*h + h;
+    x0 = rmin + j*h ;
+    x1 = rmin + j*h + h/2;
+    x2 = rmin + j*h + h;
 
     x = (h/6) * (f(x0) + 4*f(x1) + f(x2));
       
