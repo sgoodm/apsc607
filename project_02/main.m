@@ -159,8 +159,8 @@ for ix = run_list
     s = stem(a4out, fh(a4out));
     xticks(rmin:0.5:rmax);
     set(s,'MarkerFaceColor','r','MarkerSize',0.001);
-    title(['Function ' display_name ' - Adaptive Simpsons Rule A']);
-    saveas(gcf, [pwd, '/output/', unique_name, '_adaptive_simpsons_a'], 'png');
+    title(['Function ' display_name ' - Adaptive Simpsons Rule @ 1e-4']);
+    saveas(gcf, [pwd, '/output/', unique_name, '_adaptive_simpsons_4'], 'png');
 
     % --------------------
     % adaptive simpsons, tol=1e-8
@@ -175,8 +175,8 @@ for ix = run_list
     s = stem(a8out, fh(a8out));
     xticks(rmin:0.5:rmax);
     set(s,'MarkerFaceColor','r','MarkerSize',0.001);
-    title(['Function ' display_name ' - Adaptive Simpsons Rule B']);
-    saveas(gcf, [pwd, '/output/', unique_name, '_adaptive_simpsons_b'], 'png');
+    title(['Function ' display_name ' - Adaptive Simpsons Rule @ 1e-8']);
+    saveas(gcf, [pwd, '/output/', unique_name, '_adaptive_simpsons_8'], 'png');
 
 end
 
