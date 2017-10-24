@@ -11,10 +11,13 @@
 %   val         (float)     val
 %   out         (float)     out
 %
-function [val, out] = adaptive_simpsons(f, rmin, rmax, tol)
+function [val, aout, hout] = adaptive_simpsons(f, rmin, rmax, tol)
 
     % initialize all starting values
-    val = 0;
+    val = 0;    
+    aout = [];
+    hout = [];
+    
     i = 1;
     TOL(i) = 10 * tol;
     
@@ -26,8 +29,7 @@ function [val, out] = adaptive_simpsons(f, rmin, rmax, tol)
     F2(i) = f(rmax);
     S(i) = h(i) * (F0(i) + 4*F1(i) + F2(i)) / 3;
     L(i) = 1;
-    
-    out = [];
+
     
     while i > 0
         % newleft half subinterval midpoint
@@ -53,7 +55,8 @@ function [val, out] = adaptive_simpsons(f, rmin, rmax, tol)
         
         if abs(S1+S2-v7) < v6
             val = val + (S1+S2);
-            out(length(out)+1) = v1;
+            aout(length(aout)+1) = v1;
+            hout(length(hout)+1) = v5;
             
         else
             i = i+1;
@@ -79,7 +82,7 @@ function [val, out] = adaptive_simpsons(f, rmin, rmax, tol)
         end
 
     end
-    out(length(out)+1) = rmax;
+    aout(length(aout)+1) = rmax;
 
 end
 

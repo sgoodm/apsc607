@@ -13,15 +13,15 @@
 %
 function [val, h] = simpsons(f, n, rmin, rmax)
 
-    h = (rmax-rmin)/ (2*n);
+    h = (rmax-rmin)/ n;
     
-    i = 1:n;
+    i = 0:n-1;
     
-    x0 = rmin + (i-1)*2*h + 0*h;
-    x1 = rmin + (i-1)*2*h + 1*h;
-    x2 = rmin + (i-1)*2*h + 2*h;
+    x0 = rmin + i*h ;
+    x1 = rmin + i*h + h/2;
+    x2 = rmin + i*h + h;
 
-    x = (h/3) * (f(x0) + 4*f(x1) + f(x2));
+    x = (h/6) * (f(x0) + 4*f(x1) + f(x2));
       
     val = sum(x);
     
