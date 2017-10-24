@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.8.24)  24 OCT 2017 15:26
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.8.24)  24 OCT 2017 16:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -550,50 +550,134 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 71.
- (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] <../additional/trapezoidal
+_fig.png, id=47, 519.44063pt x 246.9225pt>
+File: ../additional/trapezoidal_fig.png Graphic file (type png)
+
+<use ../additional/trapezoidal_fig.png>
+Package pdftex.def Info: ../additional/trapezoidal_fig.png used on input line 4
+6.
+(pdftex.def)             Requested size: 345.0pt x 163.99792pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 47.
+See the caption package documentation for explanation.
+
+<../additional/trapezoidal_eq.png, id=51, 531.48563pt x 127.22531pt>
+File: ../additional/trapezoidal_eq.png Graphic file (type png)
+
+<use ../additional/trapezoidal_eq.png>
+Package pdftex.def Info: ../additional/trapezoidal_eq.png used on input line 52
+.
+(pdftex.def)             Requested size: 345.0pt x 82.58675pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 53.
+See the caption package documentation for explanation.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--60
+
+ []
+
+<../additional/midpoint_fig.png, id=54, 518.6878pt x 249.18094pt>
+File: ../additional/midpoint_fig.png Graphic file (type png)
+
+<use ../additional/midpoint_fig.png>
+Package pdftex.def Info: ../additional/midpoint_fig.png used on input line 70.
+(pdftex.def)             Requested size: 345.0pt x 165.74886pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 71.
+See the caption package documentation for explanation.
+
+[2 <../additional/trapezoidal_fig.png> <../additional/trapezoidal_eq.png>]
+<../additional/midpoint_eq.png, id=72, 526.21594pt x 133.24782pt>
+File: ../additional/midpoint_eq.png Graphic file (type png)
+
+<use ../additional/midpoint_eq.png>
+Package pdftex.def Info: ../additional/midpoint_eq.png used on input line 76.
+(pdftex.def)             Requested size: 345.0pt x 87.36436pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 77.
+See the caption package documentation for explanation.
+
+<../additional/simpsons_fig.png, id=75, 518.6878pt x 246.9225pt>
+File: ../additional/simpsons_fig.png Graphic file (type png)
+
+<use ../additional/simpsons_fig.png>
+Package pdftex.def Info: ../additional/simpsons_fig.png used on input line 86.
+(pdftex.def)             Requested size: 345.0pt x 164.2466pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 87.
+See the caption package documentation for explanation.
+
+<../additional/simpsons_eq.png, id=78, 456.20438pt x 152.06813pt>
+File: ../additional/simpsons_eq.png Graphic file (type png)
+
+<use ../additional/simpsons_eq.png>
+Package pdftex.def Info: ../additional/simpsons_eq.png used on input line 92.
+(pdftex.def)             Requested size: 345.0pt x 115.00215pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 93.
+See the caption package documentation for explanation.
+
+[3 <../additional/midpoint_fig.png> <../additional/midpoint_eq.png> <../additio
+nal/simpsons_fig.png>] [4 <../additional/simpsons_eq.png>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 116.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 71.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 116.
 
-<../output/a_actual.png, id=58, 421.575pt x 316.0608pt>
+<../output/a_actual.png, id=97, 421.575pt x 316.0608pt>
 File: ../output/a_actual.png Graphic file (type png)
 
 <use ../output/a_actual.png>
-Package pdftex.def Info: ../output/a_actual.png used on input line 98.
+Package pdftex.def Info: ../output/a_actual.png used on input line 143.
 (pdftex.def)             Requested size: 345.0pt x 258.6555pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 99.
+(caption)                particular \caption on input line 144.
 See the caption package documentation for explanation.
 
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 106--107
 
- []
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 161.
+See the caption package documentation for explanation.
 
-[3 <../output/a_actual.png (PNG copy)>] [4] [5]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 152.
- [6]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 152.
+[5 <../output/a_actual.png (PNG copy)>] [6]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 180.
+ [7]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 180.
  (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 152.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 152.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 180.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 180.
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: EFEB1A6330C11F4F117D92CE2FC4F4CC;467.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 152.
+(rerunfilecheck)             Checksum: C13A8FE88FEADD252EA3A7772F4509E9;423.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 180.
  ) 
 Here is how much of TeX's memory you used:
- 7290 strings out of 495028
- 107760 string characters out of 6181497
- 198163 words of memory out of 5000000
- 10402 multiletter control sequences out of 15000+600000
+ 7325 strings out of 495028
+ 108730 string characters out of 6181497
+ 196451 words of memory out of 5000000
+ 10425 multiletter control sequences out of 15000+600000
  9191 words of font info for 34 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 36i,8n,38p,676b,516s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,8n,41p,676b,512s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
@@ -605,11 +689,12 @@ public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on report.pdf (6 pages, 159925 bytes).
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on report.pdf (7 pages, 267288 bytes).
 PDF statistics:
- 147 PDF objects out of 1000 (max. 8388607)
- 123 compressed objects within 2 object streams
- 27 named destinations out of 1000 (max. 500000)
- 78 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 177 PDF objects out of 1000 (max. 8388607)
+ 133 compressed objects within 2 object streams
+ 32 named destinations out of 1000 (max. 500000)
+ 92 words of extra memory for PDF output out of 10000 (max. 10000000)
 

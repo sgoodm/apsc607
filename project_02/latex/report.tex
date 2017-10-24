@@ -35,50 +35,96 @@ All computations were performed using MATLAB using the code (Table 1) accompanyi
 
 
 \newpage
-\section{Test}
+\section{Methods}
+\label{sec:methods}
 
-\LaTeX{} is great at typesetting mathematics. Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically distributed random variables with $\text{E}[X_i] = \mu$ and $\text{Var}[X_i] = \sigma^2 < \infty$, and let
 
+\subsection{Composite Trapezoidal Rule}
+TEXT
+
+\begin{center}
+	\includegraphics[width=1\textwidth]{../additional/trapezoidal_fig.png}
+	\captionof{figure}{Trapezoidal Figure\cite{burden2010}}
+	\label{fig:trap_fig}
+\end{center}
+
+\begin{center}
+	\includegraphics[width=1\textwidth]{../additional/trapezoidal_eq.png}
+	\captionof{figure}{Trapezoidal Equation\cite{burden2010}}
+	\label{fig:trap_eg}
+\end{center}
+
+$h=(b-a)/n$\\
+$x_j=a+jh$\\
+$j=0,1,\dots,n$\\
 
 \begin{equation}
-S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
-      = \frac{1}{n}\sum_{i}^{n} X_i
-\label{eq:sn}
+\int_{a}^b f(x) dx = \frac{h}{2} \Bigg[ f(a) + 2 \sum_{j=1}^{n-1} + f(b) \Bigg]
 \end{equation}
 
-denote their mean. Then as $n$ approaches infinity, the random variables $\sqrt{n}(S_n - \mu)$ converge in distribution to a normal $\mathcal{N}(0, \sigma^2)$.
+ 
+\subsection{Composite Midpoint Rule}
+TEXT
 
-Use the table and tabular commands for basic tables --- see Table~\ref{tab:widgets}, for example.
+\begin{center}
+	\includegraphics[width=1\textwidth]{../additional/midpoint_fig.png}
+	\captionof{figure}{Midpoint Figure\cite{burden2010}}
+	\label{fig:mid_fig}
+\end{center}
 
-\begin{table}
-\centering
-\begin{tabular}{l|r}
-Item & Quantity \\\hline
-Widgets & 42 \\
-Gadgets & 13
-\end{tabular}
-\caption{\label{tab:widgets}An example table.}
-\end{table}
+\begin{center}
+	\includegraphics[width=1\textwidth]{../additional/midpoint_eq.png}
+	\captionof{figure}{Midpoint Equation\cite{burden2010}}
+	\label{fig:mid_eq}
+\end{center}
 
-You can make lists with automatic numbering \dots
+
+\subsection{Composite Simpson's Rule}
+TEXT
+
+\begin{center}
+	\includegraphics[width=1\textwidth]{../additional/simpsons_fig.png}
+	\captionof{figure}{Simpson's Figure\cite{burden2010}}
+	\label{fig:sim_fig}
+\end{center}
+
+\begin{center}
+	\includegraphics[width=1\textwidth]{../additional/simpsons_eq.png}
+	\captionof{figure}{Simpson's Equation\cite{burden2010}}
+	\label{fig:sim_eq}
+\end{center}
+
+
+\subsection{Adaptive Simpson's Rule}
+TEXT
+
+
+
+\newpage
+\section{Results}
+\label{sec:results}
+
+TEXT
+
 
 \begin{enumerate}
 \item Like this,
 \item and like this.
 \end{enumerate}
-\dots or bullet points \dots
+
 \begin{itemize}
 \item Like this,
 \item and like this.
 \end{itemize}
-\dots or with words and descriptions \dots
+
 \begin{description}
 \item[Word] Definition
 \item[Concept] Explanation
 \item[Idea] Text
 \end{description}
 
-Some text\cite{burden2010}.
+\dots using dots \dots
+
 
 \begin{equation}
 f(x) = e^{2x} * sin(3x)
@@ -90,56 +136,38 @@ f(x) = \frac{1}{x+4}
 \label{eq:fb}
 \end{equation}
 
-here is ref to \ref{eq:fb}
 
 
 before figure 1a
 \begin{center}
 	\includegraphics[width=1\textwidth]{../output/a_actual.png}
 	\captionof{figure}{caption text a}
-	\label{fig:figa}
+	\label{figa}
 \end{center}
 after figure 1a
 
 
 
-Figure \ref{fig:figa}\\
+\bgroup
+\def\arraystretch{1.5}
+\begin{center}
+	\centering
+	\begin{tabular}{l|r}
+	\textbf{Item} & \textbf{Quantity} \\
+	\hline
+	Widgets & 42 \\
+	Gadgets & 13
+	\end{tabular}
+	\captionof{table}{An example table.}
+	\label{table1}
+\end{center}
+\egroup
 
 
 
-cool $B=0$ stuff 
 
+Something about minimum error in footnote\footnote{See following link on MATLAB precision limitions (general limitations of floating point representations apply) https://www.mathworks.com/help/fixedpoint/ug/limitations-on-precision.html}.
 
-
-
-sdsadas\footnote{See following link on MATLAB precision limitions (general limitations of floating point representations apply) https://www.mathworks.com/help/fixedpoint/ug/limitations-on-precision.html}
-
-
-\newpage
-\section{Methods}
-\label{sec:methods}
-
-\subsection{Trapezoidal}
-TEXT
-
-
-\subsection{Midpoint}
-TEXT? 
-
-\subsection{Simpson's}
-TEXT
-
-\subsection{Adaptive Simpson's}
-TEST
-
-
-
-\newpage
-\section{Results}
-\label{sec:results}
-
-\subsection{Tables}
-stuff
 
 
 
