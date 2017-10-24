@@ -38,7 +38,39 @@ All computations were performed using MATLAB using the code (Table 1) accompanyi
 \section{Methods}
 \label{sec:methods}
 
-True integral calculated using MATLAB built in symbolic and numeric methods
+The functions examined in the project, Function \textbf{A} and \textbf{B}, are defined in Equations \ref{eq:fa} and \ref{eq:fb}, respectively. For each of these functions, different integration rules will be tested to examine their effectiveness when used to perform composite numerical integration. Integration will be restricted to between zero and two for testing, but integration over an expanded range and the potnetial utility of adaptive approaches will be discussed in the /emph{Results} section.
+
+\begin{equation}
+f(x) = e^{2x} * sin(3x)
+\label{eq:fa}
+\end{equation}
+
+\begin{equation}
+f(x) = \frac{1}{x+4}
+\label{eq:fb}
+\end{equation}
+
+
+To establish a baseline, the true value for the integral of each function is first calculated using built in MATLAB tools. The integral is calculated both using the symbolic toolkit function \textbf{int} as well as the numerical function \textbf{integral}. The resultign values can be seen in Table \ref{true_values}
+
+
+\bgroup
+\def\arraystretch{1.5}
+\begin{center}
+	\centering
+	\begin{tabular}{l|r|r}
+	\textbf{Function} & \textbf{Symbolic} & \textbf{Numeric} \\
+	\hline
+	A & 2 & 2\\
+	B & 2 & 2
+	\end{tabular}
+	\captionof{table}{True values of integrals between zero and two}
+	\label{true_values}
+\end{center}
+\egroup
+
+
+
 
 Overview of methods
 
@@ -152,16 +184,6 @@ Error comparison
 
 \dots using dots \dots
 
-
-\begin{equation}
-f(x) = e^{2x} * sin(3x)
-\label{eq:fa}
-\end{equation}
-
-\begin{equation}
-f(x) = \frac{1}{x+4}
-\label{eq:fb}
-\end{equation}
 
 
 
