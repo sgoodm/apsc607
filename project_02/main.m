@@ -28,7 +28,7 @@ table_cols = {'Function', 'Symbolic', 'Numeric'};
 true_values = array2table(zeros(0, tcy));
 true_values.Properties.VariableNames = table_cols;
 
-table_cols = {'Function', 'Method', 'N4', 'N8', 'min_err'};
+table_cols = {'Function', 'Method', 'N4', 'N8', 'H4', 'H8', 'nmin', 'errmin'};
 [tcx, tcy] = size(table_cols);
 result_values = array2table(zeros(0, tcy));
 result_values.Properties.VariableNames = table_cols;
@@ -121,13 +121,13 @@ for ix = run_list
     [tval, th] = arrayfun(@(n) trapezoidal(fh, n, rmin, rmax), nlist);
     terr = abs(true_num_val - tval); 
         
-    t_iter_4 = nlist(sum(terr > 1e-4)+1);
-    t_iter_8 = nlist(sum(terr > 1e-8)+1);
+    t_iter_4 = sum(terr > 1e-4)+1;
+    t_iter_8 = sum(terr > 1e-8)+1;
     t_min_err = terr(length(terr));
     
     % add output from task to table
     new_rows = {...
-        unique_name, 'trapezoidal', num2str(t_iter_4, 15), num2str(t_iter_8, 15), num2str(t_min_err, 15);
+        unique_name, 'trapezoidal', num2str(nlist(t_iter_4), 15), num2str(nlist(t_iter_8), 15), num2str(th(t_iter_4), 15), num2str(th(t_iter_8), 15), num2str(max(nlist)), num2str(t_min_err, 15);
     };
     result_values = [result_values; new_rows];
 
@@ -144,13 +144,13 @@ for ix = run_list
     [mval, mh] = arrayfun(@(n) midpoint(fh, n, rmin, rmax), nlist);
     merr = abs(true_num_val - mval);
 
-    m_iter_4 = nlist(sum(merr > 1e-4)+1);
-    m_iter_8 = nlist(sum(merr > 1e-8)+1);
+    m_iter_4 = sum(merr > 1e-4)+1;
+    m_iter_8 = sum(merr > 1e-8)+1;
     m_min_err = merr(length(merr));
     
     % add output from task to table
     new_rows = {...
-        unique_name, 'midpoint', num2str(m_iter_4, 15), num2str(m_iter_8, 15), num2str(m_min_err, 15);
+        unique_name, 'midpoint', num2str(nlist(m_iter_4), 15), num2str(nlist(m_iter_8), 15), num2str(mh(m_iter_4), 15), num2str(mh(m_iter_8), 15), num2str(max(nlist)), num2str(m_min_err, 15);
     };
     result_values = [result_values; new_rows];
 
@@ -179,13 +179,13 @@ for ix = run_list
     [sval, sh] = arrayfun(@(n) simpsons(fh, n, rmin, rmax), nlist);
     serr = abs(true_num_val - sval);
 
-    s_iter_4 = nlist(sum(serr > 1e-4)+1);
-    s_iter_8 = nlist(sum(serr > 1e-8)+1);
+    s_iter_4 = sum(serr > 1e-4)+1;
+    s_iter_8 = sum(serr > 1e-8)+1;
     s_min_err = serr(length(serr));
     
     % add output from task to table
     new_rows = {...
-        unique_name, 'simpsons', num2str(s_iter_4, 15), num2str(s_iter_8, 15), num2str(s_min_err, 15);
+        unique_name, 'simpsons', num2str(nlist(s_iter_4), 15), num2str(nlist(s_iter_8), 15), num2str(sh(s_iter_4), 15), num2str(sh(s_iter_8), 15), num2str(max(nlist)), num2str(s_min_err, 15);
     };
     result_values = [result_values; new_rows];
 
@@ -217,7 +217,9 @@ for ix = run_list
     figure();
     histogram(h4out);
     xlabel('h')
-    xlabel('frequency')
+    ylabel('frequency')
+    xticks(unique(h4out, 'sorted'));
+    xtickangle(45);
     title(['Function ' display_name ' - Distribution of h values @ 1e-4'])
     saveas(gcf, [pwd, '/output/', unique_name, '_adaptive_simpsons_4_hist'], 'png');
     
@@ -241,7 +243,9 @@ for ix = run_list
     figure();
     histogram(h8out);
     xlabel('h')
-    xlabel('frequency')
+    ylabel('frequency')
+    xticks(unique(h8out, 'sorted'));
+    xtickangle(45);
     title(['Function ' display_name ' - Distribution of h values @ 1e-8'])
     saveas(gcf, [pwd, '/output/', unique_name, '_adaptive_simpsons_8_hist'], 'png');
     
@@ -253,14 +257,13 @@ for ix = run_list
     xticks(rmin:0.5:rmax);
     set(s,'MarkerFaceColor','r','MarkerSize',0.001);
     title(['Function ' display_name ' - Adaptive Simpsons Rule @ 1e-8']);
-    saveas(gcf, [pwd, '/output/', unique_name, '_adaptive_simpsons_8'], 'png');
-
+    saveas(gcf, [pwd, '/output/', unique_name, '_adaptive_simpsons_8'], 'png');  
     
     % --------------------
    
     % add output from task to table
     new_rows = {...
-        unique_name, 'adaptive', num2str(2*length(h4out)), num2str(2*length(h8out)), '-';
+        unique_name, 'adaptive', num2str(2*length(h4out)), num2str(2*length(h8out)), '-', '-','-', '-';
     };
     result_values = [result_values; new_rows];
 
