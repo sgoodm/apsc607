@@ -297,12 +297,17 @@ What is the best tolerance level I can reach? What h and n were needed to reach 
 
 \subsection{Trapezoidal and Midpoint Results}\label{results:a}
 
+The Composite Trapezoidal and Midpoint Rules performed comparably well to one another, as expected given their similarity - both conceptually and in terms of the equations used to implement them (and the associated error terms).
+
+Function A require relatively large values of \textbf{n}, nearly 100,000 to reach the lower level tolerance of $10^{-8}$ and necessitated the use of the binary expansion sampling discussed in the \textit{Methods} section earlier. Ultimately, the Trapezoidal and Midpoint Rules required an \textbf{n} values of 65,000 and 98,000, respectively, to achieve this tolerance level (seen in Table \ref{table:results}.  
+
 \begin{center}
 	\includegraphics[width=0.8\textwidth]{../output/a_trapezoidal_midpoint.png}
 	\captionof{figure}{Plot of error from Trapezoidal and Midpoint integration of Function A}
 	\label{fig:a_trap_mid}
 \end{center}
 
+The value of \textbf{n} required to reach a tolerance of $10^{-8}$ for Function B was only 1082 and 1522 for the Trapezoidal and Midpoint Rules, respectively.
 
 \begin{center}
 	\includegraphics[width=0.8\textwidth]{../output/b_trapezoidal_midpoint.png}
