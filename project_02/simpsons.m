@@ -21,7 +21,6 @@ function [val, h] = simpsons(f, n, rmin, rmax)
 %     x = (h/6) * (f(x0) + 4*f(x1) + f(x2));
 %     val = sum(x);
     
-    
     h = (rmax-rmin)/ n;
     j = 1:n;
     xj = rmin + j*h;
@@ -31,7 +30,6 @@ function [val, h] = simpsons(f, n, rmin, rmax)
     j2 = 1:(n/2);
     x2 = f(xj(2*j2-1));
     val = (h/3) * (f(rmin) + 2*sum(x1) + 4*sum(x2) + f(rmax));
-    
     
 end
 

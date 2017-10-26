@@ -5,7 +5,7 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage[breaklinks]{hyperref}
-\usepackage{caption}
+\usepackage[font=small,labelfont=bf,margin=2cm]{caption}
 \usepackage{listings}
 \usepackage{subfigure}
 \usepackage[round]{natbib}
@@ -177,6 +177,8 @@ area_{subinterval} = f(\frac{x_{2j-1}+x_{2j+1}}{2})h
 
 \subsection{Composite Simpson's Rule}\label{method:simpsons}
 
+Unlike the Trapezoidal or Midpoint Rules, Simpson's Rule utilizes subintervals with three points, seen in Figure \ref{sim_fig}, resulting in a higher order error term as seen earlier in \ref{sim_err}.
+
 \begin{center}
 	\includegraphics[width=1\textwidth]{../additional/simpsons_fig.png}
 	\captionof{figure}{Simpson's Figure \citep{burden2010}}
@@ -186,7 +188,7 @@ area_{subinterval} = f(\frac{x_{2j-1}+x_{2j+1}}{2})h
 The Composite Simpson's Rule for $n$ intervals, as seen in Figure \ref{sim_fig}, can be defined by Equation \ref{sim_eq}, given $h=(b-a)/n$ and $x0_j=a+jh$, $x1_j=a+jh+h/2$, $x2_j=a+jh+h$,  for each $j=0,1,\dots,n-1$.
      
 \begin{equation}
-\int_{a}^b f(x) dx = \sum_{j=0}^{n-1} \Bigg[ \frac{h}{6} \big[ f(x0_j) + 4f(x1_j) + f(x2_j) \big] \Bigg]
+\int_{a}^b f(x) dx = \frac{h}{3}\Bigg[ f(a) + 2\sum_{j=1}^{(n/2)-1} f(x_{2j}) + 4\sum_{j=1}^{n/2} f(x_{2j-1}) + f(b) \Bigg]
 \label{sim_eq}
 \end{equation}
 
@@ -194,10 +196,10 @@ The Composite Simpson's Rule for $n$ intervals, as seen in Figure \ref{sim_fig},
 
 \subsection{Adaptive Simpson's Rule}\label{method:adaptive}
 
+An adaptive integration approach iteratively compares each subinterval (starting with the full range) with the next level of subintervals (splitting the current subinterval in half) until a specified tolerance value (difference between integration value of original subinterval and the sum of the integration of the subinterval halves) has been reached. This can be modified to calculate the integration using any method, though Simpson's Rule will be used through this project. A rough overview of this process is demonstrated using the following pseudocode.
+
 \bigskip
 \begin{lstlisting}[language=Matlab]
-
-
 integral_value = 0
 
 subinterval_data = [
@@ -246,14 +248,12 @@ while number_of_subintervals_remaining > 0
 \section{Results}
 \label{sec:results}
 
-
 Choose h and n carefully. What h and n do you need to use for the final result to approximate the analytic solution to within 10 -4 , 10 -8 .
 
 
 What is the best tolerance level I can reach? What h and n were needed to reach this tolerance level? What happens if I make h smaller?
 
 
-Something about minimum error in footnote\footnote{See following link on MATLAB precision limitions (general limitations of floating point representations apply) https://www.mathworks.com/help/fixedpoint/ug/limitations-on-precision.html}.
 
 
 \bgroup
@@ -295,42 +295,45 @@ Something about minimum error in footnote\footnote{See following link on MATLAB 
 
 
 
-\subsection{Trapezoidal and Midpoint Rules}\label{results:a}
+\subsection{Trapezoidal and Midpoint Results}\label{results:a}
 
 \begin{center}
 	\includegraphics[width=0.8\textwidth]{../output/a_trapezoidal_midpoint.png}
-	\captionof{figure}{caption text a}
+	\captionof{figure}{Plot of error from Trapezoidal and Midpoint integration of Function A}
 	\label{fig:a_trap_mid}
 \end{center}
 
 
 \begin{center}
 	\includegraphics[width=0.8\textwidth]{../output/b_trapezoidal_midpoint.png}
-	\captionof{figure}{caption text a}
+	\captionof{figure}{Plot of error from Trapezoidal and Midpoint integration of Function B}
 	\label{fig:b_trap_mid}
 \end{center}
 
 
-\subsection{Simpson's Rule}\label{results:sim}
+\subsection{Simpson's Results}\label{results:sim}
+
+The effectiveness of Simpson's Rule as indicated by its higher order error term, discussed earlier, is clearly evident in the plot of the error for each function across the range of \textbf{n} values, seen in Figures \ref{fig:a_sim} and \ref{fig:b_sim}.
 
 \begin{center}
-	\includegraphics[width=0.8\textwidth]{../output/a_simpsons.png}
-	\captionof{figure}{caption text a}
+	\includegraphics[width=0.7\textwidth]{../output/a_simpsons.png}
+	\captionof{figure}{Plot of error from Simpson's integration of Function A}
 	\label{fig:a_sim}
 \end{center}
 
-
+Although notably faster at reaching the tolerance levels of both $10^{-4}$ and $10^{-8}$ for Function A, it slows down as the error nears $10^{-12}$ - possibly an attribute of the function rather than Simpson's Rule. When used with Function B, Simpson's Rule reaches an error of around $10^{-15}$ in around only 1000 iterations. At this level of error, floating point precision and the limitations of the precision that MATLAB can handle\footnote{See following link on MATLAB precision limitions (general limitations of floating point representations apply) https://www.mathworks.com/help/fixedpoint/ug/limitations-on-precision.html} becomes apparent. In Figure \ref{fig:b_sim} the fluctuations causes by hitting this limit of precision can be seen between \textbf{n} values of 1000 and 3000. 
+ 
 \begin{center}
-	\includegraphics[width=0.8\textwidth]{../output/b_simpsons.png}
-	\captionof{figure}{caption text a}
+	\includegraphics[width=0.7\textwidth]{../output/b_simpsons.png}
+	\captionof{figure}{Plot of error from Simpson's integration of Function B}
 	\label{fig:b_sim}
 \end{center}
 
 
 
-\subsection{Adaptive Simpson's}\label{results:adaptive}
+\subsection{Adaptive Simpson's Results}\label{results:adaptive}
 
-Based on the true function plots Figures \ref{fig:a_act} and \ref{fig:b_act} it is reasonable to expect that an adaptive approach may yield some benefit for Function A due to the variable nature of the function over this range, while Function B has a relatively minor and fairly consistent slope and would not be a good use case for an adaptive method.
+Based on the true function plots in Figure \ref{fig:true} it is reasonable to expect that an adaptive approach may yield some benefit for Function A due to the variable nature of the function over this range, while Function B has a relatively minor and fairly consistent slope and would not be a good use case for an adaptive method.
 
 
 \begin{center}
@@ -353,20 +356,20 @@ Figure \ref{fig:adap4} shows the subinterval pairs generated by the application 
 
 \begin{center}
 	\includegraphics[width=0.8\textwidth]{../output/a_adaptive_simpsons_8.png}
-	\captionof{figure}{caption text a}
+	\captionof{figure}{Subintervals generated by adaptive Simpson's Rule for Function A with tolerance of $10^{-8}$}
 	\label{fig:a_adap8}
 \end{center}
 
 \begin{center}
 	\includegraphics[width=0.8\textwidth]{../output/a_adaptive_simpsons_8_hist.png}
-	\captionof{figure}{caption text a}
+	\captionof{figure}{Distribution of the size of subintervals generated from adaptive Simpson's for Function A}
 	\label{fig:a_adap8_hist}
 \end{center}
 
 
 \begin{center}
 	\includegraphics[width=0.8\textwidth]{../output/b_adaptive_simpsons_8.png}
-	\captionof{figure}{caption text a}
+	\captionof{figure}{Subintervals generated by adaptive Simpson's Rule for Function B with tolerance of $10^{-8}$}
 	\label{fig:b_adap8}
 \end{center}
 

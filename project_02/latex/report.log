@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.22)  26 OCT 2017 16:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.22)  26 OCT 2017 17:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -724,7 +724,7 @@ See the caption package documentation for explanation.
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-<../additional/trapezoidal_fig.png, id=95, 519.44063pt x 246.9225pt>
+<../additional/trapezoidal_fig.png, id=97, 519.44063pt x 246.9225pt>
 File: ../additional/trapezoidal_fig.png Graphic file (type png)
 
 <use ../additional/trapezoidal_fig.png>
@@ -738,7 +738,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [4 <../additional/trapezoidal_fig.png>]
-<../additional/midpoint_fig.png, id=115, 518.6878pt x 249.18094pt>
+<../additional/midpoint_fig.png, id=117, 518.6878pt x 249.18094pt>
 File: ../additional/midpoint_fig.png Graphic file (type png)
 
 <use ../additional/midpoint_fig.png>
@@ -751,48 +751,48 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 161.
 See the caption package documentation for explanation.
 
-<../additional/simpsons_fig.png, id=124, 518.6878pt x 246.9225pt>
+<../additional/simpsons_fig.png, id=128, 518.6878pt x 246.9225pt>
 File: ../additional/simpsons_fig.png Graphic file (type png)
 
 <use ../additional/simpsons_fig.png>
-Package pdftex.def Info: ../additional/simpsons_fig.png used on input line 181.
+Package pdftex.def Info: ../additional/simpsons_fig.png used on input line 183.
 
 (pdftex.def)             Requested size: 345.0pt x 164.2466pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 182.
+(caption)                particular \caption on input line 184.
 See the caption package documentation for explanation.
 
 [5 <../additional/midpoint_fig.png>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 204.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 206.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 204.
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 215.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 206.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 217.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 215.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 217.
  [6 <../additional/simpsons_fig.png>]
-Overfull \hbox (75.00427pt too wide) in paragraph at lines 236--237
+Overfull \hbox (75.00427pt too wide) in paragraph at lines 238--239
 [][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (237.00592pt too wide) in paragraph at lines 237--238
+Overfull \hbox (237.00592pt too wide) in paragraph at lines 239--240
 [][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (519.00879pt too wide) in paragraph at lines 238--240
+Overfull \hbox (519.00879pt too wide) in paragraph at lines 240--242
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][] 
  []
@@ -803,14 +803,14 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 275.
 See the caption package documentation for explanation.
 
-<../output/a_actual.png, id=195, 429.2838pt x 338.7054pt>
+<../output/a_actual.png, id=196, 429.2838pt x 338.7054pt>
 File: ../output/a_actual.png Graphic file (type png)
 
 <use ../output/a_actual.png>
 Package pdftex.def Info: ../output/a_actual.png used on input line 285.
 (pdftex.def)             Requested size: 170.77594pt x 134.74069pt.
 
-<../output/b_actual.png, id=196, 429.2838pt x 338.7054pt>
+<../output/b_actual.png, id=197, 429.2838pt x 338.7054pt>
 File: ../output/b_actual.png Graphic file (type png)
 
 <use ../output/b_actual.png>
@@ -822,7 +822,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 291.
 See the caption package documentation for explanation.
 
-<../output/a_trapezoidal_midpoint.png, id=197, 429.2838pt x 338.7054pt>
+<../output/a_trapezoidal_midpoint.png, id=198, 429.2838pt x 338.7054pt>
 File: ../output/a_trapezoidal_midpoint.png Graphic file (type png)
 
 <use ../output/a_trapezoidal_midpoint.png>
@@ -836,7 +836,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [8 <../output/a_actual.png (PNG copy)> <../output/b_actual.png (PNG copy)>]
-<../output/b_trapezoidal_midpoint.png, id=206, 429.2838pt x 338.7054pt>
+<../output/b_trapezoidal_midpoint.png, id=205, 429.2838pt x 338.7054pt>
 File: ../output/b_trapezoidal_midpoint.png Graphic file (type png)
 
 <use ../output/b_trapezoidal_midpoint.png>
@@ -849,170 +849,164 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 309.
 See the caption package documentation for explanation.
 
-<../output/a_simpsons.png, id=207, 429.2838pt x 338.7054pt>
+<../output/a_simpsons.png, id=208, 429.2838pt x 338.7054pt>
 File: ../output/a_simpsons.png Graphic file (type png)
 
 <use ../output/a_simpsons.png>
-Package pdftex.def Info: ../output/a_simpsons.png used on input line 317.
-(pdftex.def)             Requested size: 276.00105pt x 217.76302pt.
+Package pdftex.def Info: ../output/a_simpsons.png used on input line 319.
+(pdftex.def)             Requested size: 241.49895pt x 190.54199pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 318.
+(caption)                particular \caption on input line 320.
 See the caption package documentation for explanation.
 
 [9 <../output/a_trapezoidal_midpoint.png (PNG copy)> <../output/b_trapezoidal_m
 idpoint.png (PNG copy)>]
-<../output/b_simpsons.png, id=214, 429.2838pt x 338.7054pt>
+<../output/b_simpsons.png, id=219, 429.2838pt x 338.7054pt>
 File: ../output/b_simpsons.png Graphic file (type png)
 
 <use ../output/b_simpsons.png>
-Package pdftex.def Info: ../output/b_simpsons.png used on input line 324.
-(pdftex.def)             Requested size: 276.00105pt x 217.76302pt.
+Package pdftex.def Info: ../output/b_simpsons.png used on input line 327.
+(pdftex.def)             Requested size: 241.49895pt x 190.54199pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 325.
+(caption)                particular \caption on input line 328.
 See the caption package documentation for explanation.
 
-
-LaTeX Warning: Reference `fig:a_act' on page 10 undefined on input line 333.
-
-
-LaTeX Warning: Reference `fig:b_act' on page 10 undefined on input line 333.
-
-<../output/a_adaptive_simpsons_4.png, id=215, 429.2838pt x 338.7054pt>
+[10 <../output/a_simpsons.png (PNG copy)> <../output/b_simpsons.png (PNG copy)>
+] <../output/a_adaptive_simpsons_4.png, id=227, 429.2838pt x 338.7054pt>
 File: ../output/a_adaptive_simpsons_4.png Graphic file (type png)
 
 <use ../output/a_adaptive_simpsons_4.png>
 Package pdftex.def Info: ../output/a_adaptive_simpsons_4.png used on input line
- 340.
+ 343.
 (pdftex.def)             Requested size: 170.77594pt x 134.74069pt.
 
-<../output/b_adaptive_simpsons_4.png, id=216, 429.2838pt x 338.7054pt>
+<../output/b_adaptive_simpsons_4.png, id=228, 429.2838pt x 338.7054pt>
 File: ../output/b_adaptive_simpsons_4.png Graphic file (type png)
 
 <use ../output/b_adaptive_simpsons_4.png>
 Package pdftex.def Info: ../output/b_adaptive_simpsons_4.png used on input line
- 344.
+ 347.
 (pdftex.def)             Requested size: 170.77594pt x 134.74069pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 346.
+(caption)                particular \caption on input line 349.
 See the caption package documentation for explanation.
 
-[10 <../output/a_simpsons.png (PNG copy)> <../output/b_simpsons.png (PNG copy)>
-] <../output/a_adaptive_simpsons_8.png, id=227, 429.2838pt x 338.7054pt>
+<../output/a_adaptive_simpsons_8.png, id=233, 429.2838pt x 338.7054pt>
 File: ../output/a_adaptive_simpsons_8.png Graphic file (type png)
 
 <use ../output/a_adaptive_simpsons_8.png>
 Package pdftex.def Info: ../output/a_adaptive_simpsons_8.png used on input line
- 355.
+ 358.
 (pdftex.def)             Requested size: 276.00105pt x 217.76302pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 356.
-See the caption package documentation for explanation.
-
-<../output/a_adaptive_simpsons_8_hist.png, id=228, 429.2838pt x 338.7054pt>
-File: ../output/a_adaptive_simpsons_8_hist.png Graphic file (type png)
-
-<use ../output/a_adaptive_simpsons_8_hist.png>
-Package pdftex.def Info: ../output/a_adaptive_simpsons_8_hist.png used on input
- line 361.
-(pdftex.def)             Requested size: 276.00105pt x 217.76302pt.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 362.
+(caption)                particular \caption on input line 359.
 See the caption package documentation for explanation.
 
 [11 <../output/a_adaptive_simpsons_4.png (PNG copy)> <../output/b_adaptive_simp
 sons_4.png (PNG copy)> <../output/a_adaptive_simpsons_8.png (PNG copy)>]
-<../output/b_adaptive_simpsons_8.png, id=237, 429.2838pt x 338.7054pt>
-File: ../output/b_adaptive_simpsons_8.png Graphic file (type png)
+<../output/a_adaptive_simpsons_8_hist.png, id=243, 429.2838pt x 338.7054pt>
+File: ../output/a_adaptive_simpsons_8_hist.png Graphic file (type png)
 
-<use ../output/b_adaptive_simpsons_8.png>
-Package pdftex.def Info: ../output/b_adaptive_simpsons_8.png used on input line
- 368.
+<use ../output/a_adaptive_simpsons_8_hist.png>
+Package pdftex.def Info: ../output/a_adaptive_simpsons_8_hist.png used on input
+ line 364.
 (pdftex.def)             Requested size: 276.00105pt x 217.76302pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 369.
+(caption)                particular \caption on input line 365.
+See the caption package documentation for explanation.
+
+<../output/b_adaptive_simpsons_8.png, id=244, 429.2838pt x 338.7054pt>
+File: ../output/b_adaptive_simpsons_8.png Graphic file (type png)
+
+<use ../output/b_adaptive_simpsons_8.png>
+Package pdftex.def Info: ../output/b_adaptive_simpsons_8.png used on input line
+ 371.
+(pdftex.def)             Requested size: 276.00105pt x 217.76302pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 372.
 See the caption package documentation for explanation.
 
 [12 <../output/a_adaptive_simpsons_8_hist.png (PNG copy)> <../output/b_adaptive
 _simpsons_8.png (PNG copy)>]
-<../output/a_expanded_actual.png, id=245, 429.2838pt x 338.7054pt>
+<../output/a_expanded_actual.png, id=252, 429.2838pt x 338.7054pt>
 File: ../output/a_expanded_actual.png Graphic file (type png)
 
 <use ../output/a_expanded_actual.png>
-Package pdftex.def Info: ../output/a_expanded_actual.png used on input line 380
+Package pdftex.def Info: ../output/a_expanded_actual.png used on input line 383
 .
 (pdftex.def)             Requested size: 170.77594pt x 134.74069pt.
 
-<../output/b_expanded_actual.png, id=246, 429.2838pt x 338.7054pt>
+<../output/b_expanded_actual.png, id=253, 429.2838pt x 338.7054pt>
 File: ../output/b_expanded_actual.png Graphic file (type png)
 
 <use ../output/b_expanded_actual.png>
-Package pdftex.def Info: ../output/b_expanded_actual.png used on input line 384
+Package pdftex.def Info: ../output/b_expanded_actual.png used on input line 387
 .
 (pdftex.def)             Requested size: 170.77594pt x 134.74069pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 386.
+(caption)                particular \caption on input line 389.
 See the caption package documentation for explanation.
 
 [13 <../output/a_expanded_actual.png (PNG copy)> <../output/b_expanded_actual.p
 ng (PNG copy)>] (./report.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 398.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 401.
  [14]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 398.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 401.
  (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 398.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 398.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 401.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 401.
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: B65F2D587C833B69086F5B26CC36ECDB;633.
-
-
-LaTeX Warning: There were undefined references.
+(rerunfilecheck)             Checksum: D0DD712AB2AF3CA91B49280C25210C56;646.
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 398.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 401.
  ) 
 Here is how much of TeX's memory you used:
- 10306 strings out of 494910
- 147214 string characters out of 6179836
- 262370 words of memory out of 5000000
- 13377 multiletter control sequences out of 15000+600000
- 9537 words of font info for 35 fonts, out of 8000000 for 9000
+ 10312 strings out of 494910
+ 147255 string characters out of 6179836
+ 265080 words of memory out of 5000000
+ 13380 multiletter control sequences out of 15000+600000
+ 10982 words of font info for 40 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 36i,8n,43p,1452b,1806s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,8n,43p,1452b,1804s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on report.pdf (14 pages, 623615 bytes).
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmtt8.pfb>
+Output written on report.pdf (14 pages, 660051 bytes).
 PDF statistics:
- 333 PDF objects out of 1000 (max. 8388607)
- 272 compressed objects within 3 object streams
- 100 named destinations out of 1000 (max. 500000)
+ 349 PDF objects out of 1000 (max. 8388607)
+ 285 compressed objects within 3 object streams
+ 98 named destinations out of 1000 (max. 500000)
  166 words of extra memory for PDF output out of 10000 (max. 10000000)
 
