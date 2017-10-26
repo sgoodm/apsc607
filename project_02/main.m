@@ -22,6 +22,15 @@ jobs = {...
 };
 
 
+
+
+% initialize true value output table
+table_cols = {'Function', 'Symbolic', 'Numeric'};
+[tcx, tcy] = size(table_cols);
+true_values = array2table(zeros(0, tcy));
+true_values.Properties.VariableNames = table_cols;
+
+
 % ----------------------------------------
 % functions
 %
@@ -68,6 +77,13 @@ for ix = run_list
     % check true value using numerical `integral` function
     true_num_val = integral(fh, rmin, rmax);
 
+
+    % add output from task to table
+    new_rows = {...
+        unique_name, num2str(true_sym_val, 15), num2str(true_num_val, 15);
+    };
+    true_values = [true_values; new_rows];
+
     % plot function over range being examined
     figure();
     fplot(fh, [rmin rmax]);
@@ -83,6 +99,9 @@ for ix = run_list
     fplot(fh, [rmin_alt rmax_alt]);
     title(['Function ' display_name ' - Expanded Actual Function']);
     saveas(gcf, [pwd, '/output/', unique_name, '_expanded_actual'], 'png');
+
+        continue
+
     
     % ----------------------------------------
     % trapezoidal rule
@@ -180,4 +199,5 @@ for ix = run_list
 
 end
 
+writetable(true_values, [pwd, '/output/true_values_table.csv']);
 
