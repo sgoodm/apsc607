@@ -22,13 +22,16 @@ jobs = {...
 };
 
 
-
-
 % initialize true value output table
 table_cols = {'Function', 'Symbolic', 'Numeric'};
 [tcx, tcy] = size(table_cols);
 true_values = array2table(zeros(0, tcy));
 true_values.Properties.VariableNames = table_cols;
+
+table_cols = {'Function', 'Method', 'N4', 'N8', 'min_err'};
+[tcx, tcy] = size(table_cols);
+result_values = array2table(zeros(0, tcy));
+result_values.Properties.VariableNames = table_cols;
 
 
 % ----------------------------------------
@@ -99,9 +102,6 @@ for ix = run_list
     fplot(fh, [rmin_alt rmax_alt]);
     title(['Function ' display_name ' - Expanded Actual Function']);
     saveas(gcf, [pwd, '/output/', unique_name, '_expanded_actual'], 'png');
-
-        continue
-
     
     % ----------------------------------------
     % trapezoidal rule
@@ -112,15 +112,19 @@ for ix = run_list
     nlist = nlist + 2.^(1:bint) ;
     nlist = sort(horzcat(2.^(1:bint), nlist(2:end)));
     
-    
     [tval, th] = arrayfun(@(n) trapezoidal(fh, n, rmin, rmax), nlist);
     terr = abs(true_num_val - tval); 
-    
-    nstep = nlist(2)-nlist(1);
-    t_iter_8 = nlist(1) + nstep * (sum(terr > 1e-4)-1);
-    t_iter_4 = nlist(1) + nstep * (sum(terr > 1e-8)-1);
+        
+    t_iter_4 = nlist(sum(terr > 1e-4)+1);
+    t_iter_8 = nlist(sum(terr > 1e-8)+1);
     t_min_err = terr(length(terr));
     
+    % add output from task to table
+    new_rows = {...
+        unique_name, 'trapezoidal', num2str(t_iter_4, 15), num2str(t_iter_8, 15), num2str(t_min_err, 15);
+    };
+    result_values = [result_values; new_rows];
+
     % plot error
     figure();
     plot(nlist, terr);
@@ -128,6 +132,7 @@ for ix = run_list
     ylabel('Error (log scale)');
     xlabel('N');
     title(['Function ' display_name ' - Composite Trapezoidal Rule']);
+%     set(gcf, 'Position', [0, 800, 800, 600]);
     saveas(gcf, [pwd, '/output/', unique_name, '_trapezoidal'], 'png');
 
     % ----------------------------------------
@@ -137,6 +142,16 @@ for ix = run_list
     
     [mval, mh] = arrayfun(@(n) midpoint(fh, n, rmin, rmax), nlist);
     merr = abs(true_num_val - mval);
+
+    m_iter_4 = nlist(sum(merr > 1e-4)+1);
+    m_iter_8 = nlist(sum(merr > 1e-8)+1);
+    m_min_err = merr(length(merr));
+    
+    % add output from task to table
+    new_rows = {...
+        unique_name, 'midpoint', num2str(m_iter_4, 15), num2str(m_iter_8, 15), num2str(m_min_err, 15);
+    };
+    result_values = [result_values; new_rows];
 
     % plot error
     figure();
@@ -156,6 +171,16 @@ for ix = run_list
     [sval, sh] = arrayfun(@(n) simpsons(fh, n, rmin, rmax), nlist);
     serr = abs(true_num_val - sval);
 
+    s_iter_4 = nlist(sum(serr > 1e-4)+1);
+    s_iter_8 = nlist(sum(serr > 1e-8)+1);
+    s_min_err = serr(length(serr));
+    
+    % add output from task to table
+    new_rows = {...
+        unique_name, 'simpsons', num2str(s_iter_4, 15), num2str(s_iter_8, 15), num2str(s_min_err, 15);
+    };
+    result_values = [result_values; new_rows];
+
     % plot error
     figure();
     plot(nlist, serr);
@@ -168,8 +193,13 @@ for ix = run_list
     % ----------------------------------------
     % adaptive simpsons, tol=1e-4
 
-    [a4val, a4out, h4out] = adaptive_simpsons(fh, rmin, rmax, 1E-4);
+    [a4val, a4out, h4out, count4] = adaptive_simpsons(fh, rmin, rmax, 1E-4);
     a4err = abs(true_num_val - a4val);
+    
+    % distribution of h
+    figure();
+    histogram(h4out);
+    saveas(gcf, [pwd, '/output/', unique_name, '_adaptive_simpsons_4_hist'], 'png');
     
     % plot adaptive h splits
     figure();
@@ -184,8 +214,13 @@ for ix = run_list
     % --------------------
     % adaptive simpsons, tol=1e-8
 
-    [a8val, a8out, h8out] = adaptive_simpsons(fh, rmin, rmax, 1E-8);
+    [a8val, a8out, h8out, count8] = adaptive_simpsons(fh, rmin, rmax, 1E-8);
     a8err = abs(true_num_val - a8val);
+    
+    % distribution of h
+    figure();
+    histogram(h8out);
+    saveas(gcf, [pwd, '/output/', unique_name, '_adaptive_simpsons_8_hist'], 'png');
     
     % plot adaptive h splits
     figure();
@@ -197,6 +232,18 @@ for ix = run_list
     title(['Function ' display_name ' - Adaptive Simpsons Rule @ 1e-8']);
     saveas(gcf, [pwd, '/output/', unique_name, '_adaptive_simpsons_8'], 'png');
 
+    
+    % --------------------
+   
+    % add output from task to table
+    new_rows = {...
+        unique_name, 'adaptive', num2str(count4), num2str(count8), '-';
+    };
+    result_values = [result_values; new_rows];
+
+    % ----------------------------------------
+
+    
 end
 
 writetable(true_values, [pwd, '/output/true_values_table.csv']);

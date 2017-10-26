@@ -11,7 +11,7 @@
 %   val         (float)     val
 %   out         (float)     out
 %
-function [val, aout, hout] = adaptive_simpsons(f, rmin, rmax, tol)
+function [val, aout, hout, count] = adaptive_simpsons(f, rmin, rmax, tol)
 
     % initialize all starting values
     val = 0;    
@@ -30,8 +30,12 @@ function [val, aout, hout] = adaptive_simpsons(f, rmin, rmax, tol)
     S(i) = h(i) * (F0(i) + 4*F1(i) + F2(i)) / 3;
     L(i) = 1;
 
+    count = 0;
     
     while i > 0
+        
+        count = count + 1;
+        
         % newleft half subinterval midpoint
         F1a = f(a(i)+h(i)/2);
         % new right half subinterval midpoint
