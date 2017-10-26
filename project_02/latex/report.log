@@ -1,15 +1,15 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.8.24)  26 OCT 2017 11:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.22)  26 OCT 2017 16:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **report.tex
 (./report.tex
-LaTeX2e <2011/06/27>
-Babel <3.9h> and hyphenation patterns for 2 languages loaded.
+LaTeX2e <2016/02/01>
+Babel <3.9q> and hyphenation patterns for 5 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
 \c@section=\count80
@@ -24,39 +24,39 @@ File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \bibindent=\dimen102
 )
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2013/12/03 3.9h The Babel package
+Package: babel 2016/02/24 3.9q The Babel package
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2012/08/20 v3.3p English support from the babel system
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2013/12/03 3.9h Babel common definitions
+File: babel.def 2016/02/24 3.9q Babel common definitions
 \babel@savecnt=\count87
 \U@D=\dimen103
 )
-\l@british = a dialect from \language\l@english 
-\l@UKenglish = a dialect from \language\l@english 
 \l@canadian = a dialect from \language\l@american 
 \l@australian = a dialect from \language\l@british 
 \l@newzealand = a dialect from \language\l@british 
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2008/03/30 v1.1d Input encoding file
+Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@prehook=\toks14
 \inpenc@posthook=\toks15
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
-File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
+File: utf8.def 2015/12/03 v1.1r UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu
-File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+File: t1enc.dfu 2015/12/03 v1.1r UTF-8 support for inputenc
+   defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
    defining Unicode char U+00AB (decimal 171)
+   defining Unicode char U+00AD (decimal 173)
    defining Unicode char U+00BB (decimal 187)
    defining Unicode char U+00BF (decimal 191)
    defining Unicode char U+00C0 (decimal 192)
@@ -121,50 +121,94 @@ File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00FD (decimal 253)
    defining Unicode char U+00FE (decimal 254)
    defining Unicode char U+00FF (decimal 255)
+   defining Unicode char U+0100 (decimal 256)
+   defining Unicode char U+0101 (decimal 257)
    defining Unicode char U+0102 (decimal 258)
    defining Unicode char U+0103 (decimal 259)
    defining Unicode char U+0104 (decimal 260)
    defining Unicode char U+0105 (decimal 261)
    defining Unicode char U+0106 (decimal 262)
    defining Unicode char U+0107 (decimal 263)
+   defining Unicode char U+0108 (decimal 264)
+   defining Unicode char U+0109 (decimal 265)
+   defining Unicode char U+010A (decimal 266)
+   defining Unicode char U+010B (decimal 267)
    defining Unicode char U+010C (decimal 268)
    defining Unicode char U+010D (decimal 269)
    defining Unicode char U+010E (decimal 270)
    defining Unicode char U+010F (decimal 271)
    defining Unicode char U+0110 (decimal 272)
    defining Unicode char U+0111 (decimal 273)
+   defining Unicode char U+0112 (decimal 274)
+   defining Unicode char U+0113 (decimal 275)
+   defining Unicode char U+0114 (decimal 276)
+   defining Unicode char U+0115 (decimal 277)
+   defining Unicode char U+0116 (decimal 278)
+   defining Unicode char U+0117 (decimal 279)
    defining Unicode char U+0118 (decimal 280)
    defining Unicode char U+0119 (decimal 281)
    defining Unicode char U+011A (decimal 282)
    defining Unicode char U+011B (decimal 283)
+   defining Unicode char U+011C (decimal 284)
+   defining Unicode char U+011D (decimal 285)
    defining Unicode char U+011E (decimal 286)
    defining Unicode char U+011F (decimal 287)
+   defining Unicode char U+0120 (decimal 288)
+   defining Unicode char U+0121 (decimal 289)
+   defining Unicode char U+0122 (decimal 290)
+   defining Unicode char U+0123 (decimal 291)
+   defining Unicode char U+0124 (decimal 292)
+   defining Unicode char U+0125 (decimal 293)
+   defining Unicode char U+0128 (decimal 296)
+   defining Unicode char U+0129 (decimal 297)
+   defining Unicode char U+012A (decimal 298)
+   defining Unicode char U+012B (decimal 299)
+   defining Unicode char U+012C (decimal 300)
+   defining Unicode char U+012D (decimal 301)
+   defining Unicode char U+012E (decimal 302)
+   defining Unicode char U+012F (decimal 303)
    defining Unicode char U+0130 (decimal 304)
    defining Unicode char U+0131 (decimal 305)
    defining Unicode char U+0132 (decimal 306)
    defining Unicode char U+0133 (decimal 307)
+   defining Unicode char U+0134 (decimal 308)
+   defining Unicode char U+0135 (decimal 309)
+   defining Unicode char U+0136 (decimal 310)
+   defining Unicode char U+0137 (decimal 311)
    defining Unicode char U+0139 (decimal 313)
    defining Unicode char U+013A (decimal 314)
+   defining Unicode char U+013B (decimal 315)
+   defining Unicode char U+013C (decimal 316)
    defining Unicode char U+013D (decimal 317)
    defining Unicode char U+013E (decimal 318)
    defining Unicode char U+0141 (decimal 321)
    defining Unicode char U+0142 (decimal 322)
    defining Unicode char U+0143 (decimal 323)
    defining Unicode char U+0144 (decimal 324)
+   defining Unicode char U+0145 (decimal 325)
+   defining Unicode char U+0146 (decimal 326)
    defining Unicode char U+0147 (decimal 327)
    defining Unicode char U+0148 (decimal 328)
    defining Unicode char U+014A (decimal 330)
    defining Unicode char U+014B (decimal 331)
+   defining Unicode char U+014C (decimal 332)
+   defining Unicode char U+014D (decimal 333)
+   defining Unicode char U+014E (decimal 334)
+   defining Unicode char U+014F (decimal 335)
    defining Unicode char U+0150 (decimal 336)
    defining Unicode char U+0151 (decimal 337)
    defining Unicode char U+0152 (decimal 338)
    defining Unicode char U+0153 (decimal 339)
    defining Unicode char U+0154 (decimal 340)
    defining Unicode char U+0155 (decimal 341)
+   defining Unicode char U+0156 (decimal 342)
+   defining Unicode char U+0157 (decimal 343)
    defining Unicode char U+0158 (decimal 344)
    defining Unicode char U+0159 (decimal 345)
    defining Unicode char U+015A (decimal 346)
    defining Unicode char U+015B (decimal 347)
+   defining Unicode char U+015C (decimal 348)
+   defining Unicode char U+015D (decimal 349)
    defining Unicode char U+015E (decimal 350)
    defining Unicode char U+015F (decimal 351)
    defining Unicode char U+0160 (decimal 352)
@@ -173,10 +217,22 @@ File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+0163 (decimal 355)
    defining Unicode char U+0164 (decimal 356)
    defining Unicode char U+0165 (decimal 357)
+   defining Unicode char U+0168 (decimal 360)
+   defining Unicode char U+0169 (decimal 361)
+   defining Unicode char U+016A (decimal 362)
+   defining Unicode char U+016B (decimal 363)
+   defining Unicode char U+016C (decimal 364)
+   defining Unicode char U+016D (decimal 365)
    defining Unicode char U+016E (decimal 366)
    defining Unicode char U+016F (decimal 367)
    defining Unicode char U+0170 (decimal 368)
    defining Unicode char U+0171 (decimal 369)
+   defining Unicode char U+0172 (decimal 370)
+   defining Unicode char U+0173 (decimal 371)
+   defining Unicode char U+0174 (decimal 372)
+   defining Unicode char U+0175 (decimal 373)
+   defining Unicode char U+0176 (decimal 374)
+   defining Unicode char U+0177 (decimal 375)
    defining Unicode char U+0178 (decimal 376)
    defining Unicode char U+0179 (decimal 377)
    defining Unicode char U+017A (decimal 378)
@@ -184,6 +240,31 @@ File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+017C (decimal 380)
    defining Unicode char U+017D (decimal 381)
    defining Unicode char U+017E (decimal 382)
+   defining Unicode char U+01CD (decimal 461)
+   defining Unicode char U+01CE (decimal 462)
+   defining Unicode char U+01CF (decimal 463)
+   defining Unicode char U+01D0 (decimal 464)
+   defining Unicode char U+01D1 (decimal 465)
+   defining Unicode char U+01D2 (decimal 466)
+   defining Unicode char U+01D3 (decimal 467)
+   defining Unicode char U+01D4 (decimal 468)
+   defining Unicode char U+01E2 (decimal 482)
+   defining Unicode char U+01E3 (decimal 483)
+   defining Unicode char U+01E6 (decimal 486)
+   defining Unicode char U+01E7 (decimal 487)
+   defining Unicode char U+01E8 (decimal 488)
+   defining Unicode char U+01E9 (decimal 489)
+   defining Unicode char U+01EA (decimal 490)
+   defining Unicode char U+01EB (decimal 491)
+   defining Unicode char U+01F0 (decimal 496)
+   defining Unicode char U+01F4 (decimal 500)
+   defining Unicode char U+01F5 (decimal 501)
+   defining Unicode char U+0218 (decimal 536)
+   defining Unicode char U+0219 (decimal 537)
+   defining Unicode char U+021A (decimal 538)
+   defining Unicode char U+021B (decimal 539)
+   defining Unicode char U+01E02 (decimal 7682)
+   defining Unicode char U+01E03 (decimal 7683)
    defining Unicode char U+200C (decimal 8204)
    defining Unicode char U+2013 (decimal 8211)
    defining Unicode char U+2014 (decimal 8212)
@@ -203,9 +284,11 @@ Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu
-File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+File: ot1enc.dfu 2015/12/03 v1.1r UTF-8 support for inputenc
+   defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00AD (decimal 173)
    defining Unicode char U+00B8 (decimal 184)
    defining Unicode char U+00BF (decimal 191)
    defining Unicode char U+00C5 (decimal 197)
@@ -223,6 +306,14 @@ File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+0142 (decimal 322)
    defining Unicode char U+0152 (decimal 338)
    defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+0174 (decimal 372)
+   defining Unicode char U+0175 (decimal 373)
+   defining Unicode char U+0176 (decimal 374)
+   defining Unicode char U+0177 (decimal 375)
+   defining Unicode char U+0218 (decimal 536)
+   defining Unicode char U+0219 (decimal 537)
+   defining Unicode char U+021A (decimal 538)
+   defining Unicode char U+021B (decimal 539)
    defining Unicode char U+2013 (decimal 8211)
    defining Unicode char U+2014 (decimal 8212)
    defining Unicode char U+2018 (decimal 8216)
@@ -234,7 +325,7 @@ Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu
-File: omsenc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+File: omsenc.dfu 2015/12/03 v1.1r UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
    defining Unicode char U+00B7 (decimal 183)
@@ -258,40 +349,40 @@ Now handling font encoding U ...
    defining Unicode char U+2423 (decimal 9251)
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2013/01/14 v2.14 AMS math features
+Package: amsmath 2016/03/03 v2.15a AMS math features
 \@mathmargin=\skip43
 
 For additional information on amsmath, use the `?' option.
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
-Package: amstext 2000/06/29 v2.01
+Package: amstext 2000/06/29 v2.01 AMS text
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
-File: amsgen.sty 1999/11/30 v2.0
+File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks16
 \ex@=\dimen104
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
-Package: amsbsy 1999/11/29 v1.2d
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen105
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count88
-LaTeX Info: Redefining \frac on input line 210.
+LaTeX Info: Redefining \frac on input line 199.
 \uproot@=\count89
 \leftroot@=\count90
-LaTeX Info: Redefining \overline on input line 306.
+LaTeX Info: Redefining \overline on input line 297.
 \classnum@=\count91
 \DOTSCASE@=\count92
-LaTeX Info: Redefining \ldots on input line 378.
-LaTeX Info: Redefining \dots on input line 381.
-LaTeX Info: Redefining \cdots on input line 466.
+LaTeX Info: Redefining \ldots on input line 394.
+LaTeX Info: Redefining \dots on input line 397.
+LaTeX Info: Redefining \cdots on input line 518.
 \Mathstrutbox@=\box26
 \strutbox@=\box27
 \big@size=\dimen106
-LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OML on input line 630.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
 \macc@depth=\count93
 \c@MaxMatrixCols=\count94
 \dotsspace@=\muskip10
@@ -312,26 +403,26 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 \multlinegap=\skip44
 \multlinetaggap=\skip45
 \mathdisplay@stack=\toks20
-LaTeX Info: Redefining \[ on input line 2665.
-LaTeX Info: Redefining \] on input line 2666.
+LaTeX Info: Redefining \[ on input line 2735.
+LaTeX Info: Redefining \] on input line 2736.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks21
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2016/01/03 v1.0q Standard LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
 File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: pdftex.def on input line 91.
+Package graphics Info: Driver file: pdftex.def on input line 95.
 
 (/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
@@ -466,11 +557,11 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 \Hy@SectionHShift=\skip46
 )
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 57.
+Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
 \captionmargin=\dimen119
 \captionmargin@=\dimen120
 \captionwidth=\dimen121
@@ -497,52 +588,72 @@ Package caption Info: hyperref package is loaded.
 \lst@maxwidth=\dimen129
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 \c@lstnumber=\count118
 \lst@skipnumbers=\count119
 \lst@framebox=\box29
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
-File: listings.cfg 2013/08/26 1.5b listings configuration
+File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
-Package: listings 2013/08/26 1.5b (Carsten Heinz)
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip47
+\subfigcapskip=\skip48
+\subfigcaptopadj=\dimen130
+\subfigbottomskip=\skip49
+\subfigcapmargin=\dimen131
+\subfiglabelskip=\skip50
+\c@subfigure=\count120
+\c@lofdepth=\count121
+\c@subtable=\count122
+\c@lotdepth=\count123
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip51
+\subfig@bottom=\skip52
+)
 (/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip47
-\bibsep=\skip48
+\bibhang=\skip53
+\bibsep=\skip54
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count120
+\c@NAT@ctr=\count124
 ) (./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count121
-\scratchdimen=\dimen130
+\scratchcounter=\count125
+\scratchdimen=\dimen132
 \scratchbox=\box30
-\nofMPsegments=\count122
-\nofMParguments=\count123
+\nofMPsegments=\count126
+\nofMParguments=\count127
 \everyMPshowfont=\toks23
-\MPscratchCnt=\count124
-\MPscratchDim=\dimen131
-\MPnumerator=\count125
-\makeMPintoPDFobject=\count126
+\MPscratchCnt=\count128
+\MPscratchDim=\dimen133
+\MPnumerator=\count129
+\makeMPintoPDFobject=\count130
 \everyMPtoPDFconversion=\toks24
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
@@ -560,7 +671,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box31
-Package hyperref Info: Link coloring OFF on input line 25.
+Package hyperref Info: Link coloring OFF on input line 26.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -568,11 +679,11 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count127
+\c@section@level=\count131
 )
-LaTeX Info: Redefining \ref on input line 25.
-LaTeX Info: Redefining \pageref on input line 25.
-LaTeX Info: Redefining \nameref on input line 25.
+LaTeX Info: Redefining \ref on input line 26.
+LaTeX Info: Redefining \pageref on input line 26.
+LaTeX Info: Redefining \nameref on input line 26.
 
 (./report.out) (./report.out)
 \@outlinefile=\write3
@@ -580,19 +691,20 @@ LaTeX Info: Redefining \nameref on input line 25.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
+Package caption Info: subfigure package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count128
+\c@lstlisting=\count132
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 69.
+(caption)                particular \caption on input line 70.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 88.
+(caption)                particular \caption on input line 89.
 See the caption package documentation for explanation.
 
 
@@ -600,17 +712,17 @@ See the caption package documentation for explanation.
 File: ../output/a_trapezoidal_sample_comparison.png Graphic file (type png)
 <use ../output/a_trapezoidal_sample_comparison.png>
 Package pdftex.def Info: ../output/a_trapezoidal_sample_comparison.png used on 
-input line 94.
-(pdftex.def)             Requested size: 345.0pt x 256.44029pt.
+input line 95.
+(pdftex.def)             Requested size: 276.00105pt x 205.15085pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 95.
+(caption)                particular \caption on input line 96.
 See the caption package documentation for explanation.
 
 [2] [3 <../output/a_trapezoidal_sample_comparison.png (PNG copy)>]
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2013/08/26 1.5b listings language file
+File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 <../additional/trapezoidal_fig.png, id=95, 519.44063pt x 246.9225pt>
 File: ../additional/trapezoidal_fig.png Graphic file (type png)
@@ -626,7 +738,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [4 <../additional/trapezoidal_fig.png>]
-<../additional/midpoint_fig.png, id=114, 518.6878pt x 249.18094pt>
+<../additional/midpoint_fig.png, id=115, 518.6878pt x 249.18094pt>
 File: ../additional/midpoint_fig.png Graphic file (type png)
 
 <use ../additional/midpoint_fig.png>
@@ -639,7 +751,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 161.
 See the caption package documentation for explanation.
 
-<../additional/simpsons_fig.png, id=123, 518.6878pt x 246.9225pt>
+<../additional/simpsons_fig.png, id=124, 518.6878pt x 246.9225pt>
 File: ../additional/simpsons_fig.png Graphic file (type png)
 
 <use ../additional/simpsons_fig.png>
@@ -657,7 +769,7 @@ LaTeX Font Info:    Try loading font information for OMS+cmr on input line 204.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 204.
@@ -665,7 +777,7 @@ LaTeX Font Info:    Try loading font information for OML+cmr on input line 215.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
-File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 215.
@@ -685,211 +797,203 @@ Overfull \hbox (519.00879pt too wide) in paragraph at lines 238--240
 ][] 
  []
 
-[7] <../output/a_actual.png, id=195, 413.8662pt x 314.6154pt>
+[7]
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 275.
+See the caption package documentation for explanation.
+
+<../output/a_actual.png, id=195, 429.2838pt x 338.7054pt>
 File: ../output/a_actual.png Graphic file (type png)
 
 <use ../output/a_actual.png>
-Package pdftex.def Info: ../output/a_actual.png used on input line 258.
-(pdftex.def)             Requested size: 345.0pt x 262.27325pt.
+Package pdftex.def Info: ../output/a_actual.png used on input line 285.
+(pdftex.def)             Requested size: 170.77594pt x 134.74069pt.
 
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 259.
-See the caption package documentation for explanation.
-
-<../output/a_trapezoidal.png, id=196, 602.25pt x 451.9284pt>
-File: ../output/a_trapezoidal.png Graphic file (type png)
-
-<use ../output/a_trapezoidal.png>
-Package pdftex.def Info: ../output/a_trapezoidal.png used on input line 264.
-(pdftex.def)             Requested size: 345.0pt x 258.89828pt.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 265.
-See the caption package documentation for explanation.
-
-[8 <../output/a_actual.png (PNG copy)>]
-<../output/a_midpoint.png, id=204, 421.575pt x 316.0608pt>
-File: ../output/a_midpoint.png Graphic file (type png)
-
-<use ../output/a_midpoint.png>
-Package pdftex.def Info: ../output/a_midpoint.png used on input line 271.
-(pdftex.def)             Requested size: 345.0pt x 258.6555pt.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 272.
-See the caption package documentation for explanation.
-
-<../output/a_simpsons.png, id=205, 413.8662pt x 314.6154pt>
-File: ../output/a_simpsons.png Graphic file (type png)
-
-<use ../output/a_simpsons.png>
-Package pdftex.def Info: ../output/a_simpsons.png used on input line 278.
-(pdftex.def)             Requested size: 345.0pt x 262.27325pt.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 279.
-See the caption package documentation for explanation.
-
-[9 <../output/a_trapezoidal.png (PNG copy)> <../output/a_midpoint.png (PNG copy
-)>] <../output/a_adaptive_simpsons_4.png, id=212, 421.575pt x 316.0608pt>
-File: ../output/a_adaptive_simpsons_4.png Graphic file (type png)
-
-<use ../output/a_adaptive_simpsons_4.png>
-Package pdftex.def Info: ../output/a_adaptive_simpsons_4.png used on input line
- 285.
-(pdftex.def)             Requested size: 345.0pt x 258.6555pt.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 286.
-See the caption package documentation for explanation.
-
-<../output/a_adaptive_simpsons_8.png, id=213, 421.575pt x 316.0608pt>
-File: ../output/a_adaptive_simpsons_8.png Graphic file (type png)
-
-<use ../output/a_adaptive_simpsons_8.png>
-Package pdftex.def Info: ../output/a_adaptive_simpsons_8.png used on input line
- 291.
-(pdftex.def)             Requested size: 345.0pt x 258.6555pt.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 292.
-See the caption package documentation for explanation.
-
-[10 <../output/a_simpsons.png (PNG copy)> <../output/a_adaptive_simpsons_4.png 
-(PNG copy)>] <../output/b_actual.png, id=220, 429.2838pt x 317.5062pt>
+<../output/b_actual.png, id=196, 429.2838pt x 338.7054pt>
 File: ../output/b_actual.png Graphic file (type png)
 
 <use ../output/b_actual.png>
-Package pdftex.def Info: ../output/b_actual.png used on input line 301.
-(pdftex.def)             Requested size: 345.0pt x 255.16801pt.
+Package pdftex.def Info: ../output/b_actual.png used on input line 289.
+(pdftex.def)             Requested size: 170.77594pt x 134.74069pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 291.
+See the caption package documentation for explanation.
+
+<../output/a_trapezoidal_midpoint.png, id=197, 429.2838pt x 338.7054pt>
+File: ../output/a_trapezoidal_midpoint.png Graphic file (type png)
+
+<use ../output/a_trapezoidal_midpoint.png>
+Package pdftex.def Info: ../output/a_trapezoidal_midpoint.png used on input lin
+e 301.
+(pdftex.def)             Requested size: 276.00105pt x 217.76302pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 302.
 See the caption package documentation for explanation.
 
-<../output/b_trapezoidal.png, id=221, 602.25pt x 451.9284pt>
-File: ../output/b_trapezoidal.png Graphic file (type png)
+[8 <../output/a_actual.png (PNG copy)> <../output/b_actual.png (PNG copy)>]
+<../output/b_trapezoidal_midpoint.png, id=206, 429.2838pt x 338.7054pt>
+File: ../output/b_trapezoidal_midpoint.png Graphic file (type png)
 
-<use ../output/b_trapezoidal.png>
-Package pdftex.def Info: ../output/b_trapezoidal.png used on input line 307.
-(pdftex.def)             Requested size: 345.0pt x 258.89828pt.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 308.
-See the caption package documentation for explanation.
-
-[11 <../output/a_adaptive_simpsons_8.png (PNG copy)> <../output/b_actual.png (P
-NG copy)>] <../output/b_midpoint.png, id=228, 421.575pt x 316.0608pt>
-File: ../output/b_midpoint.png Graphic file (type png)
-
-<use ../output/b_midpoint.png>
-Package pdftex.def Info: ../output/b_midpoint.png used on input line 314.
-(pdftex.def)             Requested size: 345.0pt x 258.6555pt.
+<use ../output/b_trapezoidal_midpoint.png>
+Package pdftex.def Info: ../output/b_trapezoidal_midpoint.png used on input lin
+e 308.
+(pdftex.def)             Requested size: 276.00105pt x 217.76302pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 315.
+(caption)                particular \caption on input line 309.
 See the caption package documentation for explanation.
 
-<../output/b_simpsons.png, id=229, 421.575pt x 316.0608pt>
+<../output/a_simpsons.png, id=207, 429.2838pt x 338.7054pt>
+File: ../output/a_simpsons.png Graphic file (type png)
+
+<use ../output/a_simpsons.png>
+Package pdftex.def Info: ../output/a_simpsons.png used on input line 317.
+(pdftex.def)             Requested size: 276.00105pt x 217.76302pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 318.
+See the caption package documentation for explanation.
+
+[9 <../output/a_trapezoidal_midpoint.png (PNG copy)> <../output/b_trapezoidal_m
+idpoint.png (PNG copy)>]
+<../output/b_simpsons.png, id=214, 429.2838pt x 338.7054pt>
 File: ../output/b_simpsons.png Graphic file (type png)
 
 <use ../output/b_simpsons.png>
-Package pdftex.def Info: ../output/b_simpsons.png used on input line 321.
-(pdftex.def)             Requested size: 345.0pt x 258.6555pt.
+Package pdftex.def Info: ../output/b_simpsons.png used on input line 324.
+(pdftex.def)             Requested size: 276.00105pt x 217.76302pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 322.
+(caption)                particular \caption on input line 325.
 See the caption package documentation for explanation.
 
-[12 <../output/b_trapezoidal.png (PNG copy)> <../output/b_midpoint.png (PNG cop
-y)>] <../output/b_adaptive_simpsons_4.png, id=236, 421.575pt x 316.0608pt>
+
+LaTeX Warning: Reference `fig:a_act' on page 10 undefined on input line 333.
+
+
+LaTeX Warning: Reference `fig:b_act' on page 10 undefined on input line 333.
+
+<../output/a_adaptive_simpsons_4.png, id=215, 429.2838pt x 338.7054pt>
+File: ../output/a_adaptive_simpsons_4.png Graphic file (type png)
+
+<use ../output/a_adaptive_simpsons_4.png>
+Package pdftex.def Info: ../output/a_adaptive_simpsons_4.png used on input line
+ 340.
+(pdftex.def)             Requested size: 170.77594pt x 134.74069pt.
+
+<../output/b_adaptive_simpsons_4.png, id=216, 429.2838pt x 338.7054pt>
 File: ../output/b_adaptive_simpsons_4.png Graphic file (type png)
 
 <use ../output/b_adaptive_simpsons_4.png>
 Package pdftex.def Info: ../output/b_adaptive_simpsons_4.png used on input line
- 328.
-(pdftex.def)             Requested size: 345.0pt x 258.6555pt.
+ 344.
+(pdftex.def)             Requested size: 170.77594pt x 134.74069pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 329.
+(caption)                particular \caption on input line 346.
 See the caption package documentation for explanation.
 
-<../output/b_adaptive_simpsons_8.png, id=237, 421.575pt x 316.0608pt>
+[10 <../output/a_simpsons.png (PNG copy)> <../output/b_simpsons.png (PNG copy)>
+] <../output/a_adaptive_simpsons_8.png, id=227, 429.2838pt x 338.7054pt>
+File: ../output/a_adaptive_simpsons_8.png Graphic file (type png)
+
+<use ../output/a_adaptive_simpsons_8.png>
+Package pdftex.def Info: ../output/a_adaptive_simpsons_8.png used on input line
+ 355.
+(pdftex.def)             Requested size: 276.00105pt x 217.76302pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 356.
+See the caption package documentation for explanation.
+
+<../output/a_adaptive_simpsons_8_hist.png, id=228, 429.2838pt x 338.7054pt>
+File: ../output/a_adaptive_simpsons_8_hist.png Graphic file (type png)
+
+<use ../output/a_adaptive_simpsons_8_hist.png>
+Package pdftex.def Info: ../output/a_adaptive_simpsons_8_hist.png used on input
+ line 361.
+(pdftex.def)             Requested size: 276.00105pt x 217.76302pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 362.
+See the caption package documentation for explanation.
+
+[11 <../output/a_adaptive_simpsons_4.png (PNG copy)> <../output/b_adaptive_simp
+sons_4.png (PNG copy)> <../output/a_adaptive_simpsons_8.png (PNG copy)>]
+<../output/b_adaptive_simpsons_8.png, id=237, 429.2838pt x 338.7054pt>
 File: ../output/b_adaptive_simpsons_8.png Graphic file (type png)
 
 <use ../output/b_adaptive_simpsons_8.png>
 Package pdftex.def Info: ../output/b_adaptive_simpsons_8.png used on input line
- 334.
-(pdftex.def)             Requested size: 345.0pt x 258.6555pt.
+ 368.
+(pdftex.def)             Requested size: 276.00105pt x 217.76302pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 335.
+(caption)                particular \caption on input line 369.
 See the caption package documentation for explanation.
 
-[13 <../output/b_simpsons.png (PNG copy)> <../output/b_adaptive_simpsons_4.png 
-(PNG copy)>] <../output/a_expanded_actual.png, id=245, 421.575pt x 316.0608pt>
+[12 <../output/a_adaptive_simpsons_8_hist.png (PNG copy)> <../output/b_adaptive
+_simpsons_8.png (PNG copy)>]
+<../output/a_expanded_actual.png, id=245, 429.2838pt x 338.7054pt>
 File: ../output/a_expanded_actual.png Graphic file (type png)
 
 <use ../output/a_expanded_actual.png>
-Package pdftex.def Info: ../output/a_expanded_actual.png used on input line 350
+Package pdftex.def Info: ../output/a_expanded_actual.png used on input line 380
 .
-(pdftex.def)             Requested size: 345.0pt x 258.6555pt.
+(pdftex.def)             Requested size: 170.77594pt x 134.74069pt.
 
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 351.
-See the caption package documentation for explanation.
-
-[14 <../output/b_adaptive_simpsons_8.png (PNG copy)>]
-<../output/b_expanded_actual.png, id=251, 421.575pt x 316.0608pt>
+<../output/b_expanded_actual.png, id=246, 429.2838pt x 338.7054pt>
 File: ../output/b_expanded_actual.png Graphic file (type png)
 
 <use ../output/b_expanded_actual.png>
-Package pdftex.def Info: ../output/b_expanded_actual.png used on input line 357
+Package pdftex.def Info: ../output/b_expanded_actual.png used on input line 384
 .
-(pdftex.def)             Requested size: 345.0pt x 258.6555pt.
+(pdftex.def)             Requested size: 170.77594pt x 134.74069pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 358.
+(caption)                particular \caption on input line 386.
 See the caption package documentation for explanation.
 
-[15 <../output/a_expanded_actual.png (PNG copy)> <../output/b_expanded_actual.p
+[13 <../output/a_expanded_actual.png (PNG copy)> <../output/b_expanded_actual.p
 ng (PNG copy)>] (./report.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 377.
- [16]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 377.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 398.
+ [14]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 398.
  (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 377.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 377.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 398.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 398.
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: B1E334E00488B00665480BA5EB5A8AA1;587.
+(rerunfilecheck)             Checksum: B65F2D587C833B69086F5B26CC36ECDB;633.
+
+
+LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 377.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 398.
  ) 
 Here is how much of TeX's memory you used:
- 10033 strings out of 495028
- 143955 string characters out of 6181497
- 256402 words of memory out of 5000000
- 13023 multiletter control sequences out of 15000+600000
+ 10306 strings out of 494910
+ 147214 string characters out of 6179836
+ 262370 words of memory out of 5000000
+ 13377 multiletter control sequences out of 15000+600000
  9537 words of font info for 35 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 36i,8n,42p,1452b,1806s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36 hyphenation exceptions out of 8191
+ 36i,8n,43p,1452b,1806s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
@@ -905,10 +1009,10 @@ amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on report.pdf (16 pages, 649126 bytes).
+Output written on report.pdf (14 pages, 623615 bytes).
 PDF statistics:
- 339 PDF objects out of 1000 (max. 8388607)
- 275 compressed objects within 3 object streams
- 104 named destinations out of 1000 (max. 500000)
- 171 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 333 PDF objects out of 1000 (max. 8388607)
+ 272 compressed objects within 3 object streams
+ 100 named destinations out of 1000 (max. 500000)
+ 166 words of extra memory for PDF output out of 10000 (max. 10000000)
 

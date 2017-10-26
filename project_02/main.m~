@@ -15,10 +15,10 @@ format long;
 % expanded range min and max (for visualizing broader function)
 % nfactor, used when generating vector of n values for testing
 
-%   name   func   a    b    a2   b2 
+%   name   func   a    b    a2   b2    nfactor
 jobs = {...
-    'a'    'a'    0    2    -2    3   ;
-    'b'    'b'    0    2    -4    2   ;
+    'a'    'a'    0    2    -2    3    16;
+    'b'    'b'    0    2    -4    2    10;
 };
 
 
@@ -108,16 +108,11 @@ for ix = run_list
     % trapezoidal rule
     
     % generate nlist based on a binary expansion for efficient sampling
+    bint = jobs{ix, 7};
+    nlist = 0.5 .* 2.^(1:bint);
+    nlist = nlist + 2.^(1:bint) ;
+    nlist = sort(horzcat(2.^(1:bint), nlist(2:end)));
     
-    if unique_name == 'a'
-        bint = 16;
-        nlist = 0.5 .* 2.^(1:bint);
-        nlist = nlist + 2.^(1:bint) ;
-        nlist = sort(horzcat(2.^(1:bint), nlist(2:end)));
-    else
-        nlist = 2:10:3000;
-    end
-
     [tval, th] = arrayfun(@(n) trapezoidal(fh, n, rmin, rmax), nlist);
     terr = abs(true_num_val - tval); 
         
@@ -168,12 +163,16 @@ for ix = run_list
     ylabel('Error (log scale)');
     xlabel('N');
     legend('Trapezoidal', 'Midpoint');
-    title(['Function ' display_name ' - Composite Trapezoidal/Midpoint Error']);
-    saveas(gcf, [pwd, '/output/', unique_name, '_trapezoidal_midpoint'], 'png');
+    title(['Function ' display_name ' - Composite Simpsons Rule']);
+    saveas(gcf, [pwd, '/output/', unique_name, '_simpsons'], 'png');
+    continue
+    aaa
+
 
     % ----------------------------------------
     % simpsons rules
     
+    % uses different nlist due to effectiveness of simpsons rules
     nlist = 2:10:3000;
     
     [sval, sh] = arrayfun(@(n) simpsons(fh, n, rmin, rmax), nlist);
@@ -192,6 +191,12 @@ for ix = run_list
     % plot error
     figure();
     plot(nlist, serr);
+%     set(gca, 'YScale', 'log');
+%     ylabel('Error (log scale)');
+%     xlabel('N');
+%     title(['Function ' display_name ' - Composite Simpsons Rule']);
+%     saveas(gcf, [pwd, '/output/', unique_name, '_simpsons'], 'png');
+
     
     hlines = [refline([0 10^-4]), refline([0 10^-8])];
     for hline = hlines
@@ -203,7 +208,7 @@ for ix = run_list
     set(gca, 'YScale', 'log');
     ylabel('Error (log scale)');
     xlabel('N');
-    title(['Function ' display_name ' - Composite Simpsons Error']);
+    title(['Function ' display_name ' - Composite Simpsons Rule']);
     saveas(gcf, [pwd, '/output/', unique_name, '_simpsons'], 'png');
 
  

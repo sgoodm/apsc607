@@ -1,0 +1,9 @@
+Function,Method,N4,N8,min_err
+a,trapezoidal,768,65536,4.26887325488678e-09
+a,midpoint,1024,98304,8.53747472717714e-09
+a,simpsons,42,322,1.30384592011978e-12
+a,adaptive,24,278,-
+b,trapezoidal,12,1082,1.29289451367143e-09
+b,midpoint,22,1522,2.58233556760246e-09
+b,simpsons,2,22,2.22044604925031e-16
+b,adaptive,2,16,-

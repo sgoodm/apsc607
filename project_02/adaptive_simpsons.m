@@ -3,15 +3,16 @@
 %
 % Args
 %   f           (function)  function to evaluate
-%   rmin        (int)       rmin
-%   rmax        (int)       rmax
-%   tol         (float)     tol
+%   rmin        (float)     lower bound
+%   rmax        (float)     upper bound
+%   tol         (float)     tolerance
 %
 % Returns
 %   val         (float)     val
-%   out         (float)     out
+%   aout        (vector)    vector of subinterval starting points
+%   hout        (vector)    vector of subinterval h values
 %
-function [val, aout, hout, count] = adaptive_simpsons(f, rmin, rmax, tol)
+function [val, aout, hout] = adaptive_simpsons(f, rmin, rmax, tol)
 
     % initialize all starting values
     val = 0;    
@@ -29,13 +30,9 @@ function [val, aout, hout, count] = adaptive_simpsons(f, rmin, rmax, tol)
     F2(i) = f(rmax);
     S(i) = h(i) * (F0(i) + 4*F1(i) + F2(i)) / 3;
     L(i) = 1;
-
-    count = 0;
     
     while i > 0
-        
-        count = count + 1;
-        
+                
         % newleft half subinterval midpoint
         F1a = f(a(i)+h(i)/2);
         % new right half subinterval midpoint

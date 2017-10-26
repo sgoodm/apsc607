@@ -7,6 +7,7 @@
 \usepackage[breaklinks]{hyperref}
 \usepackage{caption}
 \usepackage{listings}
+\usepackage{subfigure}
 \usepackage[round]{natbib}
 \bibliographystyle{plainnat}
 
@@ -91,7 +92,7 @@ The tolerance is defined as the absolute difference between the result of numeri
 \egroup
 
 \begin{center}
-	\includegraphics[width=1\textwidth]{../output/a_trapezoidal_sample_comparison.png}
+	\includegraphics[width=0.8\textwidth]{../output/a_trapezoidal_sample_comparison.png}
 	\captionof{figure}{Sample Comparison}
 	\label{fig:sample_comparison}
 \end{center}
@@ -113,7 +114,7 @@ The value of \textbf{n} required to reach the specified tolerance is dependent o
 \label{sim_err}
 \end{equation}
 
-All values of \textbf{n} tested will be positive and even, as it is required for the Midpoint and Simpson's Rules. Although the Trapezoidal Rule can be used with odd intervals, using only even intervals will provide sufficient sample points for analysis. In order to test \textbf{n} over a sufficient range for the Trapezoidal and Midpoint Rules, a binary expansion will be used to generate values of \textbf{n} at which to sample the full range, rather than test at every possible step. Starting with two sub intervals ($n=2$), if every even sub interval value up to 100,000 was tested it would require 50,000 points. By incorporating a binary expansion based approach, a sample of only 20 different \textbf{n} values can generated which are capable of sufficiently demonstrating the behavior of the integration rules.
+All values of \textbf{n} tested will be positive and even, as it is required for the Midpoint and Simpson's Rules. Although the Trapezoidal Rule can be used with odd intervals, using only even intervals will provide sufficient sample points for analysis. For most cases, the values of \textbf{n} will range from zero to three thousand, at intervals of ten. However, in certain cases where it takes roughly 100,000 subintervals to reach the lowest tolerance with the Trapezoidal or Midpoint Rules, a binary expansion will be used to generate values of \textbf{n} at which to sample the full range, rather than test at every possible step. Starting with two sub intervals ($n=2$), if every even sub interval value up to 100,000 was tested it would require 50,000 points. By incorporating a binary expansion based approach in this scenario, a sample of only 20 different \textbf{n} values can generated which are capable of sufficiently demonstrating the behavior of the integration rules.
 
 Due to the higher order error term, Simpson's Rule can reach the desired tolerance much quicker and a simple range of $2:2:nmax$ can be used. 
 
@@ -125,7 +126,7 @@ The functions implementing the Trapezoidal, Midpoint, and Simpson's Rules will b
 \end{lstlisting}
 \bigskip
 
- The resulting vector of integral values across varying \textbf{n} can compared with the true integral value generated earlier, to produce an error vector. The error vector is used to identify the value of \textbf{n} (and thus \textbf{h}) at which the integration rule produced results that were accurate within a desired tolerance. No \textbf{n} value needs to be specified for the adaptive approach because, as seen in Subsection \ref{method:adaptive}, this approach iteratively checks (within the function) that a specified tolerance has been reached before producing a single output rather than using a set \textbf{n} value to produce a set of output values.
+The resulting vector of integral values across varying \textbf{n} can compared with the true integral value generated earlier, to produce an error vector. The error vector is used to identify the value of \textbf{n} (and thus \textbf{h}) at which the integration rule produced results that were accurate within a desired tolerance. No \textbf{n} value needs to be specified for the adaptive approach because, as seen in Subsection \ref{method:adaptive}, this approach iteratively checks (within the function) that a specified tolerance has been reached before producing a single output rather than using a set \textbf{n} value to produce a set of output values.
 
 The remainder of this section will introduce the three composite numerical integration approaches (Trapezoidal, Midpoint, and Simpson's) and the adaptive approach using Simpson's Rule.
 
@@ -133,7 +134,6 @@ The remainder of this section will introduce the three composite numerical integ
 \subsection{Composite Trapezoidal Rule}\label{method:trapezoidal}
 
 \begin{center}
-
 	\includegraphics[width=1\textwidth]{../additional/trapezoidal_fig.png}
 	\captionof{figure}{Trapezoidal Figure \citep{burden2010}}
 	\label{trap_fig}
@@ -246,126 +246,147 @@ while number_of_subintervals_remaining > 0
 \section{Results}
 \label{sec:results}
 
-TEXT
+
+Choose h and n carefully. What h and n do you need to use for the final result to approximate the analytic solution to within 10 -4 , 10 -8 .
+
+
+What is the best tolerance level I can reach? What h and n were needed to reach this tolerance level? What happens if I make h smaller?
 
 
 Something about minimum error in footnote\footnote{See following link on MATLAB precision limitions (general limitations of floating point representations apply) https://www.mathworks.com/help/fixedpoint/ug/limitations-on-precision.html}.
 
 
-\subsection{A}\label{results:a}
-
+\bgroup
+\def\arraystretch{1.5}
 \begin{center}
-	\includegraphics[width=1\textwidth]{../output/a_actual.png}
-	\captionof{figure}{caption text a}
-	\label{fig:a_act}
+	\centering
+	\begin{tabular}{l|l|r|r|r}
+	\textbf{Function} & \textbf{Method} & \textbf{N: $10^{-4}$} & \textbf{N: $10^{-8}$} &\textbf{Minimum Error} \\
+	\hline  
+	a & trapezoidal & 768  & 65536 & 4.26887e-09 \\
+    a & midpoint    & 1024 & 98304 & 8.53747e-09 \\
+    a & simpsons    & 42   & 322   & 1.30384e-12 \\
+    a & adaptive    & 24   & 278   & -           \\
+    b & trapezoidal & 12   & 1082  & 1.29289e-09 \\
+    b & midpoint    & 22   & 1522  & 2.58233e-09 \\
+    b & simpsons    & 2    & 22    & 2.22044e-16 \\
+    b & adaptive    & 2    & 16    & -  
+	\end{tabular}
+	\captionof{table}{Results}
+	\label{table:results}
+\end{center}
+\egroup
+
+ 
+\begin{center}
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=0.99\textwidth]{../output/a_actual.png}
+    \end{minipage}\hfill
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=0.99\textwidth]{../output/b_actual.png}
+    \end{minipage}
+  	\captionof{figure}{True plots of Function A and B between zero and two}
+	\label{fig:true}
+
 \end{center}
 
+
+
+\subsection{Trapezoidal and Midpoint Rules}\label{results:a}
+
 \begin{center}
-	\includegraphics[width=1\textwidth]{../output/a_trapezoidal.png}
+	\includegraphics[width=0.8\textwidth]{../output/a_trapezoidal_midpoint.png}
 	\captionof{figure}{caption text a}
-	\label{fig:a_trap}
+	\label{fig:a_trap_mid}
 \end{center}
 
 
 \begin{center}
-	\includegraphics[width=1\textwidth]{../output/a_midpoint.png}
+	\includegraphics[width=0.8\textwidth]{../output/b_trapezoidal_midpoint.png}
 	\captionof{figure}{caption text a}
-	\label{fig:a_mid}
+	\label{fig:b_trap_mid}
 \end{center}
 
 
+\subsection{Simpson's Rule}\label{results:sim}
+
 \begin{center}
-	\includegraphics[width=1\textwidth]{../output/a_simpsons.png}
+	\includegraphics[width=0.8\textwidth]{../output/a_simpsons.png}
 	\captionof{figure}{caption text a}
 	\label{fig:a_sim}
 \end{center}
 
 
 \begin{center}
-	\includegraphics[width=1\textwidth]{../output/a_adaptive_simpsons_4.png}
-	\captionof{figure}{caption text a}
-	\label{fig:a_adap4}
-\end{center}
-
-\begin{center}
-	\includegraphics[width=1\textwidth]{../output/a_adaptive_simpsons_8.png}
-	\captionof{figure}{caption text a}
-	\label{fig:a_adap8}
-\end{center}
-
-
-
-\subsection{B}\label{results:b}
-
-\begin{center}
-	\includegraphics[width=1\textwidth]{../output/b_actual.png}
-	\captionof{figure}{caption text a}
-	\label{fig:b_act}
-\end{center}
-
-\begin{center}
-	\includegraphics[width=1\textwidth]{../output/b_trapezoidal.png}
-	\captionof{figure}{caption text a}
-	\label{fig:b_trap}
-\end{center}
-
-
-\begin{center}
-	\includegraphics[width=1\textwidth]{../output/b_midpoint.png}
-	\captionof{figure}{caption text a}
-	\label{fig:b_mid}
-\end{center}
-
-
-\begin{center}
-	\includegraphics[width=1\textwidth]{../output/b_simpsons.png}
+	\includegraphics[width=0.8\textwidth]{../output/b_simpsons.png}
 	\captionof{figure}{caption text a}
 	\label{fig:b_sim}
 \end{center}
 
 
+
+\subsection{Adaptive Simpson's}\label{results:adaptive}
+
+Based on the true function plots Figures \ref{fig:a_act} and \ref{fig:b_act} it is reasonable to expect that an adaptive approach may yield some benefit for Function A due to the variable nature of the function over this range, while Function B has a relatively minor and fairly consistent slope and would not be a good use case for an adaptive method.
+
+
 \begin{center}
-	\includegraphics[width=1\textwidth]{../output/b_adaptive_simpsons_4.png}
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=0.99\textwidth]{../output/a_adaptive_simpsons_4.png}
+    \end{minipage}\hfill
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=0.99\textwidth]{../output/b_adaptive_simpsons_4.png}
+    \end{minipage}
+  	\captionof{figure}{Subintervals generated by adaptive Simpson's Rule for Function A and B with tolerance of $10^{-4}$}
+	\label{fig:adap4}
+\end{center}
+
+
+Figure \ref{fig:adap4} shows the subinterval pairs generated by the application of the adaptive Simpsons's Rule with a relatively high tolerance of $10^{-4}$. Although there is some minor variation in the values of \textbf{h} for Function A, Function B required only a single subinterval pair to reach the tolerance and clearly did not need an adaptive approach. When the tolerance is reduced to $10^{-8}$, Function B still has no variance in the values of \textbf{h} over the 16 subintervals generated, seen in Figure \ref{fig:b_adap8}. Function A, however, does benefit slightly over the 278 subinterval pairs seen in Figure \ref{fig:a_adap8}. The distribution of the size of subintervals can be seen in Figure \ref{fig:a_adap8_hist}.
+
+
+\begin{center}
+	\includegraphics[width=0.8\textwidth]{../output/a_adaptive_simpsons_8.png}
 	\captionof{figure}{caption text a}
-	\label{fig:b_adap4}
+	\label{fig:a_adap8}
 \end{center}
 
 \begin{center}
-	\includegraphics[width=1\textwidth]{../output/b_adaptive_simpsons_8.png}
+	\includegraphics[width=0.8\textwidth]{../output/a_adaptive_simpsons_8_hist.png}
+	\captionof{figure}{caption text a}
+	\label{fig:a_adap8_hist}
+\end{center}
+
+
+\begin{center}
+	\includegraphics[width=0.8\textwidth]{../output/b_adaptive_simpsons_8.png}
 	\captionof{figure}{caption text a}
 	\label{fig:b_adap8}
 \end{center}
 
 
-
-
-
-
-\subsection{Expanded Range}\label{results:expanded}
-
-
- integration over an expanded range and the potential utility of adaptive approaches in such a scenario
+If the range over which the integral was taken is expanded, as seen in Figure \ref{fig:expanded}, an adaptive approach becomes much more useful. When expanded with a lower bound of -2 and an upper bound of 3, Function A has a substantial portion of the range between -2 and 1 where the integral will be close to zero. The adaptive approach would reduce \textbf{h} over this range, and then between 1 and 3,  where there is significant variation in the function and a larger relative integral, the value of \textbf{h} would increase as needed. Similarly, when Function B is expanded to -3.9 and 2, the integral between -3.9 and -3 is much larger relative to the integral between -3 and 2. In this case, the adaptive approach to integration would again prove useful\footnote{Function B has a vertical asymptote at -4 which introduces a complication when calculating the integral as it is technically infinite at -4. A practical approach to calculating this integral would be to split the calculation into one part up to just before -4 and another part start just after -4}.
 
 \begin{center}
-	\includegraphics[width=1\textwidth]{../output/a_expanded_actual.png}
-	\captionof{figure}{caption text a}
-	\label{fig:a_ex}
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=0.99\textwidth]{../output/a_expanded_actual.png}
+    \end{minipage}\hfill
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=0.99\textwidth]{../output/b_expanded_actual.png}
+    \end{minipage}
+  	\captionof{figure}{True plots of Function A and B over expanded range}
+	\label{fig:expanded}
+
 \end{center}
-
-
-\begin{center}
-	\includegraphics[width=1\textwidth]{../output/b_expanded_actual.png}
-	\captionof{figure}{caption text a}
-	\label{fig:b_ex}
-\end{center}
-
-
-
-
-
-
-
-
 
 
 

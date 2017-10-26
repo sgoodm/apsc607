@@ -3,13 +3,13 @@
 %
 % Args
 %   f           (function)  function to evaluate
-%   n           (int)       n
-%   rmin        (int)       rmin
-%   rmax        (int)       rmax
+%   n           (int)       number of subintervals
+%   rmin        (float)     lower bound
+%   rmax        (float)     upper bound
 %
 % Returns
-%   val         (float)     val
-%   h           (float)     h
+%   val         (float)     integral value
+%   h           (float)     h value for given n
 %
 function [val, h] = trapezoidal(f, n, rmin, rmax)
 
