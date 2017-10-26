@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.22)  26 OCT 2017 17:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.22)  26 OCT 2017 17:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -803,14 +803,14 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 275.
 See the caption package documentation for explanation.
 
-<../output/a_actual.png, id=196, 429.2838pt x 338.7054pt>
+<../output/a_actual.png, id=198, 429.2838pt x 338.7054pt>
 File: ../output/a_actual.png Graphic file (type png)
 
 <use ../output/a_actual.png>
 Package pdftex.def Info: ../output/a_actual.png used on input line 285.
 (pdftex.def)             Requested size: 170.77594pt x 134.74069pt.
 
-<../output/b_actual.png, id=197, 429.2838pt x 338.7054pt>
+<../output/b_actual.png, id=199, 429.2838pt x 338.7054pt>
 File: ../output/b_actual.png Graphic file (type png)
 
 <use ../output/b_actual.png>
@@ -822,7 +822,8 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 291.
 See the caption package documentation for explanation.
 
-<../output/a_trapezoidal_midpoint.png, id=199, 429.2838pt x 338.7054pt>
+[8 <../output/a_actual.png (PNG copy)> <../output/b_actual.png (PNG copy)>]
+<../output/a_trapezoidal_midpoint.png, id=209, 429.2838pt x 338.7054pt>
 File: ../output/a_trapezoidal_midpoint.png Graphic file (type png)
 
 <use ../output/a_trapezoidal_midpoint.png>
@@ -835,8 +836,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 306.
 See the caption package documentation for explanation.
 
-[8 <../output/a_actual.png (PNG copy)> <../output/b_actual.png (PNG copy)>]
-<../output/b_trapezoidal_midpoint.png, id=206, 429.2838pt x 338.7054pt>
+<../output/b_trapezoidal_midpoint.png, id=210, 429.2838pt x 338.7054pt>
 File: ../output/b_trapezoidal_midpoint.png Graphic file (type png)
 
 <use ../output/b_trapezoidal_midpoint.png>
@@ -851,7 +851,7 @@ See the caption package documentation for explanation.
 
 [9 <../output/a_trapezoidal_midpoint.png (PNG copy)> <../output/b_trapezoidal_m
 idpoint.png (PNG copy)>]
-<../output/a_simpsons.png, id=215, 429.2838pt x 338.7054pt>
+<../output/a_simpsons.png, id=222, 429.2838pt x 338.7054pt>
 File: ../output/a_simpsons.png Graphic file (type png)
 
 <use ../output/a_simpsons.png>
@@ -863,7 +863,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 325.
 See the caption package documentation for explanation.
 
-<../output/b_simpsons.png, id=218, 429.2838pt x 338.7054pt>
+<../output/b_simpsons.png, id=225, 429.2838pt x 338.7054pt>
 File: ../output/b_simpsons.png Graphic file (type png)
 
 <use ../output/b_simpsons.png>
@@ -875,8 +875,8 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 333.
 See the caption package documentation for explanation.
 
-[10 <../output/a_simpsons.png (PNG copy)> <../output/b_simpsons.png (PNG copy)>
-] <../output/a_adaptive_simpsons_4.png, id=228, 429.2838pt x 338.7054pt>
+[10 <../output/a_simpsons.png (PNG copy)>]
+<../output/a_adaptive_simpsons_4.png, id=235, 429.2838pt x 338.7054pt>
 File: ../output/a_adaptive_simpsons_4.png Graphic file (type png)
 
 <use ../output/a_adaptive_simpsons_4.png>
@@ -884,7 +884,7 @@ Package pdftex.def Info: ../output/a_adaptive_simpsons_4.png used on input line
  348.
 (pdftex.def)             Requested size: 170.77594pt x 134.74069pt.
 
-<../output/b_adaptive_simpsons_4.png, id=229, 429.2838pt x 338.7054pt>
+<../output/b_adaptive_simpsons_4.png, id=236, 429.2838pt x 338.7054pt>
 File: ../output/b_adaptive_simpsons_4.png Graphic file (type png)
 
 <use ../output/b_adaptive_simpsons_4.png>
@@ -897,7 +897,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 354.
 See the caption package documentation for explanation.
 
-<../output/a_adaptive_simpsons_8.png, id=234, 429.2838pt x 338.7054pt>
+<../output/a_adaptive_simpsons_8.png, id=241, 429.2838pt x 338.7054pt>
 File: ../output/a_adaptive_simpsons_8.png Graphic file (type png)
 
 <use ../output/a_adaptive_simpsons_8.png>
@@ -910,9 +910,9 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 364.
 See the caption package documentation for explanation.
 
-[11 <../output/a_adaptive_simpsons_4.png (PNG copy)> <../output/b_adaptive_simp
-sons_4.png (PNG copy)>]
-<../output/a_adaptive_simpsons_8_hist.png, id=244, 429.2838pt x 338.7054pt>
+[11 <../output/b_simpsons.png (PNG copy)> <../output/a_adaptive_simpsons_4.png 
+(PNG copy)> <../output/b_adaptive_simpsons_4.png (PNG copy)>]
+<../output/a_adaptive_simpsons_8_hist.png, id=251, 429.2838pt x 338.7054pt>
 File: ../output/a_adaptive_simpsons_8_hist.png Graphic file (type png)
 
 <use ../output/a_adaptive_simpsons_8_hist.png>
@@ -925,7 +925,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 370.
 See the caption package documentation for explanation.
 
-<../output/b_adaptive_simpsons_8.png, id=245, 429.2838pt x 338.7054pt>
+<../output/b_adaptive_simpsons_8.png, id=252, 429.2838pt x 338.7054pt>
 File: ../output/b_adaptive_simpsons_8.png Graphic file (type png)
 
 <use ../output/b_adaptive_simpsons_8.png>
@@ -940,7 +940,7 @@ See the caption package documentation for explanation.
 
 [12 <../output/a_adaptive_simpsons_8.png (PNG copy)> <../output/a_adaptive_simp
 sons_8_hist.png (PNG copy)>]
-<../output/a_expanded_actual.png, id=252, 429.2838pt x 338.7054pt>
+<../output/a_expanded_actual.png, id=259, 429.2838pt x 338.7054pt>
 File: ../output/a_expanded_actual.png Graphic file (type png)
 
 <use ../output/a_expanded_actual.png>
@@ -948,7 +948,7 @@ Package pdftex.def Info: ../output/a_expanded_actual.png used on input line 388
 .
 (pdftex.def)             Requested size: 170.77594pt x 134.74069pt.
 
-<../output/b_expanded_actual.png, id=253, 429.2838pt x 338.7054pt>
+<../output/b_expanded_actual.png, id=260, 429.2838pt x 338.7054pt>
 File: ../output/b_expanded_actual.png Graphic file (type png)
 
 <use ../output/b_expanded_actual.png>
@@ -974,35 +974,37 @@ Package rerunfilecheck Info: File `report.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 406.
  ) 
 Here is how much of TeX's memory you used:
- 10312 strings out of 494910
- 147255 string characters out of 6179836
- 265080 words of memory out of 5000000
- 13380 multiletter control sequences out of 15000+600000
- 10982 words of font info for 40 fonts, out of 8000000 for 9000
+ 10317 strings out of 494910
+ 147304 string characters out of 6179836
+ 265082 words of memory out of 5000000
+ 13382 multiletter control sequences out of 15000+600000
+ 11643 words of font info for 42 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  36i,8n,43p,1452b,1804s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmtt8.pfb>
-Output written on report.pdf (14 pages, 661040 bytes).
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmtt8.pfb>
+Output written on report.pdf (14 pages, 678395 bytes).
 PDF statistics:
- 350 PDF objects out of 1000 (max. 8388607)
- 286 compressed objects within 3 object streams
- 98 named destinations out of 1000 (max. 500000)
+ 363 PDF objects out of 1000 (max. 8388607)
+ 297 compressed objects within 3 object streams
+ 99 named destinations out of 1000 (max. 500000)
  166 words of extra memory for PDF output out of 10000 (max. 10000000)
 

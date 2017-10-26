@@ -253,7 +253,7 @@ Choose h and n carefully. What h and n do you need to use for the final result t
 
 What is the best tolerance level I can reach? What h and n were needed to reach this tolerance level? What happens if I make h smaller?
 
-
+This section will review the results of the different integration rules for Functions A and B. An overview of these results can be seen in Table \ref{table:results}. Figure \ref{fig:true} contains the true plots of both function, for reference.
 
 
 \bgroup
@@ -299,7 +299,7 @@ What is the best tolerance level I can reach? What h and n were needed to reach 
 
 The Composite Trapezoidal and Midpoint Rules performed comparably well to one another, as expected given their similarity - both conceptually and in terms of the equations used to implement them (and the associated error terms).
 
-Function A require relatively large values of \textbf{n}, nearly 100,000 to reach the lower level tolerance of $10^{-8}$ and necessitated the use of the binary expansion sampling discussed in the \textit{Methods} section earlier. Ultimately, the Trapezoidal and Midpoint Rules required an \textbf{n} values of 65,000 and 98,000, respectively, to achieve this tolerance level (seen in Table \ref{table:results}.  
+Function A require relatively large values of \textbf{n}, nearly 100,000 to reach the lower level tolerance of $10^{-8}$ and necessitated the use of the binary expansion sampling discussed in the \textit{Methods} section earlier. Ultimately, the Trapezoidal and Midpoint Rules required an \textbf{n} values of 65,000 and 98,000, respectively, to achieve this tolerance level (seen in Table \ref{table:results}\footnote{As mentioned in the \textit{Methods} section, the values of \textbf{n} listed in Table \ref{table:results} for the Trapezoidal and Midpoint Rules used with Function A are slightly greater than what is actually required to reach the specified tolerance, due to the binary sampling.}.  
 
 \begin{center}
 	\includegraphics[width=0.8\textwidth]{../output/a_trapezoidal_midpoint.png}
