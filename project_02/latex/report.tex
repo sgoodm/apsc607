@@ -33,7 +33,7 @@
 \section{Introduction}
 \label{sec:introduction}
 
-This project explores different numerical methods for calculating the definite integrals of functions. Two functions will be examined in the range between zero and two, using the Composite Trapezoidal Rule, Composite Midpoint Rule, Composite Simpson’s Rule, as well as an adaptive implementation of Simpson’s Rule. The behavior and characteristics of these methods will be reviewed and their accuracy evaluated at varying number of subintervals, \textbf{n}. For each \textbf{n}, the result will be compared to the true integral value, using tolerance thresholds to determine sufficient levels of accuracy. 
+This project explores different numerical methods for calculating the definite integrals of functions. Two functions will be examined in the range between zero and two, using the Composite Trapezoidal Rule, Composite Midpoint Rule, and Composite Simpson’s Rule, as well as an adaptive implementation of Simpson’s Rule. The behavior and characteristics of these methods will be reviewed and their accuracy evaluated at varying number of subintervals, \textbf{n}. For each \textbf{n}, the result will be compared to the true integral value, using tolerance thresholds to determine sufficient levels of accuracy. 
   		  
 All computations are performed using MATLAB using the code accompanying this report. Section \ref{sec:methods} will present the methods used in MATLAB to explore functions. Section \ref{sec:results} contains the results and related outputs for each function along with observations and discussion. All figures and tables found in this report are available in the output subdirectory of the accompanying zip file. Additionally, all code and figures found in the zip file can be accessed via GitHub\footnote{\url{https://github.com/sgoodm/apsc607/tree/master/project_02}}
 
@@ -146,7 +146,7 @@ Figure \ref{fig:sample_comparison} illustrates an example of the sampling points
 \egroup
 
 
-The functions implementing the Trapezoidal, Midpoint, and Simpson's Rules will be called over the range of values for \textbf{n} using the \textbf{arrayfun} function in MATLAB. This function accepts another function, defining our integration rule, and a vector, and simply repeatedly calls the specified value while iterating over the values in the vector. The call to \textbf{arrayfun} then return a vector (or set of vectors in this case) containing the results from each call to the integration function. A simplified example below show the \textbf{arrayfun} function being used to pass each \textbf{n} value in a vector called \textbf{nlist} to a trapezoidal function, returning a vector of the resulting output values.
+The functions implementing the Trapezoidal, Midpoint, and Simpson's Rules will be called over the range of values for \textbf{n} using the \textbf{arrayfun} function in MATLAB. This function accepts another function, defining our integration rule, and a vector, and simply repeatedly calls the specified value while iterating over the values in the vector. The call to \textbf{arrayfun} then returns a vector (or set of vectors in this case) containing the results from each call to the integration function. A simplified example below show the \textbf{arrayfun} function being used to pass each \textbf{n} value in a vector called \textbf{nlist} to a trapezoidal function, returning a vector of the resulting output values.
 
 \bigskip
 \begin{lstlisting}[language=Matlab]
@@ -272,10 +272,10 @@ while number_of_subintervals_remaining > 0:
 \section{Results}
 \label{sec:results}
 
-This section will review the results of the different integration rules for Functions A and B. An overview of these results can be seen in Table \ref{table:results}. Figure \ref{fig:true} contains the true plots of both function, for reference.
-
+This section will review the results of the different integration rules for Functions A and B. An overview of these results can be seen in Table \ref{table:results}, which shows the the number of subintervals required to reach each tolerance specified, as well as the final error achieved. Figure \ref{fig:true} contains the true plots of both function, for reference.
 
 \bgroup
+\footnotesize
 \def\arraystretch{1.5}
 \begin{center}
 	\centering
@@ -316,9 +316,9 @@ This section will review the results of the different integration rules for Func
 
 \subsection{Trapezoidal and Midpoint Results}\label{results:a}
 
-The Composite Trapezoidal and Midpoint Rules performed comparably well to one another, as expected given their similarity - both conceptually and in terms of the equations used to implement them (and the associated error terms).
+The Composite Trapezoidal and Midpoint Rules performed comparably well to one another, as expected given their similarity - both conceptually and in terms of the equations used to implement them (and the associated error terms) The error plots for the functions using these rules can be seen in Figures \ref{fig:a_trap_mid} and \ref{fig:b_trap_mid}.
 
-Function A require relatively large values of \textbf{n}, nearly 100,000 to reach the lower level tolerance of $10^{-8}$ and necessitated the use of the binary expansion sampling discussed in the \textit{Methods} section earlier. Ultimately, the Trapezoidal and Midpoint Rules required an \textbf{n} values of 65,000 and 98,000, respectively, to achieve this tolerance level (seen in Table \ref{table:results}\footnote{As mentioned in the \textit{Methods} section, the values of \textbf{n} listed in Table \ref{table:results} for the Trapezoidal and Midpoint Rules used with Function A are slightly greater than what is actually required to reach the specified tolerance, due to the binary sampling.}.  
+Function A require relatively large values of \textbf{n}, nearly 100,000 to reach the lower level tolerance of $10^{-8}$ and necessitated the use of the binary expansion sampling discussed in Section \ref{sec:methods} earlier. Ultimately, the Trapezoidal and Midpoint Rules required an \textbf{n} values of 65,000 and 98,000, respectively, to achieve this tolerance level (seen in Table \ref{table:results}\footnote{As mentioned in the \textit{Methods} section, the values of \textbf{n} listed in Table \ref{table:results} for the Trapezoidal and Midpoint Rules used with Function A are slightly greater than what is actually required to reach the specified tolerance, due to the binary sampling.}.  
 
 \begin{center}
 	\includegraphics[width=0.7\textwidth]{../output/a_trapezoidal_midpoint.png}
