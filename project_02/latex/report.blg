@@ -1,11 +1,11 @@
-This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: report.aux
 The style file: plainnat.bst
 Database file #1: report.bib
 You've used 1 entry,
             2773 wiz_defined-function locations,
-            597 strings with 4902 characters,
+            597 strings with 4894 characters,
 and the built_in function-call counts, 398 in all, are:
 = -- 30
 > -- 21
