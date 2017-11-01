@@ -115,7 +115,7 @@ for ix = run_list
         nlist = nlist + 2.^(1:bint) ;
         nlist = sort(horzcat(2.^(1:bint), nlist(2:end)));
     else
-        nlist = 2:10:3000;
+        nlist = 2:2:3000;
     end
 
     [tval, th] = arrayfun(@(n) trapezoidal(fh, n, rmin, rmax), nlist);
@@ -174,7 +174,7 @@ for ix = run_list
     % ----------------------------------------
     % simpsons rules
     
-    nlist = 2:10:3000;
+    nlist = 2:2:3000;
     
     [sval, sh] = arrayfun(@(n) simpsons(fh, n, rmin, rmax), nlist);
     serr = abs(true_num_val - sval);
