@@ -1,0 +1,48 @@
+% project 03
+% runge-kutta (order four) for initial value problem
+%
+% Args
+%   fh          (function)  function handle for derivative
+%   rmin        (float)     lower bound
+%   rmax        (float)     upper bound
+%   N           (int)       number of steps
+%   y0          (float)     initial value
+%
+% Returns
+%   w        (vector)    vector of w values
+%   t        (vector)    vector of t values
+%
+function [w, t] = taylor(flist, order, rmin, rmax, N, y0)
+
+fh = @(t,y) y - t.^2 + 1;
+N = 10;
+rmin = 0;
+rmax = 2;
+y0 = 0.5;
+
+
+    h = (rmax - rmin) / N;
+
+    t = rmin:h:rmax;
+
+    w(1) = y0;
+
+    for i=1:N
+
+        K1 = h * fh(t(i), w(i));
+        K2 = h * fh(t(i) + h/2, w(i) + K1/2);
+        K3 = h * fh(t(i) + h/2, w(i) + K2/2);
+        K4 = h * fh(t(i) + h, w(i) + K3);
+
+        w(i+1) = w(i) + (K1 + 2*K2 + 2*K3 + K4)/6;
+
+    end
+
+end
+
+
+
+
+
+
+

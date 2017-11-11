@@ -1,0 +1,48 @@
+% seth goodman
+% apsc 607
+% project 03
+
+% clear workspace and figures
+% clear;
+% clf;
+close all;
+
+format long;
+
+% ----------------------------------------
+
+
+h = 0.1;
+
+%   func   a    b    y(0) 
+jobs = {...
+    'a'    0    1    exp(1) ;
+    'b'    0    1    1/3    ;
+};
+
+% ----------------------------------------
+
+syms y t
+
+sym_ypa = -9*y;
+
+sym_ypb = -20 * (y-t^2) + 2*t;
+
+
+% ----------------------------------------
+% run
+
+
+% prepare functions
+sym_f_name = ['sym_f', name];
+fsym = eval(sym_f_name);     
+fh = matlabFunction(fsym);
+
+% check true value using symbol `int` function
+raw_sym_val = int(fsym, rmin, rmax);
+true_sym_val = double(raw_sym_val);
+
+% check true value using numerical `integral` function
+true_num_val = integral(fh, rmin, rmax);
+
+
