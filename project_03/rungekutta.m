@@ -1,20 +1,19 @@
 % project 03
-% runge-kutta (order four) method for initial value problem
+% runge-kutta (order four) method for initial value problems
 %
 % Args
 %   fh          (function)  function handle for derivative
-%   rmin        (float)     lower bound
-%   rmax        (float)     upper bound
-%   N           (int)       number of steps
+%   a           (float)     lower bound
+%   b           (float)     upper bound
+%   h           (int)       step size
 %   y0          (float)     initial value
 %
 % Returns
-%   t        (vector)    vector of t values
 %   w        (vector)    vector of w values
 %
-function [t, w] = rungekutta(fh, rmin, rmax, h, y0)
+function [w] = rungekutta(fh, a, b, h, y0)
 
-    t = rmin:h:rmax;
+    t = a:h:b;
     w(1) = y0;
 
     for i=1:length(t)-1

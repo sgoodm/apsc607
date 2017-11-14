@@ -1,0 +1,13 @@
+\begin{thebibliography}{1}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Burden and Faires(2010)]{burden2010}
+R.~Burden and J~Faires.
+\newblock \emph{Numerical Analysis}.
+\newblock Brooks/Cole, 9th edition, 2010.
+
+\end{thebibliography}
