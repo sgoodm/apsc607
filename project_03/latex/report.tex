@@ -3,6 +3,7 @@
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
+\usepackage{mathtools}
 \usepackage{graphicx}
 \usepackage[breaklinks]{hyperref}
 \usepackage[font=footnotesize,labelfont=bf,margin=2.5cm]{caption}
@@ -123,30 +124,87 @@ Which produces the functions $y(t)$ for A and B seen in \ref{eq:trueya} and \ref
 \end{center}
 
 
-The true values for Functions A and B are compared to the results from solving the IVP using Euler's method, the fourth order Runge-Kutta method, and the implicit trapezoidal with Newtonian iteration method.
 
 
-The remainder of this section will provide details on the three approaches for solving IVPs (Euler's, fourth order Runge-Kutta, and the implicit trapezoidal with Newtonian iteration).
+The true values for Functions A and B are compared to the results from solving the IVP using Euler's method, the fourth order Runge-Kutta method, and the implicit trapezoidal method with Newtonian iteration. In addition to the baseline step size, additional values of \textit{h} will be tested to explore the impact of step size when dealing with stiff equations. 
+
+Stiff IVP equations, as described in \cite{burden2010}, are characterized by having a solution taking the form of $e^{-ct}$. This portion of the solution, known as the \textit{transient solution}, will decay to zero as \textit{t} increases. However, the derivatives of the transient solution take the form $e^{n}e^{-ct}$, which does not decay as quickly as, and can grow very large for small values of \textit{t}. This is inherently problematic when solving IVPs using methods based on Taylor's Theorem or methods with similar error terms, as the derivatives define the error terms. Given that error terms in these methods are evaluated at values between zero and \textit{t}, rather than \textit{t} itself, makes it extremely likely for the derivative of the transient solution to result in large values \citep{burden2010}. Testing IVPs A and B over a range of increasing step sizes, between 0.01 and 0.1, will illustrate the role of step size in the stability of stiff equations. Additionally, for each function a considerably larger step size will be tested, at which the error due to the transient solution is substantially larger than the \textit{steady-state} component of the solution.
+
+The remainder of this section will provide details on the implementation of and methods for each of the three approaches to solving IVPs (Euler's, fourth order Runge-Kutta, and the implicit trapezoidal with Newtonian iteration).
 
 
 \subsection{Euler's (first order Taylor)}
 \label{method:euler}
+% page 266
 
-page 266
+\begin{center}
+  \includegraphics[width=0.9\textwidth]{../additional/euler_method.png}
+  \captionof{figure}{Example function (left), single step of Euler's method (center), multiple steps of Euler's method (right). \citep{burden2010}}
+  \label{fig:euler_method}
+\end{center}
 
+Euler's method is a first order implementation of higher order Taylor's method. Using the initial condition of the function at a given time step \textit{t}, the slope at that point, and the step size, the value of the function at \textit{t+1} can be estimated with second order error (Equation \ref{eq:euler}). This process is illustrated in Figure \ref{fig:euler_method}.
+
+\begin{center}
+	\begin{equation}
+	y(t_{i+1}) = y(t_i) + hy'(t_i)+\frac{h^2}{2}y''(\xi_i) 
+	\label{eq:euler}
+	\end{equation}
+\end{center}
+
+Given $w_i \approx y(t_i)$ when the error term is removed, Euler's method can be represented by Equation \ref{eq:euleralt}.
+
+\begin{center}
+	\begin{equation}
+	w_{i+1} = w_i + hf(t_i, w_i)
+	\label{eq:euleralt}
+	\end{equation}
+\end{center}
+
+
+While Euler's method only requires the first derivative provided with the IVP to solve, using higher order implementations of Taylor's method require additional derivatives. The cost and complexity of having to calculate each subsequent derivative make Taylor's method impractical for use in most applications. The equation for Taylor's method of order \textit{n} can be seen in Equation \ref{eq:taylor}.
+
+\begin{center}
+	\begin{equation}
+	y(t_{i+1}) = y(t_i) + hy'(t_i)+\frac{h^2}{2}y''(t_i) + \dots + \frac{h^n}{n!}y^{(n)} + \frac{h^{n+1}}{(n+1)!}y^{(n+1)}(\xi_i) 
+	\label{eq:taylor}
+	\end{equation}
+\end{center}
 
 
 \subsection{Runge-Kutta Order Four}
 \label{method:rk}
+% page 288
 
-page 288
+
+The Runga-Kutta method provided the higher order error term achievable using Taylor's method without the need for additional derivatives in the calculation. This is possible by utilizing the slope of the function at sub steps within a given step size to better approximate the value of the function at the subsequent time step.
+
+\begin{center}
+  \includegraphics[width=0.9\textwidth]{../additional/rk_method.png}
+  \captionof{figure}{Runge-Kutta fourth order illustration. \citep{slide}}
+  \label{fig:rk4_method}
+\end{center}
+
+As seen in the equations below, four \textit{k} values are generated which generate pseudo-approximations of the value at $t_{i+1}$ based on different sub steps and pseudo-starting conditions. The first \textit{k} value is based on the slope and value at $t_i$, the other \textit{k} values use either $t_i+0.5h$ or $t_{i+1}$ along with the value of $w_i$ adjusted by the previously generate \textit{k} values. The final estimate for $w_{i+1}$ combines these to generate a higher order approximation similar to Taylor's method without requiring additional derivatives to be calculated. An illustration of this process depicting the slopes associated with each \textit{k} value, as well as the final slope, can be seen in Figure \ref{fig:rk4_method}.
+
+\begin{center}
+	\begin{flalign}
+		& k_1 = hf((t_i, w_i), \\
+		& k_2 = hf((t_i+\frac{h}{2}, w_i+\frac{1}{2}k_1), \\
+		& k_3 = hf((t_i+\frac{h}{2}, w_i+\frac{1}{2}k_2), \\
+		& k_4 = hf((t_{i+1}, w_i+k_3), \\
+		& w_{i+1} = w_i + \frac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4) 
+	\label{eq:rk4}
+	\end{flalign}
+\end{center}
 
 
 
 \subsection{Implicit Trapezoidal (Trapezoidal with Newtonian Iteration)}
 \label{method:implicit}
+% page 348
 
-page 248
+Euler's method Taylor's method in general) along with the fourth order Runge-Kutta method 
 
 
 
