@@ -15,11 +15,22 @@ format long;
 
 %   func   a    b    h      y(0) 
 jobs = {
-    'test' 0    1    0.1    -1
+%     'test' 0    1    0.1    -1
     'a'    0    1    0.1    exp(1) 
     'b'    0    1    0.1   1/3   
 };
 
+% set h values for testing
+hlist = linspace(0.01, 0.1, 10);  
+
+% define colormap for h value comparison plots
+colors=hsv(length(hlist));
+
+% plot colorbar for colormap
+barsize = [500, 500, 800, 150];
+plot_colorbar(barsize, 'Step Size Colormap', colors);
+saveas(gcf, [pwd, '/output/colormap.png'], 'png');
+    
 
 % initialize true value output table
 table_cols = {'Function', 'h', 't', 'true', 'euler', 'error1', 'rungekutta', 'error2', 'trapezoidal', 'error3'};
@@ -55,14 +66,17 @@ fh_diff_b = @(t, y) -20;
 % run
 
 run_list = 1:size(jobs, 1);
-run_list = 3;
+% run_list = 2;
+
+hide_figures = 1;
+run_hlist = 1;
 
 for ix = run_list
 
     name = char(jobs(ix, 1));
     a = jobs{ix, 2};
     b = jobs{ix, 3};
-    h = jobs{ix, 4};
+    h_actual = jobs{ix, 4};
     y0 = jobs{ix, 5};
     
     disp(['Running ', name])
@@ -77,82 +91,118 @@ for ix = run_list
     cond = y(0) == y0;
     sym_ftrue = dsolve(ode, cond);
     fh_true = matlabFunction(sym_ftrue);
+   
+    if run_hlist
+        for hi = 1:length(hlist)
+            h = hlist(hi);
 
-    
-    hlist = linspace(0.01, 0.1, 10);
-    
-    G=linspace(.95,0,10);
-    colors=[ones(10,1),G',G'];
-    
-    colors=hsv(length(hlist));
-    
-    for hi = 1:length(hlist)
-        h = hlist(hi);
-        
-        t = a:h:b;
-        w0 = fh_true(t);
-        
-        w1 = taylor({fh}, 1, a, b, h, y0);
-        e1 = abs(w0 - w1);
+            t = a:h:b;
+            w0 = fh_true(t);
 
-        w2 = rungekutta(fh, a, b, h, y0);
-        e2 = abs(w0 - w2);
+            w1 = taylor({fh}, 1, a, b, h, y0);
+            e1 = abs(w0 - w1);
 
-        TOL = 1e-6;
-        M = 10;
-        w3 = trapezoidal(fh, fh_diff, a, b, h, y0, TOL, M);    
-        e3 = abs(w0 - w3);
-        
+            w2 = rungekutta(fh, a, b, h, y0);
+            e2 = abs(w0 - w2);
+
+            TOL = 1e-6;
+            M = 10;
+            w3 = trapezoidal(fh, fh_diff, a, b, h, y0, TOL, M);    
+            e3 = abs(w0 - w3);
+
+            figure(ix*10+1)
+            z = plot(t,w1, 'color', colors(hi,:));
+            uistack(z, 'bottom');
+            hold on
+
+            figure(ix*10+2)     
+            z = plot(t,e1, 'color', colors(hi,:));
+            uistack(z, 'bottom');
+            set(gca, 'YScale', 'log');
+            hold on
+
+            figure(ix*10+3)     
+            z = plot(t,w2, 'color', colors(hi,:));
+            uistack(z, 'bottom');
+            hold on
+
+            figure(ix*10+4)     
+            z= plot(t,e2, 'color', colors(hi,:));
+            uistack(z, 'bottom');
+            set(gca, 'YScale', 'log');
+            hold on
+
+            figure(ix*10+5)     
+            z = plot(t,w3, 'color', colors(hi,:));
+            uistack(z, 'bottom');
+            hold on
+
+            figure(ix*10+6)     
+            z = plot(t,e3, 'color', colors(hi,:));
+            uistack(z, 'bottom');
+            set(gca, 'YScale', 'log');
+            hold on
+
+        end
+
         figure(ix*10+1)
-        z = plot(t,w1, 'color', colors(hi,:));
-        uistack(z, 'bottom');
-        hold on
-        
-        figure(ix*10+2)     
-        z = plot(t,e1, 'color', colors(hi,:));
-        uistack(z, 'bottom');
-        set(gca, 'YScale', 'log');
-        hold on
-        
-        figure(ix*10+3)     
-        z = plot(t,w2, 'color', colors(hi,:));
-        uistack(z, 'bottom');
-        hold on
-       
-        figure(ix*10+4)     
-        z= plot(t,e2, 'color', colors(hi,:));
-        uistack(z, 'bottom');
-        set(gca, 'YScale', 'log');
-        hold on
-
-        figure(ix*10+5)     
-        z = plot(t,w3, 'color', colors(hi,:));
-        uistack(z, 'bottom');
-        hold on
-       
-        figure(ix*10+6)     
-        z = plot(t,e3, 'color', colors(hi,:));
-        uistack(z, 'bottom');
-        set(gca, 'YScale', 'log');
-        hold on
-
+        ylabel('w');
+        xlabel('t');
+        title('Euler Step Size Comparison - estimate')
+        saveas(gcf, [pwd, '/output/', name, '_euler_h_val.png'], 'png');
+        figure(ix*10+2)  
+        ylabel('e');
+        xlabel('t');
+        title('Euler Step Size Comparison - error')
+        saveas(gcf, [pwd, '/output/', name, '_euler_h_err.png'], 'png');
+        figure(ix*10+3)
+        ylabel('w');
+        xlabel('t');
+        title('Euler Step Size Comparison - estimate')
+        saveas(gcf, [pwd, '/output/', name, '_rk_h_val.png'], 'png');
+        figure(ix*10+4)  
+        ylabel('e');
+        xlabel('t');
+        saveas(gcf, [pwd, '/output/', name, '_rk_h_err.png'], 'png');
+        figure(ix*10+5)
+        ylabel('w');
+        xlabel('t');
+        title('Implicit - Step Size Comparison (estimate')
+        saveas(gcf, [pwd, '/output/', name, '_implicit_h_val.png'], 'png');
+        figure(ix*10+6)  
+        ylabel('e');
+        xlabel('t');
+        saveas(gcf, [pwd, '/output/', name, '_implicit_h_err.png'], 'png');
     end
-    figure(ix*10+1)
-    % saveas(gcf, [pwd, '/output/', name, '_euler_h.png'], 'png');
-        
+
+    h = h_actual;
+    t = a:h:b;
+    w0 = fh_true(t);
+
+    w1 = taylor({fh}, 1, a, b, h, y0);
+    e1 = abs(w0 - w1);
+
+    w2 = rungekutta(fh, a, b, h, y0);
+    e2 = abs(w0 - w2);
+
+    TOL = 1e-6;
+    M = 10;
+    w3 = trapezoidal(fh, fh_diff, a, b, h, y0, TOL, M);    
+    e3 = abs(w0 - w3);
+
+    
     figure();
     fplot(fh_true, [a b], 'r');
     hold on
-%     plot(t, w0, '-o');
     plot(t, w1, 'c-o');
     plot(t, w2, 'm-o');
     plot(t, w3, 'g-o');
 
     ylabel('w');
     xlabel('t');
-    legend('True', 'Euler', 'Runge-Kutta', 'Implicit Trapezoidal', 'Location', 'best');
+    legend('True', 'Euler', 'Runge-Kutta', 'Implicit Trapezoidal', 'Location', 'north');
     title(['Function ' upper(name) ' - Approximation']);
-    % saveas(gcf, [pwd, '/output/', name, '_test.png'], 'png');
+    saveas(gcf, [pwd, '/output/', name, '_compare_val.png'], 'png');
 
     
     figure();
@@ -164,9 +214,9 @@ for ix = run_list
 
     ylabel('e');
     xlabel('t');
-    legend('Euler', 'Runge-Kutta', 'Implicit Trapezoidal', 'Location', 'best');
+    legend('Euler', 'Runge-Kutta', 'Implicit Trapezoidal', 'Location', 'south');
     title(['Function ' upper(name) ' - Error']);
-
+    saveas(gcf, [pwd, '/output/', name, '_compare_err.png'], 'png');
     
     % add output from task to table
     for j = 1:length(t)
@@ -181,3 +231,8 @@ for ix = run_list
     
 end
 
+if hide_figures
+    close all;
+end
+
+writetable(output, [pwd, '/output/output_table.csv']);

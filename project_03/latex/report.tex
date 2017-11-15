@@ -40,7 +40,7 @@ y' = \frac{dy}{dt} = f(t,y), \qquad a \leq t \leq b, \qquad  y(a) = \alpha
 \label{eq:intro}
 \end{equation}
 
-All computations are performed using MATLAB using the code accompanying this report. Section \ref{sec:methods} will present the methods used in MATLAB to explore functions. Section \ref{sec:results} contains the results and related outputs for each function, and \ref{sec:conc} includes observations, discussion. All figures and tables found in this report are available in the output subdirectory of the accompanying zip file. Additionally, all code and figures found in the zip file can be accessed via GitHub\footnote{\url{https://github.com/sgoodm/apsc607/tree/master/project_03}}
+All computations are performed using MATLAB using the code accompanying this report. Section \ref{sec:methods} will present the methods used in MATLAB to explore functions. Section \ref{sec:results} contains the results and related outputs for each function, and Section \ref{sec:conc} includes discussion and conclusion. All figures and tables found in this report are available in the output subdirectory of the accompanying zip file. Additionally, all code and figures found in the zip file can be accessed via GitHub\footnote{\url{https://github.com/sgoodm/apsc607/tree/master/project_03}}
 
 \newpage
 \section{Methods}
@@ -102,13 +102,31 @@ To validate and compare each method for solving the IVPs, the true solution is r
 \end{lstlisting}
 \bigskip
 
+Which produces the functions $y(t)$ for A and B seen in \ref{eq:trueya} and \ref{eq:trueyb}.
 
-The true values for Functions A and B are compared to the results of integration using the Trapezoidal, Midpoint, and Simpson's Rules for a range of subintervals. The range of subinterval values, \textbf{n}, can vary depending on the function and rule tested, in order to ensure that an accuracy within a tolerance of $10^{-4}$ and $10^{-8}$ of the true value is achieved by at least one \textbf{n} value in the range.
+\begin{center}
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \begin{equation}
+		y(t) = e^{1-9t}
+		\label{eq:trueya}
+		\end{equation}
+    \end{minipage}\hfill
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \begin{equation}
+        y(t) = \frac{1}{3}e^{-20t}+t^2
+		\label{eq:trueyb}
+		\end{equation}
+    \end{minipage}
+\end{center}
 
-The resulting vector of integral values across varying \textbf{n} can compared with the true integral value generated earlier, to produce an error vector. The error vector is used to identify the value of \textbf{n} (and thus \textbf{h}) at which the integration rule produced results that were accurate within a desired tolerance. No \textbf{n} value needs to be specified for the adaptive approach because, as seen in Subsection \ref{method:adaptive}, this approach iteratively checks (within the function) that a specified tolerance has been reached before producing a single output rather than using a set \textbf{n} value to produce a set of output values.
+
+The true values for Functions A and B are compared to the results from solving the IVP using Euler's method, the fourth order Runge-Kutta method, and the implicit trapezoidal with Newtonian iteration method.
 
 
-The remainder of this section will introduce the three composite numerical integration approaches (Trapezoidal, Midpoint, and Simpson's) and the adaptive approach using Simpson's Rule.
+The remainder of this section will provide details on the three approaches for solving IVPs (Euler's, fourth order Runge-Kutta, and the implicit trapezoidal with Newtonian iteration).
 
 
 \subsection{Euler's (first order Taylor)}
@@ -136,6 +154,13 @@ page 248
 \section{Results}
 \label{sec:results}
 
+
+\begin{center}
+  \includegraphics[width=0.9\textwidth]{../output/colormap.png}
+  \captionof{figure}{Colormap of h val}
+  \label{fig:h_val_colormap}
+\end{center}
+
 This section will review the results of the different integration rules for Functions A and B. An overview of these results can be seen in Table \ref{table:results}, which shows the the number of subintervals required to reach each tolerance specified, as well as the final error achieved. Figure \ref{fig:true} contains the true plots of both function, for reference.
 
 \bgroup
@@ -162,12 +187,6 @@ This section will review the results of the different integration rules for Func
 
 
 % \begin{center}
-% 	\includegraphics[width=0.9\textwidth]{../additional/simpsons_fig.png}
-% 	\captionof{figure}{Simpson's Figure \citep{burden2010}}
-% 	\label{sim_fig}
-% \end{center}
-
-% \begin{center}
 %     \centering
 %     \begin{minipage}{0.5\textwidth}
 %         \centering
@@ -183,20 +202,310 @@ This section will review the results of the different integration rules for Func
 % \end{center}
 
 
+
+
 \subsection{Euler's Results}
 \label{results:euler}
 
+\begin{center}
+  \includegraphics[width=0.9\textwidth]{../output/a_euler_h_val.png}
+  \captionof{figure}{a euler h val}
+  \label{fig:a_euler_h_val}
+\end{center}
 
-\subsection{Runge-Kutta Results}\label{results:rk}
+\begin{center}
+  \includegraphics[width=0.9\textwidth]{../output/a_euler_h_err.png}
+  \captionof{figure}{a euler h err}
+  \label{fig:a_euler_h_err}
+\end{center}
 
 
-\subsection{Implicit Trapezoidal Results}\label{results:implicit}
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{rrrrl}
+\textbf{t} & \textbf{true} & \textbf{euler} & \textbf{error1} &  \\
+0          & 2.7182818     & 2.7182818      & 4.4408921E-016  &  \\
+0.1        & 1.1051709     & 0.27182818     & 0.83334274      &  \\
+0.2        & 0.44932896    & 0.027182818    & 0.42214615      &  \\
+0.3        & 0.18268352    & 0.0027182818   & 0.17996524      &  \\
+0.4        & 0.074273578   & 0.0002718282   & 0.07400175      &  \\
+0.5        & 0.030197383   & 2.7182818E-005 & 0.030170201     &  \\
+0.6        & 0.01227734    & 2.7182818E-006 & 0.012274622     &  \\
+0.7        & 0.0049915939  & 2.7182818E-007 & 0.0049913221    &  \\
+0.8        & 0.0020294306  & 2.7182818E-008 & 0.0020294035    &  \\
+0.9        & 0.0008251049  & 2.7182818E-009 & 0.0008251022    &  \\
+1          & 0.0003354626  & 2.7182818E-010 & 0.0003354624    
+\end{tabular}
+\end{table}
 
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{rrrrl}
+\textbf{t} & \textbf{true} & \textbf{euler} & \textbf{error1} &  \\
+0          & 0.33333333    & 0.33333333     & 0               &  \\
+0.1        & 0.055111761   & -0.33333333    & 0.38844509      &  \\
+0.2        & 0.046105213   & 0.37333333     & 0.32722812      &  \\
+0.3        & 0.090826251   & -0.25333333    & 0.34415958      &  \\
+0.4        & 0.16011182    & 0.49333333     & 0.33322151      &  \\
+0.5        & 0.25001513    & -0.093333333   & 0.34334847      &  \\
+0.6        & 0.36000205    & 0.69333333     & 0.33333129      &  \\
+0.7        & 0.49000028    & 0.14666667     & 0.34333361      &  \\
+0.8        & 0.64000004    & 0.97333333     & 0.3333333       &  \\
+0.9        & 0.81000001    & 0.46666667     & 0.34333334      &  \\
+1          & 1             & 1.3333333      & 0.33333333      & 
+\end{tabular}
+\end{table}
+
+
+
+\subsection{Runge-Kutta Results}
+\label{results:rk}
+
+\begin{center}
+  \includegraphics[width=0.9\textwidth]{../output/a_rk_h_val.png}
+  \captionof{figure}{a rk h val}
+  \label{fig:a_rk_h_val}
+\end{center}
+
+\begin{center}
+  \includegraphics[width=0.9\textwidth]{../output/a_rk_h_err.png}
+  \captionof{figure}{a rk h err}
+  \label{fig:a_rk_h_err}
+\end{center}
+
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{rrrrl}
+\textbf{t} & \textbf{true} & \textbf{value} & \textbf{error} &  \\
+0          & 2.7182818     & 2.7182818      & 4.4408921E-016 &  \\
+0.1        & 1.1051709     & 1.1167721      & 0.011601193    &  \\
+0.2        & 0.44932896    & 0.45881186     & 0.0094828979   &  \\
+0.3        & 0.18268352    & 0.18849712     & 0.0058135943   &  \\
+0.4        & 0.074273578   & 0.077441685    & 0.0031681067   &  \\
+0.5        & 0.030197383   & 0.031815948    & 0.0016185648   &  \\
+0.6        & 0.01227734    & 0.013071185    & 0.0007938447   &  \\
+0.7        & 0.0049915939  & 0.0053701328   & 0.0003785389   &  \\
+0.8        & 0.0020294306  & 0.0022062519   & 0.0001768213   &  \\
+0.9        & 0.0008251049  & 0.000906411    & 8.1306108E-005 &  \\
+1          & 0.0003354626  & 0.0003723876   & 0.000036925    
+\end{tabular}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{rrrrl}
+\textbf{t} & \textbf{true} & \textbf{value} & \textbf{error} &  \\
+0          & 0.33333333    & 0.33333333     & 0              &  \\
+0.1        & 0.055111761   & 0.12277778     & 0.067666017    &  \\
+0.2        & 0.046105213   & 0.079259259    & 0.033154046    &  \\
+0.3        & 0.090826251   & 0.10475309     & 0.013926836    &  \\
+0.4        & 0.16011182    & 0.16658436     & 0.0064725413   &  \\
+0.5        & 0.25001513    & 0.25386145     & 0.0038463207   &  \\
+0.6        & 0.36000205    & 0.36295382     & 0.0029517699   &  \\
+0.7        & 0.49000028    & 0.49265127     & 0.0026509955   &  \\
+0.8        & 0.64000004    & 0.64255042     & 0.0025503867   &  \\
+0.9        & 0.81000001    & 0.81251681     & 0.002516803    &  \\
+1          & 1             & 1.0025056      & 0.002505602    & 
+\end{tabular}
+\end{table}
+
+
+\subsection{Implicit Trapezoidal Results}
+\label{results:implicit}
+
+
+\begin{center}
+  \includegraphics[width=0.9\textwidth]{../output/a_implicit_h_val.png}
+  \captionof{figure}{a implicit h val}
+  \label{fig:a_implicit_h_val}
+\end{center}
+
+\begin{center}
+  \includegraphics[width=0.9\textwidth]{../output/a_implicit_h_err.png}
+  \captionof{figure}{a implicit h err}
+  \label{fig:a_implicit_h_err}
+\end{center}
+
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{rrrrl}
+\textbf{t} & \textbf{true} & \textbf{value} & \textbf{error} &  \\
+0          & 2.7182818     & 2.7182818      & 4.4408921E-016 &  \\
+0.1        & 1.1051709     & 1.0310724      & 0.0740985      &  \\
+0.2        & 0.44932896    & 0.39109643     & 0.05823253     &  \\
+0.3        & 0.18268352    & 0.14834692     & 0.034336601    &  \\
+0.4        & 0.074273578   & 0.056269523    & 0.018004056    &  \\
+0.5        & 0.030197383   & 0.021343612    & 0.0088537714   &  \\
+0.6        & 0.01227734    & 0.0080958528   & 0.0041814871   &  \\
+0.7        & 0.0049915939  & 0.0030708407   & 0.0019207532   &  \\
+0.8        & 0.0020294306  & 0.0011648017   & 0.000864629    &  \\
+0.9        & 0.0008251049  & 0.0004418213   & 0.0003832836   &  \\
+1          & 0.0003354626  & 0.0001675874   & 0.0001678752   
+\end{tabular}
+\end{table}
+
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{rrrrl}
+\textbf{t} & \textbf{true} & \textbf{value} & \textbf{error} &  \\
+0          & 0.33333333    & 0.33333333     & 0              &  \\
+0.1        & 0.055111761   & 0.01           & 0.045111761    &  \\
+0.2        & 0.046105213   & 0.04           & 0.006105213    &  \\
+0.3        & 0.090826251   & 0.09           & 0.0008262507   &  \\
+0.4        & 0.16011182    & 0.16           & 0.0001118209   &  \\
+0.5        & 0.25001513    & 0.25           & 1.513331E-005  &  \\
+0.6        & 0.36000205    & 0.36           & 2.0480708E-006 &  \\
+0.7        & 0.49000028    & 0.49           & 2.7717624E-007 &  \\
+0.8        & 0.64000004    & 0.64           & 3.7511725E-008 &  \\
+0.9        & 0.81000001    & 0.81           & 5.0766599E-009 &  \\
+1          & 1             & 1              & 6.870513E-010  & 
+\end{tabular}
+\end{table}
 
 \section{Discussion and Conclusions}
-\label{conc}
+\label{sec:conc}
+
+\begin{center}
+  \includegraphics[width=0.9\textwidth]{../output/a_compare_val.png}
+  \captionof{figure}{a compare val}
+  \label{fig:a_compare_val}
+\end{center}
+
+\begin{center}
+  \includegraphics[width=0.9\textwidth]{../output/a_compare_err.png}
+  \captionof{figure}{a compare err}
+  \label{fig:a_compare_err}
+\end{center}
+
+\begin{center}
+  \includegraphics[width=0.9\textwidth]{../output/b_compare_val.png}
+  \captionof{figure}{b compare val}
+  \label{fig:a_compare_val}
+\end{center}
+
+\begin{center}
+  \includegraphics[width=0.9\textwidth]{../output/b_compare_err.png}
+  \captionof{figure}{b compare err}
+  \label{fig:a_compare_err}
+\end{center}
 
 
+
+unstable
+
+\begin{center}
+  \includegraphics[width=0.9\textwidth]{../additional/unstable/a_compare_val.png}
+  \captionof{figure}{a compare val}
+  \label{fig:a_compare_val}
+\end{center}
+
+\begin{center}
+  \includegraphics[width=0.9\textwidth]{../additional/unstable/b_compare_val.png}
+  \captionof{figure}{a compare err}
+  \label{fig:a_compare_err}
+\end{center}
+
+
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{rrrr}
+\textbf{t} & \textbf{true} & \textbf{value} & \textbf{error} \\
+0          & 2.7182818     & 2.7182818      & 4.4408921E-016 \\
+0.25       & 0.2865048     & -3.3978523     & 3.6843571      \\
+0.5        & 0.030197383   & 4.2473154      & 4.217118       \\
+0.75       & 0.0031827808  & -5.3091442     & 5.312327       \\
+1          & 0.0003354626  & 6.6364302      & 6.6360948         
+\end{tabular}
+\end{table}
+
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{rrrr}
+\textbf{t} & \textbf{true} & \textbf{value} & \textbf{error} \\
+
+0          & 0.33333333    & 0.33333333     & 0              \\
+0.2        & 0.046105213   & -1             & 1.0461052      \\
+0.4        & 0.16011182    & 3.24           & 3.0798882      \\
+0.6        & 0.36000205    & -8.92          & 9.280002       \\
+0.8        & 0.64000004    & 28.44          & 27.8           \\
+1          & 1             & -82.44         & 83.44         
+\end{tabular}
+\end{table}
+
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{rrrr}
+\textbf{t} & \textbf{true} & \textbf{value} & \textbf{error} \\
+0          & 2.7182818     & 2.7182818      & 4.4408921E-016 \\
+0.25       & 0.2865048     & 1.225085       & 0.93858023     \\
+0.5        & 0.030197383   & 0.55212572     & 0.52192834     \\
+0.75       & 0.0031827808  & 0.248834       & 0.24565122     \\
+1          & 0.0003354626  & 0.1121454      & 0.11180994        
+\end{tabular}
+\end{table}
+
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{rrrr}
+\textbf{t} & \textbf{true} & \textbf{value} & \textbf{error} \\
+0          & 0.33333333    & 0.33333333     & 0              \\
+0.2        & 0.046105213   & 1.76           & 1.7138948      \\
+0.4        & 0.16011182    & 8.8133333      & 8.6532215      \\
+0.6        & 0.36000205    & 43.68          & 43.319998      \\
+0.8        & 0.64000004    & 217.29333      & 216.65333      \\
+1          & 1             & 1084.32        & 1083.32       
+\end{tabular}
+\end{table}
+
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{rrrr}
+\textbf{t} & \textbf{true} & \textbf{value} & \textbf{error} \\
+0          & 2.7182818     & 2.7182818      & 4.4408921E-016 \\
+0.25       & 0.2865048     & -0.15989893    & 0.44640373     \\
+0.5        & 0.030197383   & 0.0094058195   & 0.020791564    \\
+0.75       & 0.0031827808  & -0.0005532835  & 0.0037360643   \\
+1          & 0.0003354626  & 3.2546088E-005 & 0.0003029165   
+\end{tabular}
+\end{table}
+
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{rrrr}
+\textbf{t} & \textbf{true} & \textbf{value} & \textbf{error} \\
+0          & 0.33333333    & 0.33333333     & 0              \\
+0.2        & 0.046105213   & -0.071111111   & 0.11721632     \\
+0.4        & 0.16011182    & 0.19703704     & 0.036925216    \\
+0.6        & 0.36000205    & 0.34765432     & 0.012347727    \\
+0.8        & 0.64000004    & 0.64411523     & 0.0041151888   \\
+1          & 1             & 0.99862826     & 0.0013717428  
+\end{tabular}
+\end{table}
 
 \newpage
 
