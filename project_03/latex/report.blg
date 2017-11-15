@@ -1,46 +1,52 @@
-This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: report.aux
 The style file: plainnat.bst
 Database file #1: report.bib
-You've used 1 entry,
+I was expecting a `,' or a `)'---line 13 of file report.bib
+ : 
+ : }
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You've used 2 entries,
             2773 wiz_defined-function locations,
-            597 strings with 4894 characters,
-and the built_in function-call counts, 398 in all, are:
-= -- 30
-> -- 21
-< -- 1
-+ -- 7
-- -- 6
-* -- 27
-:= -- 68
-add.period$ -- 3
-call.type$ -- 1
-change.case$ -- 5
-chr.to.int$ -- 1
-cite$ -- 2
-duplicate$ -- 20
-empty$ -- 33
-format.name$ -- 9
-if$ -- 78
+            601 strings with 4947 characters,
+and the built_in function-call counts, 683 in all, are:
+= -- 53
+> -- 31
+< -- 2
++ -- 11
+- -- 9
+* -- 42
+:= -- 110
+add.period$ -- 5
+call.type$ -- 2
+change.case$ -- 8
+chr.to.int$ -- 2
+cite$ -- 4
+duplicate$ -- 35
+empty$ -- 65
+format.name$ -- 13
+if$ -- 139
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 2
-newline$ -- 13
-num.names$ -- 4
-pop$ -- 12
+newline$ -- 17
+num.names$ -- 8
+pop$ -- 24
 preamble$ -- 1
-purify$ -- 4
+purify$ -- 7
 quote$ -- 0
-skip$ -- 16
+skip$ -- 32
 stack$ -- 0
-substring$ -- 2
-swap$ -- 1
+substring$ -- 4
+swap$ -- 2
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 6
+type$ -- 17
 warning$ -- 0
-while$ -- 3
+while$ -- 6
 width$ -- 0
-write$ -- 20
+write$ -- 30
+(There was 1 error message)
