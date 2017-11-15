@@ -1,5 +1,5 @@
 % classwork 2017-11-06
-% runge-kutta methods 
+% gaussian elimination with backwards substitution 
 
 bad_example = [
     2   1  -1   1   1; 
@@ -16,8 +16,11 @@ good_example = [
 ];
 
 % initial augmented a
-aa = bad_example;
-[n,nj] = size(augmented_a);
+aa = good_example;
+
+% --------------------------
+
+[n,nj] = size(aa);
 
 possible = perms(1:n);
 [perm_n, perm_j] = size(possible);
@@ -65,13 +68,12 @@ if E(n,n) == 0
     error('no unique solution exists');
 end
 
-
 x = [];
 x(n) = E(n,n+1) / E(n,n);
 
 for i = n-1:-1:1
     j = i+1:n;
-    x(i) = (E(i,n+1) - sum(E(i,j)*x(j))) / E(i,i);
+    x(i) = (E(i,n+1) - sum(E(i,j).*x(j))) / E(i,i);
 end
     
 
