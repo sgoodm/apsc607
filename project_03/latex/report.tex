@@ -198,7 +198,7 @@ As seen in the equations below, four \textit{k} values are generated which gener
 \label{method:implicit}
 % page 348
 
-Euler's method, as well as higher order Taylor's method, and Runge-Kutta methods are explicit one-step methods of solving IVPs. As Section \ref{sec:results} will show, these methods suffer from instability when dealing with stiff equations such as Functions A and B used in this project. An alternative is to use an implicit method, such as the implicit trapezoidal with Newtonian iteration (Equation \ref{eq:implcit}, \citep{burden2010}), which utilizes an iterative approach to incorporate information above the current time step ($(t_{i+1}, f(t_{i+1}, w_{i+1}))$) into the approximation. This contrasts to explicit (one-step) methods such as Euler's, Taylor's, and Runga-Kutta, which are based only on a previous time step ($(t_{i}, f(t_{i}, w_{i}))$). 
+Euler's method, as well as higher order Taylor's method, and Runge-Kutta methods are explicit one-step methods of solving IVPs. As Section \ref{sec:results} will show, these methods suffer from instability when dealing with stiff equations such as Functions A and B used in this project. An alternative is to use an implicit method, such as the implicit trapezoidal with Newtonian iteration (Equation \ref{eq:implcit}, \citep{burden2010}), which utilizes an iterative approach to incorporate information above the current time step ($(t_{i+1}, f(t_{i+1}, w_{i+1}))$) into the approximation. This contrasts to explicit (one-step) methods such as Euler's, Taylor's, and Runga-Kutta, which are based only on a previous time step ($(t_{i}, f(t_{i}, w_{i}))$). The estimates for explicit methods are explicity defined based on previous steps, while estimates for implicit methods are implied by including the current step in the estimate. By incorporating the current step into the estimate, implicit methods are able to prevent large errors when estimating with large time steps.
 
 \begin{center}
 	\begin{equation}
@@ -721,21 +721,7 @@ Figure \ref{fig:compare_val} shows a comparison of each method with a step size 
 
 Results from using varying step sizes in Section \ref{sec:results} illustrated the impact of step size when solving IVPs with stiff equations using explicit methods (Euler's and Runge-Kutta), and implcit methods (implicit trapezoidal with Newton Iteration). While using step size of 0.1 (Figure \ref{fig:compare_val}) or smaller, the explicit methods maintained stability. Increasing the step size to 0.25 and 0.2 for IVP A and B respectively caused both IVP solutions to become unstable, as seen in Figure \ref{fig:un_compare_val}.
 
-xx
-
-Implicit methods provide an alternative for solving IVPs with stiff equations that do not require reducing the step size.
-
-
-discuss stability and step size for explicit methods
-how stabiltiy can be improved by using smaller step sizes
-
-What implicit means
-How it impacts stability
-How does it affect the solution to the IVPs and the step size
-
-Discuss usage as solution to stability issues with Euler/RK
-
-Even when the step size is increased using implicit method to same size that caused instability when using Euler's and Runge-Kutta methods, the implicit method remained stable. The accuracy is reduced for implicit method when using a large step size, but this is a minor trade-off for stability compared to the extremely large error and instability associated with one-step explicit methods when using large step sizes for stiff equations.
+Implicit methods provide an alternative for solving IVPs with stiff equations that do not require reducing the step size. Even when the step size is increased using implicit method to same size that caused instability when using Euler's and Runge-Kutta methods, the implicit method remained stable. The accuracy is reduced for implicit method when using a large step size, but this is a minor trade-off for stability compared to the extremely large error and instability associated with one-step explicit methods when using large step sizes for stiff equations.
 
 
 \begin{center}
