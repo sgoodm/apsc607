@@ -5,6 +5,7 @@
 \usepackage{amsmath}
 \usepackage{mathtools}
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage[breaklinks]{hyperref}
 \usepackage[font=footnotesize,labelfont=bf,margin=2.5cm,hypcap=false]{caption}
 \usepackage{listings}
@@ -244,11 +245,23 @@ A simplified pseudo-code implementation of this method can be seen below. For ea
 
 
 
-This section will review the results of the different methods for solving IVPs A and B. 
+This section will review the results for initial value problems and methods presented in Section \ref{sec:methods}. The plots of the functions for the solutions to IVPs A and B can be seen in Figure \ref{fig:true}.
 
-%An overview of these results can be seen in Table \ref{table:results}, which shows the the number of subintervals required to reach each tolerance specified, as well as the final error achieved. Figure \ref{fig:true} contains the true plots of both function, for reference.
+\begin{center}
+	\centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+	    \includegraphics[width=1.1\textwidth]{../output/a_actual.png}
+    \end{minipage}\hfill
+    \begin{minipage}{0.5\textwidth}
+        \centering
+	    \includegraphics[width=1.1\textwidth]{../output/b_actual.png}
+    \end{minipage}
+   	\captionof{figure}{True plots of Function A and B between zero and one}
+ 	\label{fig:true}
+\end{center}
 
-
+The results for each method are plotted simultaneously over a range of step sizes, with the line represent each increasing step size determined based on visible color spectrum, as seen in Figure \ref{fig:h_val_colormap}, with red representing the smallest step size (0.01) and violet the largest (0.1). The increase between step sizes is 0.01. 
 
 \begin{center}
   \includegraphics[width=0.9\textwidth]{../output/colormap.png}
@@ -256,11 +269,11 @@ This section will review the results of the different methods for solving IVPs A
   \label{fig:h_val_colormap}
 \end{center}
 
+Results from separate runs which display the behavior of the methods when using significantly larger step sizes (0.2+) with stiff equations will also be shown. The remainder of this section will present these plots and tables of the IVP solution estimates and related error. 
+
 
 \subsection{Euler's Results}
 \label{results:euler}
-
-Discuss stability and ways to improve
 
 \begin{center}
 	\centering
@@ -272,41 +285,35 @@ Discuss stability and ways to improve
         \centering
 	    \includegraphics[width=1\textwidth]{../output/b_euler_h_val.png}
     \end{minipage}
-   	\captionof{figure}{True plots of Function A and B between zero and two}
- 	\label{fig:true}
+   	\captionof{figure}{IVP A and B solution estimates for range of step sizes}
+ 	\label{fig:euler_h_val}
 \end{center}
+
+For both IVPs A and B remain stable when using a step size of 0.1 or smaller. IVP B does border on instability with a step size of 0.1, as can be seen in Figure \ref{fig:euler_h_val}, but improve significantly as the step size decreases. IVP A does suffer slightly with step sizes near 0.1, though not as drastically as IVP B. As would be expected, the borderline instability of IVP B with a step size of 0.1 results in larger error values, shown in Figure \ref{fig:euler_h_err}.
 
 \begin{center}
-  \includegraphics[width=0.9\textwidth]{../output/a_euler_h_val.png}
-  \captionof{figure}{a euler h val}
-  \label{fig:a_euler_h_val}
+	\centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+	    \includegraphics[width=1\textwidth]{../output/a_euler_h_err.png}
+    \end{minipage}\hfill
+    \begin{minipage}{0.5\textwidth}
+        \centering
+	    \includegraphics[width=1\textwidth]{../output/b_euler_h_err.png}
+    \end{minipage}
+   	\captionof{figure}{IVP A and B solution estimate error for range of step sizes}
+ 	\label{fig:euler_h_err}
 \end{center}
 
-\begin{center}
-  \includegraphics[width=0.9\textwidth]{../output/a_euler_h_err.png}
-  \captionof{figure}{a euler h err}
-  \label{fig:a_euler_h_err}
-\end{center}
+In Tables \ref{tab:a_euler} and \ref{tab:b_euler} the resulting estimate and error values for a step size of 0.1 are listed. The consistent or slightly decreasing error values are indicative of stability at this step size.
 
-\begin{center}
-  \includegraphics[width=0.9\textwidth]{../output/b_euler_h_val.png}
-  \captionof{figure}{b euler h val}
-  \label{fig:b_euler_h_val}
-\end{center}
-
-\begin{center}
-  \includegraphics[width=0.9\textwidth]{../output/b_euler_h_err.png}
-  \captionof{figure}{b euler h err}
-  \label{fig:b_euler_h_err}
-\end{center}
-
-\begin{table}
+\begin{table}[H]
 \footnotesize
 \centering
-\caption{Euler's Results for A}
+\caption{Euler's Results for A (h=0.1)}
 \label{tab:a_euler}
 \begin{tabular}{rrrrl}
-\textbf{t} & \textbf{true} & \textbf{euler} & \textbf{error1} &  \\
+\textbf{t} & \textbf{true} & \textbf{estimate} & \textbf{error} &  \\
 0          & 2.7182818     & 2.7182818      & 4.4408921E-016  &  \\
 0.1        & 1.1051709     & 0.27182818     & 0.83334274      &  \\
 0.2        & 0.44932896    & 0.027182818    & 0.42214615      &  \\
@@ -321,13 +328,13 @@ Discuss stability and ways to improve
 \end{tabular}
 \end{table}
 
-\begin{table}
+\begin{table}[H]
 \footnotesize
 \centering
-\caption{Euler's Results for B}
+\caption{Euler's Results for B (h=0.1)}
 \label{tab:b_euler}
 \begin{tabular}{rrrrl}
-\textbf{t} & \textbf{true} & \textbf{euler} & \textbf{error1} &  \\
+\textbf{t} & \textbf{true} & \textbf{estimate} & \textbf{error} &  \\
 0          & 0.33333333    & 0.33333333     & 0               &  \\
 0.1        & 0.055111761   & -0.33333333    & 0.38844509      &  \\
 0.2        & 0.046105213   & 0.37333333     & 0.32722812      &  \\
@@ -342,9 +349,9 @@ Discuss stability and ways to improve
 \end{tabular}
 \end{table}
 
-When step size is increased to 0.25 for A and 0.2 for B, Euler's method becomes unstable for these stiff equations.
+When the step size is increased to 0.25 for A and 0.2 for B, Euler's method becomes unstable for these stiff equations. In both cases, the error continously increases, as seen in Tables \ref{tab:un_a_euler} and \ref{tab:un_b_euler}. Although the increase in error is not as drastic for IVP A, the estimated value is still orders of magnitude larger than the true value.
 
-\begin{table}
+\begin{table}[H]
 \footnotesize
 \centering
 \caption{Unstable Euler's Results for A}
@@ -359,7 +366,7 @@ When step size is increased to 0.25 for A and 0.2 for B, Euler's method becomes 
 \end{tabular}
 \end{table}
 
-\begin{table}
+\begin{table}[H]
 \footnotesize
 \centering
 \caption{Unstable Euler's Results for B}
@@ -376,37 +383,67 @@ When step size is increased to 0.25 for A and 0.2 for B, Euler's method becomes 
 \end{table}
 
 
+%\begin{center}
+%  \includegraphics[width=0.9\textwidth]{../output/a_euler_h_val.png}
+%  \captionof{figure}{a euler h val}
+%  \label{fig:a_euler_h_val}
+%\end{center}
+%
+%\begin{center}
+%  \includegraphics[width=0.9\textwidth]{../output/a_euler_h_err.png}
+%  \captionof{figure}{a euler h err}
+%  \label{fig:a_euler_h_err}
+%\end{center}
+%
+%\begin{center}
+%  \includegraphics[width=0.9\textwidth]{../output/b_euler_h_val.png}
+%  \captionof{figure}{b euler h val}
+%  \label{fig:b_euler_h_val}
+%\end{center}
+%
+%\begin{center}
+%  \includegraphics[width=0.9\textwidth]{../output/b_euler_h_err.png}
+%  \captionof{figure}{b euler h err}
+%  \label{fig:b_euler_h_err}
+%\end{center}
 
 \subsection{Runge-Kutta Results}
 \label{results:rk}
 
-Discuss stability and ways to improve
-
 \begin{center}
-  \includegraphics[width=0.9\textwidth]{../output/a_rk_h_val.png}
-  \captionof{figure}{a rk h val}
-  \label{fig:a_rk_h_val}
+	\centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+	    \includegraphics[width=1\textwidth]{../output/a_rk_h_val.png}
+    \end{minipage}\hfill
+    \begin{minipage}{0.5\textwidth}
+        \centering
+	    \includegraphics[width=1\textwidth]{../output/b_rk_h_val.png}
+    \end{minipage}
+   	\captionof{figure}{IVP A and B solution estimates for range of step sizes}
+ 	\label{fig:rk_h_val}
 \end{center}
 
+Over the range of step sizes betwen 0.01 and 0.1, the fourth order Runge-Kutta method is also stable. This method produced more accurate estimates than Euler's method, which is expected given than Euler's method is a low order Taylor's method, while the Runge-Kutta used is fourth order.
+
+The solution estimates and corresponding error are plotted for the range of step sizes in Figures \ref{fig:rk_h_val} and \ref{fig:rk_h_err}, respectively
 \begin{center}
-  \includegraphics[width=0.9\textwidth]{../output/a_rk_h_err.png}
-  \captionof{figure}{a rk h err}
-  \label{fig:a_rk_h_err}
+	\centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+	    \includegraphics[width=1\textwidth]{../output/a_rk_h_err.png}
+    \end{minipage}\hfill
+    \begin{minipage}{0.5\textwidth}
+        \centering
+	    \includegraphics[width=1\textwidth]{../output/b_rk_h_err.png}
+    \end{minipage}
+   	\captionof{figure}{IVP A and B solution estimate error for range of step sizes}
+ 	\label{fig:rk_h_err}
 \end{center}
 
-\begin{center}
-  \includegraphics[width=0.9\textwidth]{../output/b_rk_h_val.png}
-  \captionof{figure}{b rk h val}
-  \label{fig:b_rk_h_val}
-\end{center}
+As Figure \ref{fig:rk_h_err} shows, the error values listed in Tables \ref{tab:a_rk} and \ref{tab:b_rk} show consistent or slightly decreasing error, similar to Euler's method, indicating good stability at a step size of 0.1.
 
-\begin{center}
-  \includegraphics[width=0.9\textwidth]{../output/b_rk_h_err.png}
-  \captionof{figure}{b rk h err}
-  \label{fig:b_rk_h_err}
-\end{center}
-
-\begin{table}
+\begin{table}[H]
 \footnotesize
 \centering
 \caption{Runge-Kutta Results for A}
@@ -428,7 +465,7 @@ Discuss stability and ways to improve
 \end{table}
 
 
-\begin{table}
+\begin{table}[H]
 \footnotesize
 \centering
 \caption{Runge-Kutta Results for B}
@@ -449,11 +486,11 @@ Discuss stability and ways to improve
 \end{tabular}
 \end{table}
 
-When step size is increased to 0.25 for A and 0.2 for B, Euler's method becomes unstable for these stiff equations.
+
+When step size is increased to 0.25 for A and 0.2 for B, the Runge-Kutta method also becomes unstable for these stiff equations. IVP A, again, has less pronounced instability, though estimates are still order of magnitude greater than the true solution.
 
 
-
-\begin{table}
+\begin{table}[H]
 \footnotesize
 \centering
 \caption{Unstable Runge-Kutta Results for A}
@@ -468,7 +505,7 @@ When step size is increased to 0.25 for A and 0.2 for B, Euler's method becomes 
 \end{tabular}
 \end{table}
 
-\begin{table}
+\begin{table}[H]
 \footnotesize
 \centering
 \caption{Unstable Runge-Kutta Results for B}
@@ -485,28 +522,66 @@ When step size is increased to 0.25 for A and 0.2 for B, Euler's method becomes 
 \end{table}
 
 
+%\begin{center}
+%  \includegraphics[width=0.9\textwidth]{../output/a_rk_h_val.png}
+%  \captionof{figure}{a rk h val}
+%  \label{fig:a_rk_h_val}
+%\end{center}
+%
+%\begin{center}
+%  \includegraphics[width=0.9\textwidth]{../output/a_rk_h_err.png}
+%  \captionof{figure}{a rk h err}
+%  \label{fig:a_rk_h_err}
+%\end{center}
+%
+%\begin{center}
+%  \includegraphics[width=0.9\textwidth]{../output/b_rk_h_val.png}
+%  \captionof{figure}{b rk h val}
+%  \label{fig:b_rk_h_val}
+%\end{center}
+%
+%\begin{center}
+%  \includegraphics[width=0.9\textwidth]{../output/b_rk_h_err.png}
+%  \captionof{figure}{b rk h err}
+%  \label{fig:b_rk_h_err}
+%\end{center}
 
 \subsection{Implicit Trapezoidal Results}
 \label{results:implicit}
 
-Discuss usage as solution to stability issues with Euler/RK
-What implicit means
-How it impacts stability
-How does it affect the solution to the IVPs and the step size
-
 \begin{center}
-  \includegraphics[width=0.9\textwidth]{../output/a_implicit_h_val.png}
-  \captionof{figure}{a implicit h val}
-  \label{fig:a_implicit_h_val}
+	\centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+	    \includegraphics[width=1\textwidth]{../output/a_implicit_h_val.png}
+    \end{minipage}\hfill
+    \begin{minipage}{0.5\textwidth}
+        \centering
+	    \includegraphics[width=1\textwidth]{../output/b_implicit_h_val.png}
+    \end{minipage}
+   	\captionof{figure}{IVP A and B solution estimates for range of step sizes}
+ 	\label{fig:implicit_h_val}
 \end{center}
 
+Using steps sizes between 0.01 and 0.1 the implicit method exibits similar stability and accuracy compared to the Runge-Kutta fourth order method. The plots for solution estimates and error can be seen in Figures \ref{fig:implicit_h_val} and \ref{fig:implicit_h_err}.
+
 \begin{center}
-  \includegraphics[width=0.9\textwidth]{../output/a_implicit_h_err.png}
-  \captionof{figure}{a implicit h err}
-  \label{fig:a_implicit_h_err}
+	\centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+	    \includegraphics[width=1\textwidth]{../output/a_implicit_h_err.png}
+    \end{minipage}\hfill
+    \begin{minipage}{0.5\textwidth}
+        \centering
+	    \includegraphics[width=1\textwidth]{../output/b_implicit_h_err.png}
+    \end{minipage}
+   	\captionof{figure}{IVP A and B solution estimate error for range of step sizes}
+ 	\label{fig:implicit_h_err}
 \end{center}
 
-\begin{table}
+Tables \ref{tab:a_implcit} and \ref{tab:b_implcit} detail the estimates and error for step size of 0.1.
+
+\begin{table}[H]
 \footnotesize
 \centering
 \caption{Implicit Trapezoidal Results for A}
@@ -527,19 +602,8 @@ How does it affect the solution to the IVPs and the step size
 \end{tabular}
 \end{table}
 
-\begin{center}
-  \includegraphics[width=0.9\textwidth]{../output/b_implicit_h_val.png}
-  \captionof{figure}{b implicit h val}
-  \label{fig:b_implicit_h_val}
-\end{center}
 
-\begin{center}
-  \includegraphics[width=0.9\textwidth]{../output/b_implicit_h_err.png}
-  \captionof{figure}{b implicit h err}
-  \label{fig:b_implicit_h_err}
-\end{center}
-
-\begin{table}
+\begin{table}[H]
 \footnotesize
 \centering
 \caption{Implicit Trapezoidal Results for B}
@@ -560,11 +624,9 @@ How does it affect the solution to the IVPs and the step size
 \end{tabular}
 \end{table}
 
-Even when the step size is increased to same size that caused instability when using Euler's and Runge-Kutta methods, the implicit method remained stable. The accuracy when using a large step size is reduced, but this is a small cost for stability compared to the extremely large error and instability associated with one-step explicit methods when using large step sizes for stiff equations.
+Even when the step size is increased to same size that caused instability when using Euler's and Runge-Kutta methods, the implicit method remained stable. It is worth noting that the accuracy when using a large step size is slightly reduced. The accuracy of the implcit trapezoidal method with Newtonian iteration and the associated error under stable conditions despite a larger step size can be seen in Tables \ref{tab:un_a_implicit} and \ref{tab:un_b_implicit},
 
-
-
-\begin{table}
+\begin{table}[H]
 \footnotesize
 \centering
 \caption{Stable Implicit Results for A}
@@ -579,7 +641,7 @@ Even when the step size is increased to same size that caused instability when u
 \end{tabular}
 \end{table}
 
-\begin{table}
+\begin{table}[H]
 \footnotesize
 \centering
 \caption{Stable Implicit Results for B}
@@ -596,52 +658,136 @@ Even when the step size is increased to same size that caused instability when u
 \end{table}
 
 
+%\begin{center}
+%  \includegraphics[width=0.9\textwidth]{../output/a_implicit_h_val.png}
+%  \captionof{figure}{a implicit h val}
+%  \label{fig:a_implicit_h_val}
+%\end{center}
+%
+%\begin{center}
+%  \includegraphics[width=0.9\textwidth]{../output/a_implicit_h_err.png}
+%  \captionof{figure}{a implicit h err}
+%  \label{fig:a_implicit_h_err}
+%\end{center}
+%
+%\begin{center}
+%  \includegraphics[width=0.9\textwidth]{../output/b_implicit_h_val.png}
+%  \captionof{figure}{b implicit h val}
+%  \label{fig:b_implicit_h_val}
+%\end{center}
+%
+%\begin{center}
+%  \includegraphics[width=0.9\textwidth]{../output/b_implicit_h_err.png}
+%  \captionof{figure}{b implicit h err}
+%  \label{fig:b_implicit_h_err}
+%\end{center}
 
 
 \section{Discussion and Conclusions}
 \label{sec:conc}
 
-\begin{center}
-  \includegraphics[width=0.9\textwidth]{../output/a_compare_val.png}
-  \captionof{figure}{a compare val}
-  \label{fig:a_compare_val}
-\end{center}
+This project explored different numerical methods of solving well-posed initial value problems (IVPs) at discrete points within a range for a given initial value. Section \ref{sec:methods} introduced the set of IVPs to be tested and the numerical methods for solving them. Section \ref{sec:results} presented the results from implementing each method using a range of step sizes to solve the IVPs.
+
 
 \begin{center}
-  \includegraphics[width=0.9\textwidth]{../output/a_compare_err.png}
-  \captionof{figure}{a compare err}
-  \label{fig:a_compare_err}
+	\centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+	    \includegraphics[width=1\textwidth]{../output/a_compare_val.png}
+    \end{minipage}\hfill
+    \begin{minipage}{0.5\textwidth}
+        \centering
+	    \includegraphics[width=1\textwidth]{../output/b_compare_val.png}
+    \end{minipage}
+   	\captionof{figure}{h=0.1}
+ 	\label{fig:compare_val}
 \end{center}
+
+Figure \ref{fig:compare_val} shows a comparison of each method with a step size of 0.1. For both IVP A and B, Euler's method is clearly the least accurate, followed by Runge-Kutta, with the implicit method providing the best results at this step size. The improved accuracy of the Runge-Kutta and the implcit methods are due to the fact that Euler's method is a low order implementation of Taylor's method. A higher order implementation of Taylor's method could be expected to provided more comparable levels of accuracy to the other methods. A detailed comparison is provided by \cite{burden2010}, showing that even with similar accuracy the fourth order Runge-Kutta method is more efficient than similar order Taylor's method. 
 
 \begin{center}
-  \includegraphics[width=0.9\textwidth]{../output/b_compare_val.png}
-  \captionof{figure}{b compare val}
-  \label{fig:b_compare_val}
+	\centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+	    \includegraphics[width=1\textwidth]{../output/a_compare_err.png}
+    \end{minipage}\hfill
+    \begin{minipage}{0.5\textwidth}
+        \centering
+	    \includegraphics[width=1\textwidth]{../output/b_compare_err.png}
+    \end{minipage}
+   	\captionof{figure}{h=0.1}
+ 	\label{fig:compare_err}
 \end{center}
+
+Results from using varying step sizes in Section \ref{sec:results} illustrated the impact of step size when solving IVPs with stiff equations using explicit methods (Euler's and Runge-Kutta), and implcit methods (implicit trapezoidal with Newton Iteration). While using step size of 0.1 (Figure \ref{fig:compare_val}) or smaller, the explicit methods maintained stability. Increasing the step size to 0.25 and 0.2 for IVP A and B respectively caused both IVP solutions to become unstable, as seen in Figure \ref{fig:un_compare_val}.
+
+xx
+
+Implicit methods provide an alternative for solving IVPs with stiff equations that do not require reducing the step size.
+
+
+discuss stability and step size for explicit methods
+how stabiltiy can be improved by using smaller step sizes
+
+What implicit means
+How it impacts stability
+How does it affect the solution to the IVPs and the step size
+
+Discuss usage as solution to stability issues with Euler/RK
+
+Even when the step size is increased using implicit method to same size that caused instability when using Euler's and Runge-Kutta methods, the implicit method remained stable. The accuracy is reduced for implicit method when using a large step size, but this is a minor trade-off for stability compared to the extremely large error and instability associated with one-step explicit methods when using large step sizes for stiff equations.
+
 
 \begin{center}
-  \includegraphics[width=0.9\textwidth]{../output/b_compare_err.png}
-  \captionof{figure}{b compare err}
-  \label{fig:b_compare_err}
+	\centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+	    \includegraphics[width=1\textwidth]{../additional/unstable/a_compare_val.png}
+    \end{minipage}\hfill
+    \begin{minipage}{0.5\textwidth}
+        \centering
+	    \includegraphics[width=1\textwidth]{../additional/unstable/b_compare_val.png}
+    \end{minipage}
+   	\captionof{figure}{h=0.25 (A) and 0.2 (B)}
+ 	\label{fig:un_compare_val}
 \end{center}
 
 
-unstable
+%\begin{center}
+%  \includegraphics[width=0.9\textwidth]{../output/a_compare_val.png}
+%  \captionof{figure}{a compare val}
+%  \label{fig:a_compare_val}
+%\end{center}
+%
+%\begin{center}
+%  \includegraphics[width=0.9\textwidth]{../output/a_compare_err.png}
+%  \captionof{figure}{a compare err}
+%  \label{fig:a_compare_err}
+%\end{center}
+%
+%\begin{center}
+%  \includegraphics[width=0.9\textwidth]{../output/b_compare_val.png}
+%  \captionof{figure}{b compare val}
+%  \label{fig:b_compare_val}
+%\end{center}
+%
+%\begin{center}
+%  \includegraphics[width=0.9\textwidth]{../output/b_compare_err.png}
+%  \captionof{figure}{b compare err}
+%  \label{fig:b_compare_err}
+%\end{center}
 
-\begin{center}
-  \includegraphics[width=0.9\textwidth]{../additional/unstable/a_compare_val.png}
-  \captionof{figure}{unstable a compare val}
-  \label{fig:un_a_compare_val}
-\end{center}
-
-\begin{center}
-  \includegraphics[width=0.9\textwidth]{../additional/unstable/b_compare_val.png}
-  \captionof{figure}{unstable a compare err}
-  \label{fig:un_a_compare_err}
-\end{center}
-
-
-
+%\begin{center}
+%  \includegraphics[width=0.9\textwidth]{../additional/unstable/a_compare_val.png}
+%  \captionof{figure}{unstable a compare val}
+%  \label{fig:un_a_compare_val}
+%\end{center}
+%
+%\begin{center}
+%  \includegraphics[width=0.9\textwidth]{../additional/unstable/b_compare_val.png}
+%  \captionof{figure}{unstable a compare err}
+%  \label{fig:un_a_compare_err}
+%\end{center}
 
 
 \newpage

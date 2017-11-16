@@ -9,16 +9,6 @@ close all;
 
 format long;
 
-% ----------------------------------------
-% for task that needs to be run, define:
-% function name, range min, range max, h, initial value
-
-%   func   a    b    h      y(0) 
-jobs = {
-%     'test' 0    1    0.1    -1
-    'a'    0    1    0.1    exp(1) 
-    'b'    0    1    0.1   1/3   
-};
 
 % set h values for testing
 hlist = linspace(0.01, 0.1, 10);  
@@ -30,14 +20,12 @@ colors=hsv(length(hlist));
 barsize = [500, 500, 800, 150];
 plot_colorbar(barsize, 'Step Size Colormap', colors);
 saveas(gcf, [pwd, '/output/colormap.png'], 'png');
-    
-
+   
 % initialize true value output table
 table_cols = {'Function', 'h', 't', 'true', 'euler', 'error1', 'rungekutta', 'error2', 'trapezoidal', 'error3'};
 [tcx, tcy] = size(table_cols);
 output = array2table(zeros(0, tcy));
 output.Properties.VariableNames = table_cols;
-
 
 % ----------------------------------------
 % functions
@@ -61,12 +49,21 @@ f_b = "-20 * (y-t^2) + 2 * t";
 fh_b = @(t, y) -20 * (y-t^2) + 2 * t;
 fh_diff_b = @(t, y) -20;
 
+% ----------------------------------------
+% for task that needs to be run, define:
+% function name, range min, range max, h, initial value
+
+%   func   a    b    h      y(0) 
+jobs = {
+%     'test' 0    1    0.1    -1
+    'a'    0    1    0.1    exp(1) 
+    'b'    0    1    0.1     1/3   
+};
 
 % ----------------------------------------
 % run
 
 run_list = 1:size(jobs, 1);
-% run_list = 2;
 
 hide_figures = 1;
 run_hlist = 1;
@@ -92,6 +89,13 @@ for ix = run_list
     sym_ftrue = dsolve(ode, cond);
     fh_true = matlabFunction(sym_ftrue);
    
+    figure()
+    fplot(fh_true, [a b]);
+    ylabel('y');
+    xlabel('t');
+    title(['True Function ' upper(name)])
+    saveas(gcf, [pwd, '/output/', name, '_actual.png'], 'png');
+    
     if run_hlist
         for hi = 1:length(hlist)
             h = hlist(hi);
@@ -197,11 +201,11 @@ for ix = run_list
 
     
     figure();
-    fplot(fh_true, [a b], 'r');
+    fplot(fh_true, [a b], 'k');
     hold on
-    plot(t, w1, 'c-o');
+    plot(t, w1, 'b-o');
     plot(t, w2, 'm-o');
-    plot(t, w3, 'g-o');
+    plot(t, w3, 'r-o');
 
     ylabel('w');
     xlabel('t');
@@ -211,10 +215,10 @@ for ix = run_list
 
     
     figure();
-    plot(t, e1, 'c-o');
+    plot(t, e1, 'b-o');
     hold on
     plot(t, e2, 'm-o');
-    plot(t, e3, 'g-o');
+    plot(t, e3, 'r-o');
     set(gca, 'YScale', 'log');
 
     ylabel('e');
