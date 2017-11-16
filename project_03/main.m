@@ -148,35 +148,35 @@ for ix = run_list
         figure(ix*10+1)
         ylabel('w');
         xlabel('t');
-        title('Euler - Step Size Comparison (estimate)')
+        title(['Euler (' upper(name) ') - Step Size Comparison (estimate)'])
         saveas(gcf, [pwd, '/output/', name, '_euler_h_val.png'], 'png');
         figure(ix*10+2)  
         ylabel('e');
         xlabel('t');
         ylim([1e-10 1]);
-        title('Euler - Step Size Comparison (error)')
+        title(['Euler (' upper(name) ') - Step Size Comparison (error)'])
         saveas(gcf, [pwd, '/output/', name, '_euler_h_err.png'], 'png');
         figure(ix*10+3)
         ylabel('w');
         xlabel('t');
-        title('Runge-Kutta - Step Size Comparison (estimate)')
+        title(['Runge-Kutta (' upper(name) ') - Step Size Comparison (estimate)'])
         saveas(gcf, [pwd, '/output/', name, '_rk_h_val.png'], 'png');
         figure(ix*10+4)  
         ylabel('e');
         xlabel('t');
         ylim([1e-10 1]);
-        title('Runge-Kutta - Step Size Comparison (error)')
+        title(['Runge-Kutta (' upper(name) ') - Step Size Comparison (error)'])
         saveas(gcf, [pwd, '/output/', name, '_rk_h_err.png'], 'png');
         figure(ix*10+5)
         ylabel('w');
         xlabel('t');
-        title('Implicit - Step Size Comparison (estimate)')
+        title(['Implicit (' upper(name) ') - Step Size Comparison (estimate)'])
         saveas(gcf, [pwd, '/output/', name, '_implicit_h_val.png'], 'png');
         figure(ix*10+6)  
         ylabel('e');
         xlabel('t');
         ylim([1e-10 1]);
-        title('Implicit - Step Size Comparison (error)')
+        title(['Implicit (' upper(name) ') - Step Size Comparison (error)'])
         saveas(gcf, [pwd, '/output/', name, '_implicit_h_err.png'], 'png');
     end
 
