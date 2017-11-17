@@ -37,14 +37,14 @@
 \section{Introduction}
 \label{sec:introduction}
 
-This project explores different numerical methods of solving two well-posed initial value problems (IVPs), $y'$, at discrete points within a range $[a\ b]$ for a given initial value $y(a)$ as defined in Equation \ref{eq:intro} and described in \cite{burden2010}. The methods that will be tested are Euler's method (i.e., first order Taylor method), fourth order Runge-Kutta (i.e., essentially fourth order Taylor method), and an implicit trapezoidal method (trapezoidal with Newton iteration). The behavior and characteristics of these methods will be reviewed and their effectiveness evaluated based on the true solutions to the IVPs.
+This project explores different numerical methods of solving two well-posed initial value problems (IVPs), $y'$, at discrete points within a range $[a\ b]$ for a given initial value $y(a)$ as defined in Equation \ref{eq:intro} and described in \cite{burden2010}. The methods that will be tested are Euler's method (i.e., first order Taylor method), fourth order Runge-Kutta (essentially fourth order Taylor method), and an implicit trapezoidal method (trapezoidal with Newton iteration). The behavior and characteristics of these methods will be reviewed and their effectiveness evaluated based on the true solutions to the IVPs.
 
 \begin{equation}
 y' = \frac{dy}{dt} = f(t,y), \qquad a \leq t \leq b, \qquad  y(a) = \alpha
 \label{eq:intro}
 \end{equation}
 
-All computations are performed using MATLAB using the code accompanying this report. Section \ref{sec:methods} will present the methods used in MATLAB to explore functions. Section \ref{sec:results} contains the results and related outputs for each function, and Section \ref{sec:conc} includes discussion and conclusion. All figures and tables found in this report are available in the output subdirectory of the accompanying zip file. Additionally, all code and figures found in the zip file can be accessed via GitHub\footnote{\url{https://github.com/sgoodm/apsc607/tree/master/project_03}}
+All computations are performed using MATLAB using the code accompanying this report. Section \ref{sec:methods} will present the methods used in MATLAB to explore the IVPs. Section \ref{sec:results} contains the results and related outputs, and Section \ref{sec:conc} includes discussion and conclusion. All figures and tables found in this report are available in the output subdirectory of the accompanying zip file. Additionally, all code and figures found in the zip file can be accessed via GitHub\footnote{\url{https://github.com/sgoodm/apsc607/tree/master/project_03}}
 
 \newpage
 \section{Methods}
@@ -71,8 +71,7 @@ The two IVPs which will be explored in this project, IVP \textbf{A} and IVP \tex
 \end{center}
 
 
-The associated initial values for are defined by Equations \ref{eq:iva} and \ref{eq:ivb}.
-
+The associated initial values for A and B are defined by Equations \ref{eq:iva} and \ref{eq:ivb}. Both IVPs will be examined over the range $ 0 \leq t \leq 1 $, using a baseline step size of $h=0.1$.
 
 \begin{center}
     \centering
@@ -92,9 +91,6 @@ The associated initial values for are defined by Equations \ref{eq:iva} and \ref
     \end{minipage}
 \end{center}
 
-
-Both IVPs will be examined over the range $ 0 \leq t \leq 1 $, using a baseline step size of $h=0.1$.
-
 To validate and compare each method for solving the IVPs, the true solution is required. The true solution is generated using the Symbolic Toolkit in MATLAB as seen in the example below for IVP A.
 
 \bigskip
@@ -106,7 +102,8 @@ To validate and compare each method for solving the IVPs, the true solution is r
 \end{lstlisting}
 \bigskip
 
-The implementation of this code for the IVPs produces the functions $y(t)$ for A and B seen in \ref{eq:trueya} and \ref{eq:trueyb}.
+The implementation of this code for the IVPs produces the true solution, $y(t)$, for IVPs A and B - seen in Equations \ref{eq:trueya} and \ref{eq:trueyb}. The values from the true solutions to IVP A and B will be compared to the results from numerically solving the IVPs using Euler's method, the fourth order Runge-Kutta method, and the implicit trapezoidal method with Newtonian iteration. In addition to the baseline step size, additional values of \textit{h} will be tested to explore the impact of step size when dealing with stiff equations. 
+
 
 \begin{center}
     \centering
@@ -126,7 +123,6 @@ The implementation of this code for the IVPs produces the functions $y(t)$ for A
     \end{minipage}
 \end{center}
 
-The values from the true solutions to IVP A and B will be compared to the results from numerically solving the IVPs using Euler's method, the fourth order Runge-Kutta method, and the implicit trapezoidal method with Newtonian iteration. In addition to the baseline step size, additional values of \textit{h} will be tested to explore the impact of step size when dealing with stiff equations. 
 
 Stiff IVP equations, as described in \cite{burden2010}, are characterized by having a solution taking the form of $e^{-ct}$. This portion of the solution, known as the \textit{transient solution}, will decay to zero as \textit{t} increases. However, the derivatives of the transient solution take the form $e^{n}e^{-ct}$, which does not decay as quickly as, and can grow very large for small values of \textit{t}. This is inherently problematic when solving IVPs using methods based on Taylor's Theorem or methods with similar error terms, as the derivatives define the error terms. Given that error terms in these methods are evaluated at values between zero and \textit{t}, rather than \textit{t} itself, it is extremely likely for the derivative of the transient solution to result in large values \citep{burden2010}. 
 
@@ -164,7 +160,7 @@ Given $w_i \approx y(t_i)$ when the error term is removed, Euler's method can be
 	\end{equation}
 \end{center}
 
-While Euler's method only requires the first derivative provided with the IVP to solve, using higher order implementations of Taylor's method require additional derivatives. The cost and complexity of having to calculate each subsequent derivative makes Taylor's method impractical for use in most applications. The equation for Taylor's method of order \textit{n} can be seen in Equation \ref{eq:taylor}.
+While Euler's method only requires the first derivative provided with the IVP to solve, using higher order implementations of Taylor's method to reduce error requires additional derivatives. The cost and complexity of having to calculate each subsequent derivative makes Taylor's method impractical for use in most applications. The equation for Taylor's method of order \textit{n} can be seen in Equation \ref{eq:taylor}.
 
 \begin{center}
 	\begin{equation}
@@ -182,16 +178,16 @@ The Runga-Kutta method provides the higher order error term achievable using Tay
 
 \begin{center}
 	\begin{flalign}
-		& k_1 = hf((t_i, w_i), \\
-		& k_2 = hf((t_i+\frac{h}{2}, w_i+\frac{1}{2}k_1), \\
-		& k_3 = hf((t_i+\frac{h}{2}, w_i+\frac{1}{2}k_2), \\
-		& k_4 = hf((t_{i+1}, w_i+k_3), \\
+		& k_1 = hf(t_i, w_i), \\
+		& k_2 = hf(t_i+\frac{h}{2}, w_i+\frac{1}{2}k_1), \\
+		& k_3 = hf(t_i+\frac{h}{2}, w_i+\frac{1}{2}k_2), \\
+		& k_4 = hf(t_{i+1}, w_i+k_3), \\
 		& w_{i+1} = w_i + \frac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4) 
 	\label{eq:rk4}
 	\end{flalign}
 \end{center}
 
-As seen in the Equation \ref{eq:rk4}, four \textit{k} values are used which generate pseudo-approximations of the value at $t_{i+1}$ based on different sub steps and pseudo-starting conditions. The first \textit{k} value is based on the slope and value at $t_i$, the other \textit{k} values use either $t_i+0.5h$ or $t_{i+1}$ along with the value of $w_i$ adjusted by the previously generate \textit{k} values. The final estimate for $w_{i+1}$ combines these to generate a higher order approximation similar to Taylor's method without requiring additional derivatives to be calculated. An illustration of this process depicting the slopes associated with each \textit{k} value, as well as the final slope, can be seen in Figure \ref{fig:rk4_method}.
+As seen in the Equation \ref{eq:rk4}, four \textit{k} values are used which generate pseudo-approximations of the value at $t_{i+1}$ based on different sub steps and pseudo-starting conditions. The first \textit{k} value is based on the slope and value at $t_i$, the other \textit{k} values use either $t_i+0.5h$ or $t_{i+1}$ along with the value of $w_i$ adjusted by the previously generated \textit{k} values. The final estimate for $w_{i+1}$ combines these to generate a higher order approximation similar to Taylor's method without requiring additional derivatives to be calculated. An illustration of this process depicting the slopes associated with each \textit{k} value, as well as the final slope, can be seen in Figure \ref{fig:rk4_method}.
 
 \begin{center}
   \includegraphics[width=0.7\textwidth]{../additional/rk_method.png}
@@ -204,7 +200,7 @@ As seen in the Equation \ref{eq:rk4}, four \textit{k} values are used which gene
 \label{method:implicit}
 % page 348
 
-Euler's method, as well as higher order Taylor's method, and Runge-Kutta methods are explicit one-step methods of solving IVPs. As Section \ref{sec:results} will show, these methods suffer from instability when dealing with stiff equations such as Functions A and B used in this project. An alternative is to use an implicit method, such as the implicit trapezoidal with Newtonian iteration (Equation \ref{eq:implcit}, \citep{burden2010}), which utilizes an iterative approach to incorporate information above the current time step ($(t_{i+1}, f(t_{i+1}, w_{i+1}))$) into the approximation. This contrasts to explicit (one-step) methods such as Euler's, Taylor's, and Runga-Kutta, which are based only on a previous time step ($(t_{i}, f(t_{i}, w_{i}))$). 
+Euler's method, as well as higher order Taylor's method, and Runge-Kutta methods are explicit one-step methods of solving IVPs. As Section \ref{sec:results} will show, these methods suffer from instability when dealing with stiff equations such as the solutions for IVPs A and B. An alternative is to use an implicit method, such as the implicit trapezoidal with Newtonian iteration (Equation \ref{eq:implcit}, \citep{burden2010}), which utilizes an iterative approach to incorporate information above the current time step $(t_{i+1}, f(t_{i+1}, w_{i+1}))$ into the approximation. This contrasts to explicit (one-step) methods such as Euler's, Taylor's, and Runga-Kutta, which are based only on a previous time step $(t_{i}, f(t_{i}, w_{i}))$. 
 
 The estimates for explicit methods are explicitly defined based on previous steps, while estimates for implicit methods are implied by including the current step in the estimate. By incorporating the current step into the estimate, implicit methods are able to prevent large errors when estimating with large time steps.
 
@@ -294,7 +290,7 @@ Results from separate runs, which display the behavior of the methods when using
  	\label{fig:euler_h_val}
 \end{center}
 
-For both IVPs A and B the numeric solution remains stable when using a step size of 0.1 or smaller. IVP B does border on instability with a step size of 0.1, as can be seen in Figure \ref{fig:euler_h_val}, but improves significantly as the step size decreases. IVP A does suffer slightly with step sizes near 0.1, though not as drastically as IVP B. When IVP B approaches instability, there are corresponding large error values, shown in Figure \ref{fig:euler_h_err}.
+For both IVPs A and B the numeric solution remains stable when using a step size of 0.1 or smaller. IVP B does border on instability with a step size of 0.1, as can be seen in Figure \ref{fig:euler_h_val}, but improves significantly as the step size decreases. IVP A does suffer slightly with step sizes near 0.1, though not as drastically as IVP B. Even though IVP B approaches instability, the error values seen in Figure \ref{fig:euler_h_err} remain consistent, indicating that it is still stable.
 
 \begin{center}
 	\centering
