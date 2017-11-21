@@ -49,53 +49,27 @@ F0 = double(F(xargs{:}));
 
 % -------------------------
 
-% save
-v = F0;
 
-A0 = J0;
-
-% use Gaussian elimiation
-% A = gaussian(A0);
-% alternative
-A = inv(A0);
-
-
-s = -A*v;
-
-x = x + s;
-k = 2;
-
+k = 1;
 N = 100;
-TOL = 1e-4;
+TOL = 1e-5;
 
 while k<= N
+
+    Fx = double(F(xargs{:}));
+    Jx = double(J(xargs{:}));
     
+    y = sum(-Fx .* inv(Jx), 2);
     
-    xvals = x;
-    xargs = num2cell(xvals);
-    
-    w = v;
-    v = F(xargs{:});
-    
-    y = v-w;
-    
-    z = -A*y;
-    
-    p = -transpose(s)*z;
-    
-    u = transpose(s) * A;
-    u = transpose(u);
-    
-    A = A + (1/p) * (s+z) * transpose(u);
-    
-    s = -A*v;
-    x = x + s;
-    
+    x = x + y;
+
     complete = norm(s) < TOL;
     if complete
         break;
     end
+    
     k = k+1;
+    xargs = num2cell(x);
 end
 
 
