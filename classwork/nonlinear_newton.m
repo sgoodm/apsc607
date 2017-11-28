@@ -1,5 +1,13 @@
 % class 2017-11-20
 % nonlinear systems - broyden method
+% page 641
+
+clear;
+clf;
+close all;
+format long;
+
+% -------------------------
 
 x0_vals = [0.1 0.1 -0.1];
 
@@ -11,9 +19,10 @@ xargs = num2cell(xvals);
 % -------------------------
 % symbolic method
 
-f1 = symfun( 3*x1 - cos(x2*x3) - 0.5, [x1,x2,x3]);
-f2 = symfun(x1^2 - 81*(x2+0.1)^2 + sin(x3) + 1.06, [x1,x2,x3]);
-f3 = symfun(exp(-x1*x2) + 20*x3 +(10*pi-3)/3, [x1,x2,x3]);
+syms x1 x2 x3
+f1 = symfun(3*x1 - cos(x2*x3) - 0.5, [x1 x2 x3]);
+f2 = symfun(x1^2 - 81*(x2+0.1)^2 + sin(x3) + 1.06, [x1 x2 x3]);
+f3 = symfun(exp(-x1*x2) + 20*x3 +(10*pi-3)/3, [x1 x2 x3]);
 
 J = jacobian([f1 f2 f3], [x1 x2 x3]);
 
@@ -58,12 +67,16 @@ while k<= N
 
     Fx = double(F(xargs{:}));
     Jx = double(J(xargs{:}));
+ 
+%     Jx_inv = inv(Jx);
+    Jx_id = [Jx eye(size(Jx, 1))];
+    [~,Jx_inv] = gaussian(Jx_id);
     
-    y = sum(-Fx .* inv(Jx), 2);
-    
+    y = sum(-Fx .* Jx_inv, 2);
+
     x = x + y;
 
-    complete = norm(s) < TOL;
+    complete = norm(y) < TOL;
     if complete
         break;
     end
@@ -72,7 +85,7 @@ while k<= N
     xargs = num2cell(x);
 end
 
-
+x
 
 
 

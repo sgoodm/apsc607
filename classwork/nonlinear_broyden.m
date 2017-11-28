@@ -1,5 +1,14 @@
 % class 2017-11-20
 % nonlinear systems - broyden method
+% page 650
+
+
+clear;
+clf;
+close all;
+format long;
+
+% -------------------------
 
 x0_vals = [0.1 0.1 -0.1];
 
@@ -11,7 +20,8 @@ xargs = num2cell(xvals);
 % -------------------------
 % symbolic method
 
-f1 = symfun( 3*x1 - cos(x2*x3) - 0.5, [x1,x2,x3]);
+syms x1 x2 x3
+f1 = symfun(3*x1 - cos(x2*x3) - 0.5, [x1,x2,x3]);
 f2 = symfun(x1^2 - 81*(x2+0.1)^2 + sin(x3) + 1.06, [x1,x2,x3]);
 f3 = symfun(exp(-x1*x2) + 20*x3 +(10*pi-3)/3, [x1,x2,x3]);
 
@@ -54,11 +64,10 @@ v = F0;
 
 A0 = J0;
 
-% use Gaussian elimiation
-% A = gaussian(A0);
-% alternative
-A = inv(A0);
 
+% A_inv = inv(A0);
+A0_id = [A0 eye(size(A0, 1))];
+[~,A] = gaussian(A0_id);
 
 s = -A*v;
 
@@ -68,14 +77,14 @@ k = 2;
 N = 100;
 TOL = 1e-4;
 
+
 while k<= N
-    
     
     xvals = x;
     xargs = num2cell(xvals);
     
     w = v;
-    v = F(xargs{:});
+    v = double(F(xargs{:}));
     
     y = v-w;
     
@@ -99,14 +108,5 @@ while k<= N
 end
 
 
-
-
-
-
-
-
-
-
-
-
+x
 
