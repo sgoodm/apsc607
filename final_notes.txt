@@ -1,0 +1,67 @@
+notes for final
+
+3 hours
+mostly programming similar to projects
+no report
+
+make sure to use comments/pseudo code and/or notes numeric method intended (partial credit if code not working)
+
+no open ended questions - give matlab "framework" for how to output code / figures (e.g., produce array x to pass to figure function provided)
+
+designing questions so that she can do it in ~1 hour (how long it takes her x3 = final duration)
+
+likely to ask questions with answer not in book
+(not going to ask something that can 100% use pseudo code in book)
+but questions will utilize code we have written and what we learned
+
+
+
+topics
+
+projects dealt with material up to ~rungekutta
+
+final deal with mostly after that
+
+gaussian elim
+solving non linear systems
+finite difference methods
+
+
+
+ch 6
+did not do cholesky
+did not do kraut factorization of tridiagonal (pg 427)
+
+
+did not do  ch7
+did not do  ch8
+did not do  ch9
+
+
+ch10
+did newtons
+did broyden (quasi newton)
+did steepest descent (need to do this)
+
+ch 11
+did linear/nonlinear shooting methods (did not finish code - probably not on final)
+did linear finite difference (need to finish code - more likely to be on final)
+
+
+
+
+will be given derivatives if they are needed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
