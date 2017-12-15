@@ -17,8 +17,8 @@ function [x] = nonlinear_newton(F, x0_vals, N, TOL)
 
     k = 1;
 
-    norm_val = TOL + 1;
-    while k<= N && norm_val > TOL
+    tol_check = TOL + 1;
+    while k<= N && tol_check > TOL
 
         Fx = double(F(xargs{:}));
         Jx = double(J(xargs{:}));
@@ -31,7 +31,7 @@ function [x] = nonlinear_newton(F, x0_vals, N, TOL)
 
         x = x + y;
 
-        norm_val = norm(y);
+        tol_check = norm(y);
 
         k = k+1;
         

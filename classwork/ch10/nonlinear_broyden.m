@@ -30,8 +30,8 @@ function [x] = nonlinear_broyden(F, x0_vals, N, TOL)
     x = x + s;
     k = 2;
     
-    norm_val = TOL + 1;
-    while k <= N && norm_val > TOL
+    tol_check = TOL + 1;
+    while k <= N && tol_check > TOL
 
         xvals = x;
         xargs = num2cell(xvals);
@@ -53,7 +53,7 @@ function [x] = nonlinear_broyden(F, x0_vals, N, TOL)
         s = -A*v;
         x = x + s;
 
-        norm_val = norm(s);
+        tol_check = norm(s);
 
         k = k+1;
         

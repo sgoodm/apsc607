@@ -19,14 +19,20 @@ f3 = symfun(exp(-x1*x2) + 20*x3 +(10*pi-3)/3, [x1 x2 x3]);
 F = symfun(transpose([f1 f2 f3]), [x1 x2 x3]);
 
 
+
+
 N = 200;
 TOL = 1e-5;
 
-
 x1 = nonlinear_newton(F, x0_vals, N, TOL);
-
 x2 = nonlinear_broyden(F, x0_vals, N, TOL);
 
+
+N = 100;
+TOL = 1e-4;
+
+x0_vals = [0 0 0];
+x3 = nonlinear_steepest_descent(F, x0_vals, N, TOL);
 
 
 % -------------------------

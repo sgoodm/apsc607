@@ -2,64 +2,104 @@
 % steepest descent
 % page 658
 
+function [x] = nonlinear_steepest_descent(F, x0_vals, N, TOL)
 
-clear;
-clf;
-close all;
-format long;
+    xvals = x0_vals;
+    x = transpose(xvals);
 
-% -------------------------
+    J = jacobian(F);
 
-x0_vals = [0 0 0];
+    k = 1;
 
-xvals = x0_vals;
-x = transpose(xvals);
+    complete = 0;
+    tol_check = TOL + 1;
 
-xargs = num2cell(xvals);
+    while k <= N && tol_check > TOL && complete == 0
 
-% -------------------------
-% symbolic method
+        xvals = x;
+        xargs = num2cell(xvals);
 
-syms x1 x2 x3
-f1 = symfun(3*x1 - cos(x2*x3) - 0.5, [x1 x2 x3]);
-f2 = symfun(x1^2 - 81*(x2+0.1)^2 + sin(x3) + 1.06, [x1 x2 x3]);
-f3 = symfun(exp(-x1*x2) + 20*x3 +(10*pi-3)/3, [x1 x2 x3]);
+        J1 = double(J(xargs{:}));
+        F1 = double(F(xargs{:}));
 
-J = jacobian([f1 f2 f3], [x1 x2 x3]);
+        g1 = sum(F1.^2);
+        z = 2 * transpose(J1) * F1;
+        z0 = norm(z);
 
-F = symfun(transpose([f1 f2 f3]), [x1 x2 x3]);
+        if z0 == 0
+            complete = 1;
+            disp("Zero gradient");
 
-% -------------------------
+        else
+            z = z / z0;
+            a1 = 0;
 
-J0 = double(J(xargs{:}));
-F0 = double(F(xargs{:}));
+            a3 = 1;     
+            args = num2cell(x - a3.*z);
+            F2 = double(F(args{:}));
+            g3 = sum(F2.^2);
 
-dg0 = 2 .* transpose(J0) .* F0;
-g0 = sum(F0.^2);
-z0 = norm(dg0);
+            while g3 >= g1 && complete == 0
+                a3 = a3/2;
+                args = num2cell(x - a3.*z);
+                F3 = double(F(args{:}));
+                g3 = sum(F3.^2);
 
-% -------------------------
+                if a3 < TOL/2
+                    complete = 1;
+                    disp("No likely improvement");
+                end
+            end   
 
-N = 100;
-TOL = 1e-4;
+            if complete == 0
+                a2 = a3/2;
+                args = num2cell(x - a2.*z);
+                F4 = double(F(args{:}));
+                g2 = sum(F4.^2);
 
-k = 1;
+                h1 = (g2-g1)/a2;
+                h2 = (g3-g2)/(a3-a2);
+                h3 = (h2-h1)/a3;
 
-while k <=  N
+                a0 = 0.5 * (a2 - h1/h3);
+                args = num2cell(x - a0.*z);
+                F5 = double(F(args{:}));
+                g0 = sum(F5.^2);
 
 
-    g1 = ;
-    z = ;
-    z0 = ;
+                a = a0;
+                args = num2cell(x - a.*z);
+                F6 = double(F(args{:}));
+                g = sum(F6.^2);
 
-    if z0 = 0
-        pass
+                if g ~= min(g0, g3)
+                    a = a3;
+                    args = num2cell(x - a.*z);
+                    F7 = double(F(args{:}));
+                    g = sum(F7.^2);
+                end
 
-    else
+                x = x - a.*z;
+
+                if abs(g-g1) < TOL
+                    disp("Procedure was successful");
+                    complete = 1;
+                end
+
+                k = k+1;
+
+            end
+
+        end
+
 
     end
-end
 
+    if k > N
+        disp("Warning: max iterations reached")
+    end
+
+end
 
 
 
