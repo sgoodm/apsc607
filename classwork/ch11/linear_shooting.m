@@ -11,13 +11,12 @@ b = 2;
 ya = 1;
 yb = 2;
 
-N = 10;
+N = 9;
 
 h = (b-a)/N;
 
 % syms x y yp
 % sym_ypp = symfun(-2*yp/x + 2*y/x^2 + sin(log(x))/x^2, [x,y,yp]);
-% 
 % ypp = matlabFunction(sym_ypp);
 
 p = @(x) 2/x;

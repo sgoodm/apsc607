@@ -17,7 +17,7 @@ N = 9;
 % sym_ypp = symfun(-2*yp/x + 2*y/x^2 + sin(log(x))/x^2, [x,y,yp]);
 % ypp = matlabFunction(sym_ypp);
 
-p = @(x) -2/x;
+p = @(x) 2/x;
 q = @(x) 2/x^2;
 r = @(x)  sin(log(x))/x^2;
 
@@ -66,7 +66,7 @@ w(N+1+1) = yb;
 w(N+1) = z(N);
 
 for i = N:-1:2
-    w(i) = z(i-1) - u(i-1)*w(i+1);
+    w(i) = z(i) - u(i-1)*w(i+1);
 end
 
 for i = 0:N+1
