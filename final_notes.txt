@@ -29,8 +29,8 @@ finite difference methods
 
 
 ch 6
-did not do cholesky
-did not do kraut factorization of tridiagonal (pg 427)
+did not do cholesky (pg 418)
+did not do crout factorization of tridiagonal (pg 422)
 
 
 did not do  ch7

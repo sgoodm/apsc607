@@ -2,7 +2,7 @@
 % gaussian elimination with backwards substitution 
 % page 364
 
-function [E, x] = gaussian_elimiation(aa)
+function [E, x] = gaussian_elimination(aa)
 
     [n,nj] = size(aa);
 

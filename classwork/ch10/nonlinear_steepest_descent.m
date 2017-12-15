@@ -2,6 +2,7 @@
 % steepest descent
 % page 658
 
+
 clear;
 clf;
 close all;
@@ -50,12 +51,12 @@ while k <=  N
     g1 = ;
     z = ;
     z0 = ;
-    
+
     if z0 = 0
         pass
-        
+
     else
-        
+
     end
 end
 
