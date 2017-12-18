@@ -9,7 +9,13 @@ A = [
   -1  2  3 -1
 ];
 
-[l,u] = LU_factorization(A);
+b = [
+ 8
+ 7
+ 14
+ 7
+];
 
+[l,u] = LU_factorization(A);
 
 

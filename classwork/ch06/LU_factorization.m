@@ -1,5 +1,6 @@
 % LU factorization
 % class 2017-11-13
+% page 406
 
 function [l,u] = LU_factorization(A)
 
