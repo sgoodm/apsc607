@@ -21,7 +21,7 @@ function [Q] = neville(xest, x, y, tol)
             Qb = Q(i-1, j-1);
             
             a = (xest - ximinusj) * Qa;
-            b =  (xest - xi) * Qb;
+            b = (xest - xi) * Qb;
             c = xi - ximinusj;
 
             Q(i+1, j+1) = (a.*b) ./ c;

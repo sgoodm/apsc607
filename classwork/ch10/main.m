@@ -32,7 +32,7 @@ N = 100;
 TOL = 1e-4;
 
 x0_vals = [0 0 0];
-x3 = nonlinear_steepest_descent(F, x0_vals, N, TOL);
+[x3, g] = nonlinear_steepest_descent(F, x0_vals, N, TOL);
 
 
 % -------------------------

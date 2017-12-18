@@ -2,7 +2,7 @@
 % steepest descent
 % page 658
 
-function [x] = nonlinear_steepest_descent(F, x0_vals, N, TOL)
+function [x, g] = nonlinear_steepest_descent(F, x0_vals, N, TOL)
 
     xvals = x0_vals;
     x = transpose(xvals);

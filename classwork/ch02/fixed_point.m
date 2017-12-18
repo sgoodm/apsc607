@@ -1,5 +1,5 @@
 
-function fixed_point(g)
+function fixed_point(g, tol, nmax, p0)
 
     format long
 
@@ -7,10 +7,7 @@ function fixed_point(g)
         'Value is NaN'
         'Value is complex'
         'Reached max iteration'
-    };
-    
-    % -------------------------------------------
-    % fixed point       
+    };      
 
     tol = 0.000000001;
     nmax = 30;
