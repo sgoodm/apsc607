@@ -27,4 +27,4 @@ end
 plot(steps, S)
 hold 
 fplot(f, [min(steps), max(steps)])
-legend("y=S(x)", "y=f(x)", "Location", "Best")
+legend("y=S(x)", "y=f(x)")
